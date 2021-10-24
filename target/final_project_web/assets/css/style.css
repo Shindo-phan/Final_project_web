@@ -7097,7 +7097,7 @@ Pages - My Account
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 40px;
+  left: 35px;
   right: 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -7112,7 +7112,7 @@ Pages - My Account
 }
 .slider-banner .single-banner .banner-content .category {
   display: block;
-  color: #fff;
+  color: #424242;
   font-size: 16px;
   font-weight: 400;
   margin: 0 0 3px;
