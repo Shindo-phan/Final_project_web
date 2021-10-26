@@ -6711,10 +6711,13 @@ Pages - My Account
   color: #414141;
   font-weight: 500;
   margin: 0 0 12px;
+
 }
 @media only screen and (max-width: 479px) {
   .single-col .single-banner .banner-content .category {
     margin: 0 0 5px;
+    
+
   }
 }
 .single-col .single-banner .banner-content .title {
@@ -6725,6 +6728,7 @@ Pages - My Account
   display: block;
   margin: 0 0 28px;
   line-height: 43px;
+  background-color: rgba(255, 255, 255, 0.7);
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .single-col .single-banner .banner-content .title {
@@ -6993,11 +6997,12 @@ Pages - My Account
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  color: #fff;
+  color: #424242;
   font-size: 16px;
   font-weight: 500;
   margin: 0 0 15px;
-  background-image: url(/assets/images/banner/sticker-bg.png);
+  /* background-image: url(/assets/images/banner/sticker-bg.png); */
+  background-image: url(../images/banner/sticker-bg.png);
   width: 80px;
   height: 32px;
   background-repeat: no-repeat;
@@ -7092,7 +7097,7 @@ Pages - My Account
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 40px;
+  left: 35px;
   right: 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -7107,7 +7112,7 @@ Pages - My Account
 }
 .slider-banner .single-banner .banner-content .category {
   display: block;
-  color: #fff;
+  color: #424242;
   font-size: 16px;
   font-weight: 400;
   margin: 0 0 3px;
