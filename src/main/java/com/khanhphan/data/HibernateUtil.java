@@ -9,6 +9,7 @@ import org.hibernate.cfg.Environment;
 import org.hibernate.service.ServiceRegistry;
 
 import com.khanhphan.model.Product;
+
 public class HibernateUtil {
     private static SessionFactory sessionFactory;
 
@@ -24,7 +25,7 @@ public class HibernateUtil {
                 settings.put(Environment.USER, "nszxuimkogxztn");
                 settings.put(Environment.PASS, "0ec13422de2e6034768faa91c36c810dbeaa36966c4173e38d96348f2e2cfdd9");
                 settings.put(Environment.DIALECT, "org.hibernate.dialect.PostgreSQLDialect");
-                settings.put(Environment.HBM2DDL_AUTO,"create");
+                settings.put(Environment.HBM2DDL_AUTO,"update");
 
                 settings.put(Environment.SHOW_SQL, "true");
 

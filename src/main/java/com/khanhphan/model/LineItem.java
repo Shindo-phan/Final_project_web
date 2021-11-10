@@ -3,6 +3,7 @@ package com.khanhphan.model;
 import java.io.Serializable;
 import java.text.NumberFormat;
 import java.util.Locale;
+
 public class LineItem implements Serializable {
     private Product product;
     private int quantity;
@@ -12,10 +13,10 @@ public class LineItem implements Serializable {
     public void setProduct(Product p) {
         this.product = p;
     }
-
     public Product getProduct() {
         return this.product;
     }
+
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }

@@ -1,10 +1,12 @@
 package com.khanhphan.data;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import java.util.List;
 import com.khanhphan.model.Product;
+
 public class ProductDAO {
 
     public Product getProduct(int id) {

@@ -47,11 +47,9 @@ public class Product {
         return this.id;
     }
 //product name
-
     public void setName(String product_name) {
         this.product_name = product_name;
     }
-
     public String getName() {
         return this.product_name;
     }
@@ -67,7 +65,7 @@ public class Product {
         this.image = image;
     }
     public String getImage() {
-        return image;
+        return this.image;
     }
 // product code
     public void setCode(String product_code) {

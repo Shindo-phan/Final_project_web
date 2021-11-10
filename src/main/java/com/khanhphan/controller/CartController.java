@@ -1,6 +1,7 @@
 package com.khanhphan.controller;
 
 import java.io.IOException;
+import java.io.Serial;
 import java.sql.SQLException;
 
 import javax.servlet.ServletContext;
@@ -18,7 +19,9 @@ import com.khanhphan.model.*;
  * Servlet implementation class CartController
  */
 @WebServlet("/CartController")
+
 public class CartController extends HttpServlet {
+    @Serial
     private static final long serialVersionUID = 1L;
     private ProductDAO productDao;
 
