@@ -1,3 +1,5 @@
+<%@page contentType="text/html" pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -45,7 +47,7 @@
                 <div class="row">
                     <div class="col-auto align-self-center">
                         <div class="header-logo">
-                            <a href="index.html"><img src="assets/images/logo/logo.png" alt="Site Logo" /></a>
+                            <a href="index.jsp"><img src="assets/images/logo/logo.png" alt="Site Logo" /></a>
                         </div>
                     </div>
                     <div class="col align-self-center d-none d-lg-block">
@@ -53,23 +55,23 @@
                             <ul>
                                 <li class="dropdown"><a href="#">Home</a>
                                 </li>
-                                <li><a href="about.html">About</a></li>
-                                <li class="dropdown position-static"><a href="about.html">Pages <i
+                                <li><a href="about.jsp">About</a></li>
+                                <li class="dropdown position-static"><a href="about.jsp">Pages <i
                                             class="fa fa-angle-down"></i></a>
                                     <ul class="mega-menu d-block">
                                         <li class="d-flex">
                                             <ul class="d-block">
                                                 <li class="title"><a href="#">Inner Pages</a></li>
-                                                <li><a href="404.html">404 Page</a></li>
+                                                <li><a href="404.jsp">404 Page</a></li>
                                                 <li><a href="privacy-policy.html">Privacy Policy</a></li>
                                                 <li><a href="faq.html">Faq Page</a></li>
                                                 <li><a href="coming-soon.html">Coming Soon Page</a></li>
                                             </ul>
                                             <ul class="d-block">
                                                 <li class="title"><a href="#">Other Shop Pages</a></li>
-                                                <li><a href="cart.html">Cart Page</a></li>
-                                                <li><a href="checkout.html">Checkout Page</a></li>
-                                                <li><a href="compare.html">Compare Page</a></li>
+                                                <li><a href="cart.jsp">Cart Page</a></li>
+                                                <li><a href="checkout.jsp">Checkout Page</a></li>
+                                                <li><a href="compare.jsp">Compare Page</a></li>
                                                 <li><a href="wishlist.html">Wishlist Page</a></li>
                                                 <li><a href="shop-left-sidebar.html">Shop-left-sidebar Page</a></li>
 
@@ -144,7 +146,7 @@
                                         class="pe-7s-users"></i></button>
                                 <ul class="dropdown-menu dropdown-menu-right">
                                     <li><a class="dropdown-item" href="my-account.html">My account</a></li>
-                                    <li><a class="dropdown-item" href="checkout.html">Checkout</a></li>
+                                    <li><a class="dropdown-item" href="checkout.jsp">Checkout</a></li>
                                     <li><a class="dropdown-item" href="login.html">Sign in</a></li>
                                 </ul>
                             </div>
@@ -229,39 +231,23 @@
             
             <div class="body customScroll">
                 <ul class="minicart-product-list">
-                    <li>
-                        <a href="single-product.html" class="image"><img src="assets/images/product-image/1.jpg"
-                                alt="Cart product Image"></a>
-                        <div class="content">
-                            <a href="single-product.html" class="title">FC BAYERN 21/22 WIESN JERSEY</a>
-                            <span class="quantity-price">1 x <span class="amount">$95</span></span>
-                            <a href="#" class="remove">×</a>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="single-product.html" class="image"><img src="assets/images/product-image/2.jpg"
-                                alt="Cart product Image"></a>
-                        <div class="content">
-                            <a href="single-product.html" class="title">ADIDAS SPRT LOGO SHORTS</a>
-                            <span class="quantity-price">1 x <span class="amount">$75</span></span>
-                            <a href="#" class="remove">×</a>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="single-product.html" class="image"><img src="assets/images/product-image/3.jpg"
-                                alt="Cart product Image"></a>
-                        <div class="content">
-                            <a href="single-product.html" class="title">TIRO TRACK PANTS</a>
-                            <span class="quantity-price">1 x <span class="amount">$105</span></span>
-                            <a href="#" class="remove">×</a>
-                        </div>
-                    </li>
+                    <c:forEach var="item" items="${cart.items}">
+                        <li>
+                            <a href="single-product.html" class="image"><img src="<c:url value='${item.product.image}'/>"
+                                                                             alt="Cart product Image"></a>
+                            <div class="content">
+                                <a href="single-product.html" class="title"><c:out value="${item.product.name}"/></a>
+                                <span class="quantity-price">${item.quantity} x <span class="amount">${item.product.salePriceCurrencyFormat}</span></span>
+
+                            </div>
+                        </li>
+                    </c:forEach>
                 </ul>
             </div>
             <div class="foot">
                 <div class="buttons mt-30px">
-                    <a href="cart.html" class="btn btn-dark btn-hover-primary mb-30px">view cart</a>
-                    <a href="checkout.html" class="btn btn-outline-dark current-btn">checkout</a>
+                    <a href="cart.jsp" class="btn btn-dark btn-hover-primary mb-30px">view cart</a>
+                    <a href="checkout.jsp" class="btn btn-outline-dark current-btn">checkout</a>
                 </div>
             </div>
         </div>
@@ -279,14 +265,14 @@
                     <li><a href="#"><span class="menu-text">Home</span></a>
                         
                     </li>
-                    <li><a href="about.html">About</a></li>
+                    <li><a href="about.jsp">About</a></li>
                     <li>
                         <a href="#"><span class="menu-text">Pages</span></a>
                         <ul class="sub-menu">
                             <li>
                                 <a href="#"><span class="menu-text">Inner Pages</span></a>
                                 <ul class="sub-menu">
-                                    <li><a href="404.html">404 Page</a></li>
+                                    <li><a href="404.jsp">404 Page</a></li>
                                     <li><a href="privacy-policy.html">Privacy Policy</a></li>
                                     <li><a href="faq.html">Faq Page</a></li>
                                     <li><a href="coming-soon.html">Coming Soon Page</a></li>
@@ -295,9 +281,9 @@
                             <li>
                                 <a href="#"><span class="menu-text"> Other Shop Pages</span></a>
                                 <ul class="sub-menu">
-                                    <li><a href="cart.html">Cart Page</a></li>
-                                    <li><a href="checkout.html">Checkout Page</a></li>
-                                    <li><a href="compare.html">Compare Page</a></li>
+                                    <li><a href="cart.jsp">Cart Page</a></li>
+                                    <li><a href="checkout.jsp">Checkout Page</a></li>
+                                    <li><a href="compare.jsp">Compare Page</a></li>
                                     <li><a href="wishlist.html">Wishlist Page</a></li>
                                     <li><a href="shop-left-sidebar.html">Shop-left-sidebar</a></li>
 
@@ -396,7 +382,7 @@
                     <h2 class="breadcrumb-title">About Us</h2>
                     <!-- breadcrumb-list start -->
                     <ul class="breadcrumb-list">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="index.jsp">Home</a></li>
                         <li class="breadcrumb-item active">About Us</li>
                     </ul>
                     <!-- breadcrumb-list end -->
@@ -719,7 +705,7 @@
                                 <div class="footer-links">
                                     <div class="footer-row">
                                         <ul class="align-items-center">
-                                            <li class="li"><a class="single-link" href="about.html">About us</a></li>
+                                            <li class="li"><a class="single-link" href="about.jsp">About us</a></li>
                                             <li class="li"><a class="single-link" href="#">Delivery information</a></li>
                                             <li class="li"><a class="single-link" href="privacy-policy.html">Privacy
                                                     Policy</a></li>
@@ -742,7 +728,7 @@
                                         <ul class="align-items-center">
                                             <li class="li"><a class="single-link" href="my-account.html"> My account</a>
                                             </li>
-                                            <li class="li"><a class="single-link" href="cart.html">My orders</a></li>
+                                            <li class="li"><a class="single-link" href="cart.jsp">My orders</a></li>
                                             <li class="li"><a class="single-link" href="#">Returns</a></li>
                                             <li class="li"><a class="single-link"
                                                     href="shop-left-sidebar.html">Shipping</a></li>
@@ -762,7 +748,7 @@
                                 <div class="footer-links">
                                     <div class="footer-row">
                                         <ul class="align-items-center">
-                                            <li class="li"><a class="single-link" href="index.html">Affiliate</a></li>
+                                            <li class="li"><a class="single-link" href="index.jsp">Affiliate</a></li>
                                             <li class="li"><a class="single-link"
                                                     href="shop-left-sidebar.html">Bestsellers</a></li>
                                             <li class="li"><a class="single-link" href="#">Discount</a></li>

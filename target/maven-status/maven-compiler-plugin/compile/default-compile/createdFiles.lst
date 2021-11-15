@@ -1,6 +1,7 @@
 com\khanhphan\controller\CartController.class
 com\khanhphan\data\ProductDAO.class
 com\khanhphan\model\Product.class
+com\khanhphan\controller\CompareController.class
 com\khanhphan\data\HibernateUtil.class
 com\khanhphan\model\LineItem.class
 com\khanhphan\model\Cart.class

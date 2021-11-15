@@ -1,6 +1,5 @@
-(function ($) {
+(async function ($) {
     "use strict";
-
 
 
     /*---------------------------
@@ -30,7 +29,7 @@
             $(".sticky-nav").removeClass("menu_fixed animated fadeInDown");
         }
     });
-    
+
     /*----------------------------------------
                 Bootstrap dropdown               
         -------------------------------------------*/
@@ -74,9 +73,6 @@
         $('.pro-details-size a').removeClass('active-size');
         $(this).addClass('active-size');
     });
-
-
-
 
 
     /*---------------------------------
@@ -136,6 +132,7 @@
             }
         });
     }
+
     mobileOffCanvasMenu();
 
 
@@ -168,6 +165,7 @@
             }
         });
     }
+
     mobileOffCanvasUserPanel();
 
     /*---------------------
@@ -189,7 +187,6 @@
         }
     });
 
-    
 
     /*---------------------
         Category Slider
@@ -360,7 +357,6 @@
     });
 
 
-
     /*----------------------------
         Cart Plus Minus Button
     ------------------------------ */
@@ -519,5 +515,10 @@
     --------------------- */
     $('.venobox').venobox();
 
+    // var ship = await document.querySelector('input[name="shipFee"]:checked').value;
+    //
+    // console.log(ship);
 
 })(jQuery);
+
+

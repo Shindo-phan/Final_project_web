@@ -371,7 +371,19 @@ input {
   -webkit-animation-delay: 3s;
           animation-delay: 3s;
 }
+input.box-hover{
+  background-color: #EAAA85FF;
+  text-align: center;
+  border: none;
+  color: #fff;
+  text-transform: uppercase;
+  padding:0 20px;
+  transition: all 0.3s ease 0s;
+}
+input.box-hover:hover{
+  background-color: #000;
 
+}
 .section-title {
   line-height: 1;
   padding: 0 300px;

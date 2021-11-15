@@ -3,10 +3,10 @@ package com.khanhphan.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Cart implements Serializable {
-    private ArrayList<LineItem> items;
+public class Cart implements Serializable{
+	private ArrayList<LineItem> items;
 
-    public Cart() {
+	public Cart() {
         items = new ArrayList<LineItem>();
     }
 
@@ -17,7 +17,7 @@ public class Cart implements Serializable {
     public int getCount() {
         return items.size();
     }
-
+    
     public void addItem(LineItem item) {
         String code = item.getProduct().getCode();
         int quantity = item.getQuantity();
@@ -41,4 +41,14 @@ public class Cart implements Serializable {
             }
         }
     }
+
+    public double invoice(LineItem item){
+        double grandTotal = item.getTotal();
+        for (int i=0;i<items.size();i++){
+            LineItem lineItem = items.get(i);
+            grandTotal += grandTotal;
+        }
+        return grandTotal;
+    }
+
 }

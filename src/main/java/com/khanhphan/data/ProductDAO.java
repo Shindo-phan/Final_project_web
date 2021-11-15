@@ -9,6 +9,11 @@ import com.khanhphan.model.Product;
 
 public class ProductDAO {
 
+    /**
+     * Get Product By Id
+     * @param id
+     * @return
+     */
     public Product getProduct(int id) {
 
         Transaction transaction = null;
@@ -36,11 +41,10 @@ public class ProductDAO {
     @SuppressWarnings("unchecked")
     public List<Product> listAllProduct() {
         try {
-            return HibernateUtil.getSessionFactory().openSession().createQuery("From Product").getResultList();
+        	return HibernateUtil.getSessionFactory().openSession().createQuery("From Product").getResultList();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return null;
+		return null;
     }
 }
-

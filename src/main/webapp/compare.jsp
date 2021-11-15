@@ -1,3 +1,5 @@
+<%@page contentType="text/html" pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -5,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="robots" content="index, follow" />
-    <title>Xbotlive- Your games your life</title>
+    <title>Xbotlive - Your games your life</title>
     <meta name="description" content="Mioca - Handmade Goods eCommerce HTML Template" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
@@ -45,7 +47,7 @@
                 <div class="row">
                     <div class="col-auto align-self-center">
                         <div class="header-logo">
-                            <a href="index.html"><img src="assets/images/logo/logo.png" alt="Site Logo" /></a>
+                            <a href="index.jsp"><img src="assets/images/logo/logo.png" alt="Site Logo" /></a>
                         </div>
                     </div>
                     <div class="col align-self-center d-none d-lg-block">
@@ -53,23 +55,23 @@
                             <ul>
                                 <li class="dropdown"><a href="#">Home</a>
                                 </li>
-                                <li><a href="about.html">About</a></li>
-                                <li class="dropdown position-static"><a href="about.html">Pages <i
+                                <li><a href="about.jsp">About</a></li>
+                                <li class="dropdown position-static"><a href="about.jsp">Pages <i
                                             class="fa fa-angle-down"></i></a>
                                     <ul class="mega-menu d-block">
                                         <li class="d-flex">
                                             <ul class="d-block">
                                                 <li class="title"><a href="#">Inner Pages</a></li>
-                                                <li><a href="404.html">404 Page</a></li>
+                                                <li><a href="404.jsp">404 Page</a></li>
                                                 <li><a href="privacy-policy.html">Privacy Policy</a></li>
                                                 <li><a href="faq.html">Faq Page</a></li>
                                                 <li><a href="coming-soon.html">Coming Soon Page</a></li>
                                             </ul>
                                             <ul class="d-block">
                                                 <li class="title"><a href="#">Other Shop Pages</a></li>
-                                                <li><a href="cart.html">Cart Page</a></li>
-                                                <li><a href="checkout.html">Checkout Page</a></li>
-                                                <li><a href="compare.html">Compare Page</a></li>
+                                                <li><a href="cart.jsp">Cart Page</a></li>
+                                                <li><a href="checkout.jsp">Checkout Page</a></li>
+                                                <li><a href="compare.jsp">Compare Page</a></li>
                                                 <li><a href="wishlist.html">Wishlist Page</a></li>
                                                 <li><a href="shop-left-sidebar.html">Shop-left-sidebar Page</a></li>
 
@@ -129,9 +131,6 @@
                                 </li>
                                 <li><a href="contact.html">Contact</a></li>
                             </ul>
-                        </li>
-                                <li><a href="contact.html">Contact</a></li>
-                            </ul>
                         </div>
                     </div>
                     <!-- Header Action Start -->
@@ -147,7 +146,7 @@
                                         class="pe-7s-users"></i></button>
                                 <ul class="dropdown-menu dropdown-menu-right">
                                     <li><a class="dropdown-item" href="my-account.html">My account</a></li>
-                                    <li><a class="dropdown-item" href="checkout.html">Checkout</a></li>
+                                    <li><a class="dropdown-item" href="checkout.jsp">Checkout</a></li>
                                     <li><a class="dropdown-item" href="login.html">Sign in</a></li>
                                 </ul>
                             </div>
@@ -232,39 +231,23 @@
             
             <div class="body customScroll">
                 <ul class="minicart-product-list">
-                    <li>
-                        <a href="single-product.html" class="image"><img src="assets/images/product-image/1.jpg"
-                                alt="Cart product Image"></a>
-                        <div class="content">
-                            <a href="single-product.html" class="title">FC BAYERN 21/22 WIESN JERSEY</a>
-                            <span class="quantity-price">1 x <span class="amount">$95</span></span>
-                            <a href="#" class="remove">×</a>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="single-product.html" class="image"><img src="assets/images/product-image/2.jpg"
-                                alt="Cart product Image"></a>
-                        <div class="content">
-                            <a href="single-product.html" class="title">ADIDAS SPRT LOGO SHORTS</a>
-                            <span class="quantity-price">1 x <span class="amount">$75</span></span>
-                            <a href="#" class="remove">×</a>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="single-product.html" class="image"><img src="assets/images/product-image/3.jpg"
-                                alt="Cart product Image"></a>
-                        <div class="content">
-                            <a href="single-product.html" class="title">TIRO TRACK PANTS</a>
-                            <span class="quantity-price">1 x <span class="amount">$105</span></span>
-                            <a href="#" class="remove">×</a>
-                        </div>
-                    </li>
+                    <c:forEach var="item" items="${cart.items}">
+                        <li>
+                            <a href="single-product.html" class="image"><img src="<c:url value='${item.product.image}'/>"
+                                                                             alt="Cart product Image"></a>
+                            <div class="content">
+                                <a href="single-product.html" class="title"><c:out value="${item.product.name}"/></a>
+                                <span class="quantity-price">${item.quantity} x <span class="amount">${item.product.salePriceCurrencyFormat}</span></span>
+
+                            </div>
+                        </li>
+                    </c:forEach>
                 </ul>
             </div>
             <div class="foot">
                 <div class="buttons mt-30px">
-                    <a href="cart.html" class="btn btn-dark btn-hover-primary mb-30px">view cart</a>
-                    <a href="checkout.html" class="btn btn-outline-dark current-btn">checkout</a>
+                    <a href="cart.jsp" class="btn btn-dark btn-hover-primary mb-30px">view cart</a>
+                    <a href="checkout.jsp" class="btn btn-outline-dark current-btn">checkout</a>
                 </div>
             </div>
         </div>
@@ -282,14 +265,14 @@
                     <li><a href="#"><span class="menu-text">Home</span></a>
                         
                     </li>
-                    <li><a href="about.html">About</a></li>
+                    <li><a href="about.jsp">About</a></li>
                     <li>
                         <a href="#"><span class="menu-text">Pages</span></a>
                         <ul class="sub-menu">
                             <li>
                                 <a href="#"><span class="menu-text">Inner Pages</span></a>
                                 <ul class="sub-menu">
-                                    <li><a href="404.html">404 Page</a></li>
+                                    <li><a href="404.jsp">404 Page</a></li>
                                     <li><a href="privacy-policy.html">Privacy Policy</a></li>
                                     <li><a href="faq.html">Faq Page</a></li>
                                     <li><a href="coming-soon.html">Coming Soon Page</a></li>
@@ -298,9 +281,9 @@
                             <li>
                                 <a href="#"><span class="menu-text"> Other Shop Pages</span></a>
                                 <ul class="sub-menu">
-                                    <li><a href="cart.html">Cart Page</a></li>
-                                    <li><a href="checkout.html">Checkout Page</a></li>
-                                    <li><a href="compare.html">Compare Page</a></li>
+                                    <li><a href="cart.jsp">Cart Page</a></li>
+                                    <li><a href="checkout.jsp">Checkout Page</a></li>
+                                    <li><a href="compare.jsp">Compare Page</a></li>
                                     <li><a href="wishlist.html">Wishlist Page</a></li>
                                     <li><a href="shop-left-sidebar.html">Shop-left-sidebar</a></li>
 
@@ -392,11 +375,11 @@
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-12 text-center">
-                    <h2 class="breadcrumb-title">Checkout</h2>
+                    <h2 class="breadcrumb-title">Single Product</h2>
                     <!-- breadcrumb-list start -->
                     <ul class="breadcrumb-list">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                        <li class="breadcrumb-item active">Checkout</li>
+                        <li class="breadcrumb-item"><a href="index.jsp">Home</a></li>
+                        <li class="breadcrumb-item active">Product</li>
                     </ul>
                     <!-- breadcrumb-list end -->
                 </div>
@@ -407,273 +390,76 @@
 
 
 
-    <!-- checkout area start -->
-    <div class="checkout-area pt-100px pb-100px">
+
+    <!-- Compare Area Start -->
+    <div class="compare-area pt-100px pb-100px">
         <div class="container">
             <div class="row">
-                <div class="col-lg-7">
-                    <div class="billing-info-wrap">
-                        <h3>Billing Details</h3>
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6">
-                                <div class="billing-info mb-4">
-                                    <label>First Name</label>
-                                    <input type="text" />
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6">
-                                <div class="billing-info mb-4">
-                                    <label>Last Name</label>
-                                    <input type="text" />
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="billing-info mb-4">
-                                    <label>Company Name</label>
-                                    <input type="text" />
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="billing-select mb-4">
-                                    <label>Country</label>
-                                    <select>
-                                        <option>Select a country</option>
-                                        <option>Azerbaijan</option>
-                                        <option>Bahamas</option>
-                                        <option>Bahrain</option>
-                                        <option>Bangladesh</option>
-                                        <option>Barbados</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="billing-info mb-4">
-                                    <label>Street Address</label>
-                                    <input class="billing-address" placeholder="House number and street name"
-                                        type="text" />
-                                    <input placeholder="Apartment, suite, unit etc." type="text" />
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="billing-info mb-4">
-                                    <label>Town / City</label>
-                                    <input type="text" />
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6">
-                                <div class="billing-info mb-4">
-                                    <label>State / County</label>
-                                    <input type="text" />
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6">
-                                <div class="billing-info mb-4">
-                                    <label>Postcode / ZIP</label>
-                                    <input type="text" />
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6">
-                                <div class="billing-info mb-4">
-                                    <label>Phone</label>
-                                    <input type="text" />
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6">
-                                <div class="billing-info mb-4">
-                                    <label>Email Address</label>
-                                    <input type="text" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="checkout-account mb-30px">
-                            <input class="checkout-toggle2 w-auto h-auto" type="checkbox" />
-                            <label>Create an account?</label>
-                        </div>
-                        <div class="checkout-account-toggle open-toggle2 mb-30">
-                            <input placeholder="Email address" type="email" />
-                            <input placeholder="Password" type="password" />
-                            <button class="btn-hover checkout-btn" type="submit">register</button>
-                        </div>
-                        <div class="additional-info-wrap">
-                            <h4>Additional information</h4>
-                            <div class="additional-info">
-                                <label>Order notes</label>
-                                <textarea placeholder="Notes about your order, e.g. special notes for delivery. "
-                                    name="message"></textarea>
-                            </div>
-                        </div>
-                        <div class="checkout-account mt-25">
-                            <input class="checkout-toggle w-auto h-auto" type="checkbox" />
-                            <label>Ship to a different address?</label>
-                        </div>
-                        <div class="different-address open-toggle mt-30px">
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="billing-info mb-4">
-                                        <label>First Name</label>
-                                        <input type="text" />
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="billing-info mb-4">
-                                        <label>Last Name</label>
-                                        <input type="text" />
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="billing-info mb-4">
-                                        <label>Company Name</label>
-                                        <input type="text" />
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="billing-select mb-4">
-                                        <label>Country</label>
-                                        <select>
-                                            <option>Select a country</option>
-                                            <option>Azerbaijan</option>
-                                            <option>Bahamas</option>
-                                            <option>Bahrain</option>
-                                            <option>Bangladesh</option>
-                                            <option>Barbados</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="billing-info mb-4">
-                                        <label>Street Address</label>
-                                        <input class="billing-address" placeholder="House number and street name"
-                                            type="text" />
-                                        <input placeholder="Apartment, suite, unit etc." type="text" />
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="billing-info mb-4">
-                                        <label>Town / City</label>
-                                        <input type="text" />
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="billing-info mb-4">
-                                        <label>State / County</label>
-                                        <input type="text" />
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="billing-info mb-4">
-                                        <label>Postcode / ZIP</label>
-                                        <input type="text" />
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="billing-info mb-4">
-                                        <label>Phone</label>
-                                        <input type="text" />
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="billing-info mb-4">
-                                        <label>Email Address</label>
-                                        <input type="text" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-5 mt-md-30px mt-lm-30px ">
-                    <div class="your-order-area">
-                        <h3>Your order</h3>
-                        <div class="your-order-wrap gray-bg-4">
-                            <div class="your-order-product-info">
-                                <div class="your-order-top">
-                                    <ul>
-                                        <li>Product</li>
-                                        <li>Total</li>
-                                    </ul>
-                                </div>
-                                <div class="your-order-middle">
-                                    <ul>
-                                        <li><span class="order-middle-left">Product Name X 1</span> <span
-                                                class="order-price">$100 </span></li>
-                                        <li><span class="order-middle-left">Product Name X 1</span> <span
-                                                class="order-price">$100 </span></li>
-                                    </ul>
-                                </div>
-                                <div class="your-order-bottom">
-                                    <ul>
-                                        <li class="your-order-shipping">Shipping</li>
-                                        <li>Free shipping</li>
-                                    </ul>
-                                </div>
-                                <div class="your-order-total">
-                                    <ul>
-                                        <li class="order-total">Total</li>
-                                        <li>$100</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="payment-method">
-                                <div class="payment-accordion element-mrg">
-                                    <div id="faq" class="panel-group">
-                                        <div class="panel panel-default single-my-account m-0">
-                                            <div class="panel-heading my-account-title">
-                                                <h4 class="panel-title"><a data-bs-toggle="collapse"
-                                                        href="#my-account-1" class="collapsed"
-                                                        aria-expanded="true">Direct bank transfer</a>
-                                                </h4>
-                                            </div>
-                                            <div id="my-account-1" class="panel-collapse collapse show"
-                                                data-bs-parent="#faq">
+                <div class="col-12">
+                    <form action="#">
+                        <!-- Compare Table -->
+                        <div class="compare-table table-responsive">
+                            <table class="table mb-0">
+                                <tbody>
+                                    <tr>
+                                        <td class="first-column">Product</td>
+                                        <c:forEach var="item" items="${cart.items}">
+                                        <td class="product-image-title">
+                                            <a href="#" class="image"><img class="img-responsive"
+                                            src="<c:url value='${item.product.image}'/>" alt="Compare Product" /></a>
+                                            <a href="#" class="title"><c:out value='${item.product.name}'/></a>
+                                        </td>
+                                        </c:forEach>
 
-                                                <div class="panel-body">
-                                                    <p>Please send a check to Store Name, Store Street, Store Town,
-                                                        Store State / County, Store Postcode.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="panel panel-default single-my-account m-0">
-                                            <div class="panel-heading my-account-title">
-                                                <h4 class="panel-title"><a data-bs-toggle="collapse"
-                                                        href="#my-account-2" aria-expanded="false"
-                                                        class="collapsed">Check payments</a></h4>
-                                            </div>
-                                            <div id="my-account-2" class="panel-collapse collapse"
-                                                data-bs-parent="#faq">
+                                    </tr>
 
-                                                <div class="panel-body">
-                                                    <p>Please send a check to Store Name, Store Street, Store Town,
-                                                        Store State / County, Store Postcode.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="panel panel-default single-my-account m-0">
-                                            <div class="panel-heading my-account-title">
-                                                <h4 class="panel-title"><a data-bs-toggle="collapse"
-                                                        href="#my-account-3">Cash on delivery</a></h4>
-                                            </div>
-                                            <div id="my-account-3" class="panel-collapse collapse"
-                                                data-bs-parent="#faq">
+                                    <tr>
+                                        <td class="first-column">Price</td>
+                                        <c:forEach var="item" items="${cart.items}">
+                                        <td class="pro-price">${item.product.salePriceCurrencyFormat}</td>
+                                        </c:forEach>
 
-                                                <div class="panel-body">
-                                                    <p>Please send a check to Store Name, Store Street, Store Town,
-                                                        Store State / County, Store Postcode.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                    </tr>
+                                    <tr>
+                                        <td class="first-column">Stock</td>
+                                        <c:forEach var="item" items="${cart.items}">
+                                        <td class="pro-stock">In Stock</td>
+                                        </c:forEach>
+                                    </tr>
+                                    <tr>
+                                        <td class="first-column">Add to cart</td>
+                                        <c:forEach var="item" items="${cart.items}">
+                                        <td class="pro-addtocart">
+                                            <form action="${pageContext.request.contextPath}/CartController" method="post">
+                                                <input type="hidden" name="productId" value="${item.product.id}">
+                                                <input class="box-hover" type="submit" value="Add To Cart">
+                                            </form>
+                                        </td>
+                                        </c:forEach>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="first-column">Rating</td>
+                                        <c:forEach var="item" items="${cart.items}">
+                                        <td class="pro-ratting">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </td>
+                                        </c:forEach>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
-                        <div class="Place-order mt-25">
-                            <a class="btn-hover" href="#">Place Order</a>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-    <!-- checkout area end -->
+
+    <!-- Compare Area End -->
 
     <div class="newsletter-area ">
         <div class="container line-shape-bottom">
@@ -727,7 +513,7 @@
                                 <div class="footer-links">
                                     <div class="footer-row">
                                         <ul class="align-items-center">
-                                            <li class="li"><a class="single-link" href="about.html">About us</a></li>
+                                            <li class="li"><a class="single-link" href="about.jsp">About us</a></li>
                                             <li class="li"><a class="single-link" href="#">Delivery information</a></li>
                                             <li class="li"><a class="single-link" href="privacy-policy.html">Privacy
                                                     Policy</a></li>
@@ -750,7 +536,7 @@
                                         <ul class="align-items-center">
                                             <li class="li"><a class="single-link" href="my-account.html"> My account</a>
                                             </li>
-                                            <li class="li"><a class="single-link" href="cart.html">My orders</a></li>
+                                            <li class="li"><a class="single-link" href="cart.jsp">My orders</a></li>
                                             <li class="li"><a class="single-link" href="#">Returns</a></li>
                                             <li class="li"><a class="single-link"
                                                     href="shop-left-sidebar.html">Shipping</a></li>
@@ -770,7 +556,7 @@
                                 <div class="footer-links">
                                     <div class="footer-row">
                                         <ul class="align-items-center">
-                                            <li class="li"><a class="single-link" href="index.html">Affiliate</a></li>
+                                            <li class="li"><a class="single-link" href="index.jsp">Affiliate</a></li>
                                             <li class="li"><a class="single-link"
                                                     href="shop-left-sidebar.html">Bestsellers</a></li>
                                             <li class="li"><a class="single-link" href="#">Discount</a></li>
@@ -814,7 +600,6 @@
                                 <div class="payment-mth"><a href="#"><img class="img img-fluid"
                                             src="assets/images/icons/payment.png" alt="payment-image"></a></div>
                             </div>
-                            
                         </div>
                     </div>
                 </div>
