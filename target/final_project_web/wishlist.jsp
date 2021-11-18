@@ -389,6 +389,7 @@
                                         <th>Image</th>
                                         <th>Product Name</th>
                                         <th>Price</th>
+                                        <th>Compare</th>
                                         <th>Add To Cart</th>
                                     </tr>
                                 </thead>
@@ -397,14 +398,20 @@
                                     <tr>
                                         <td class="product-thumbnail">
                                             <a href="#"><img class="img-responsive ml-15px"
-                                                             src="<c:url value='${item.product.image}'/>" alt="<c:out value='${item.product.image}'/>"/></a>
+                                            src="<c:url value='${item.product.image}'/>" alt="<c:out value='${item.product.image}'/>"/></a>
                                         </td>
                                         <td class="product-name"><a href="#">${item.product.name}</a></td>
                                         <td class="product-price-cart"><span class="amount">${item.product.salePriceCurrencyFormat}</span></td>
-                                        <td class="product-wishlist-cart">
-                                            <form action="${pageContext.request.contextPath}/CartController" method="post">
+                                        <td class="product-wishlist-cart ">
+                                            <form action="${pageContext.request.contextPath}/CompareController" method="post">
                                                 <input type="hidden" name="productId" value="${item.product.id}">
-                                                <input class="box-hover" type="submit" value="Add To Cart">
+                                                <input class="box-hover" type="submit" value="Compare">
+                                            </form>
+                                        </td>
+                                        <td class="product-wishlist-cart">
+                                            <form class="mr-15px ml-15px" action="${pageContext.request.contextPath}/CartController" method="post">
+                                                <input type="hidden" name="productId" value="${item.product.id}">
+                                                <input class="box-hover " type="submit" value="Add To Cart">
                                             </form>
                                         </td>
                                     </tr>

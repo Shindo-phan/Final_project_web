@@ -505,9 +505,9 @@
                                                 <span class="new">New</span>
                                             </span>
                                             <div class="actions">
-                                                <form id="${item.id}" action="${pageContext.request.contextPath}/WishlistController" method="post" class="action">
+                                                <form id="${item.id}w" action="${pageContext.request.contextPath}/WishlistController" method="post" class="action">
                                                     <input type="hidden" name="productId" value="${item.id}">
-                                                    <a class="action compare" title="Wishlist" href="javascript:{}" onclick="document.getElementById('${item.id}').submit();">
+                                                    <a class="action compare" title="Wishlist" href="javascript:{}" onclick="document.getElementById('${item.id}w').submit();">
                                                         <i class="pe-7s-like"></i>
                                                     </a>
                                                 </form>
@@ -911,14 +911,12 @@
                                                     <span class="new">New</span>
                                                 </span>
                                                 <div class="actions">
-                                                    <form id="${item.id}" action="${pageContext.request.contextPath}/WishlistController" method="post" class="action">
+                                                    <form id="${item.id}w" action="${pageContext.request.contextPath}/WishlistController" method="post" class="action">
                                                         <input type="hidden" name="productId" value="${item.id}">
-                                                        <a class="action compare" title="Wishlist" href="javascript:{}" onclick="document.getElementById('${item.id}').submit();">
+                                                        <a class="action compare" title="Wishlist" href="javascript:{}" onclick="document.getElementById('${item.id}w').submit();">
                                                             <i class="pe-7s-like"></i>
                                                         </a>
                                                     </form>
-<%--                                                    <a href="wishlist.jsp" class="action wishlist" title="Wishlist"><i--%>
-<%--                                                            class="pe-7s-like"></i></a>--%>
                                                     <a href="#" class="action quickview" data-link-action="quickview"
                                                        title="Quick view" data-bs-toggle="modal"
                                                        data-bs-target="#exampleModal"><i class="pe-7s-look"></i></a>
