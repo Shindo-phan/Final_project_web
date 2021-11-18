@@ -72,7 +72,7 @@
                                                 <li><a href="cart.jsp">Cart Page</a></li>
                                                 <li><a href="checkout.jsp">Checkout Page</a></li>
                                                 <li><a href="compare.jsp">Compare Page</a></li>
-                                                <li><a href="wishlist.html">Wishlist Page</a></li>
+                                                <li><a href="wishlist.jsp">Wishlist Page</a></li>
                                                 <li><a href="shop-left-sidebar.html">Shop-left-sidebar Page</a></li>
                                             </ul>
                                             <ul class="d-block">
@@ -157,7 +157,9 @@
                             <a href="#offcanvas-cart"
                                 class="header-action-btn header-action-btn-cart offcanvas-toggle pr-0">
                                 <i class="pe-7s-shopbag"></i>
-                                <span class="header-action-num">01</span>
+                                <c:forEach var="item" items="${cart.items}" varStatus="loop">
+                                    <span class="header-action-num"><c:out value="${loop.count}"/></span>
+                                </c:forEach>
                                 <!-- <span class="cart-amount">€30.00</span> -->
                             </a>
                             <a href="#offcanvas-mobile-menu"
@@ -183,38 +185,22 @@
             </div>
             <div class="body customScroll">
                 <ul class="minicart-product-list">
-                    <li>
-                        <a href="single-product.html" class="image"><img src="assets/images/product-image/1.jpg"
-                                alt="Cart product Image"></a>
-                        <div class="content">
-                            <a href="single-product.html" class="title">FC BAYERN 21/22 WIESN JERSEY</a>
-                            <span class="quantity-price">1 x <span class="amount">$95</span></span>
-                            <a href="#" class="remove">×</a>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="single-product.html" class="image"><img src="assets/images/product-image/2.jpg"
-                                alt="Cart product Image"></a>
-                        <div class="content">
-                            <a href="single-product.html" class="title">ADIDAS SPRT LOGO SHORTS</a>
-                            <span class="quantity-price">1 x <span class="amount">$75</span></span>
-                            <a href="#" class="remove">×</a>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="single-product.html" class="image"><img src="assets/images/product-image/3.jpg"
-                                alt="Cart product Image"></a>
-                        <div class="content">
-                            <a href="single-product.html" class="title">TIRO TRACK PANTS</a>
-                            <span class="quantity-price">1 x <span class="amount">$105</span></span>
-                            <a href="#" class="remove">×</a>
-                        </div>
-                    </li>
+                    <c:forEach var="item" items="${wishlist.items}">
+                        <li>
+                            <a href="single-product.html" class="image"><img src="<c:url value='${item.product.image}'/>"
+                                                                             alt="Cart product Image"></a>
+                            <div class="content">
+                                <a href="single-product.html" class="title"><c:out value="${item.product.name}"/></a>
+                                <span class="quantity-price">${item.quantity} x <span class="amount">${item.product.salePriceCurrencyFormat}</span></span>
+
+                            </div>
+                        </li>
+                    </c:forEach>
                 </ul>
             </div>
             <div class="foot">
                 <div class="buttons">
-                    <a href="wishlist.html" class="btn btn-dark btn-hover-primary mt-30px">view wishlist</a>
+                    <a href="wishlist.jsp" class="btn btn-dark btn-hover-primary mt-30px">view wishlist</a>
                 </div>
             </div>
         </div>
@@ -283,7 +269,7 @@
                                     <li><a href="cart.jsp">Cart Page</a></li>
                                     <li><a href="checkout.jsp">Checkout Page</a></li>
                                     <li><a href="compare.jsp">Compare Page</a></li>
-                                    <li><a href="wishlist.html">Wishlist Page</a></li>
+                                    <li><a href="wishlist.jsp">Wishlist Page</a></li>
                                     <li><a href="shop-left-sidebar.html">Shop-left-sidebar</a></li>
 
                                 </ul>
@@ -482,7 +468,7 @@
                                             <li class="li"><a class="single-link" href="#">Returns</a></li>
                                             <li class="li"><a class="single-link"
                                                     href="shop-left-sidebar.html">Shipping</a></li>
-                                            <li class="li"><a class="single-link" href="wishlist.html">Wishlist</a></li>
+                                            <li class="li"><a class="single-link" href="wishlist.jsp">Wishlist</a></li>
                                             <li class="li"><a class="single-link" href="#">How Does It Work</a></li>
                                             <li class="li"><a class="single-link" href="#">Merchant Sign Up</a></li>
                                         </ul>
@@ -665,7 +651,7 @@
                                             Cart</button>
                                     </div>
                                     <div class="pro-details-compare-wishlist pro-details-wishlist ">
-                                        <a href="wishlist.html"><i class="pe-7s-like"></i></a>
+                                        <a href="wishlist.jsp"><i class="pe-7s-like"></i></a>
                                     </div>
                                 </div>
                                 <div class="pro-details-categories-info pro-details-same-style d-flex">

@@ -137,6 +137,7 @@ input {
   padding-left: 20px;
   padding-right: 10px;
   outline: 0;
+  border: none;
 }
 
 .img-responsive {
@@ -382,7 +383,22 @@ input.box-hover{
 }
 input.box-hover:hover{
   background-color: #000;
-
+}
+input.update-btn{
+  width:110px;
+}
+.compare-btn{
+  border: none;
+  font-weight:lighter;
+  text-align: center;
+  padding:1px 11px 2px 12px;
+  font-size:18px;
+}
+.compare-btn:hover{
+  color: #fff;
+}
+.fire-icon{
+  color:#ff9700;
 }
 .section-title {
   line-height: 1;

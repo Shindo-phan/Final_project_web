@@ -1,7 +1,10 @@
 D:\Download\_WEB\Final_project_web\src\main\java\com\khanhphan\data\ProductDAO.java
+D:\Download\_WEB\Final_project_web\src\main\java\com\khanhphan\model\Compare.java
 D:\Download\_WEB\Final_project_web\src\main\java\com\khanhphan\model\LineItem.java
 D:\Download\_WEB\Final_project_web\src\main\java\com\khanhphan\model\Product.java
+D:\Download\_WEB\Final_project_web\src\main\java\com\khanhphan\model\Wishlist.java
 D:\Download\_WEB\Final_project_web\src\main\java\com\khanhphan\controller\HomeController.java
+D:\Download\_WEB\Final_project_web\src\main\java\com\khanhphan\controller\WishlistController.java
 D:\Download\_WEB\Final_project_web\src\main\java\com\khanhphan\data\HibernateUtil.java
 D:\Download\_WEB\Final_project_web\src\main\java\com\khanhphan\controller\CartController.java
 D:\Download\_WEB\Final_project_web\src\main\java\com\khanhphan\controller\CompareController.java

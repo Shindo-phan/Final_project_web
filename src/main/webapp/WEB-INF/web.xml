@@ -12,6 +12,18 @@
         <description></description>
         <servlet-class>com.khanhphan.controller.CartController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CompareController</servlet-name>
+        <display-name>CompareController</display-name>
+        <description></description>
+        <servlet-class>com.khanhphan.controller.CompareController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>WishlistController</servlet-name>
+        <display-name>WishlistController</display-name>
+        <description></description>
+        <servlet-class>com.khanhphan.controller.WishlistController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern></url-pattern>
@@ -19,6 +31,14 @@
     <servlet-mapping>
         <servlet-name>CartController</servlet-name>
         <url-pattern>/CartController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CompareController</servlet-name>
+        <url-pattern>/CompareController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>WishlistController</servlet-name>
+        <url-pattern>/WishlistController</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>

@@ -88,9 +88,9 @@ public class CartController extends HttpServlet {
 	            } else if (quantity == 0) {
 	                cart.removeItem(lineItem);
 	            }
-				double grandTotal = cart.invoice(lineItem);
+
 	            session.setAttribute("cart", cart);
-	            session.setAttribute("name", "khoa");
+	            session.setAttribute("name", "khanh");
 
 		        sc.getRequestDispatcher("/cart.jsp")
 		                .forward(request, response);

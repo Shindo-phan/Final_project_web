@@ -42,13 +42,5 @@ public class Cart implements Serializable{
         }
     }
 
-    public double invoice(LineItem item){
-        double grandTotal = item.getTotal();
-        for (int i=0;i<items.size();i++){
-            LineItem lineItem = items.get(i);
-            grandTotal += grandTotal;
-        }
-        return grandTotal;
-    }
 
 }

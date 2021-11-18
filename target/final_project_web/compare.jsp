@@ -72,7 +72,7 @@
                                                 <li><a href="cart.jsp">Cart Page</a></li>
                                                 <li><a href="checkout.jsp">Checkout Page</a></li>
                                                 <li><a href="compare.jsp">Compare Page</a></li>
-                                                <li><a href="wishlist.html">Wishlist Page</a></li>
+                                                <li><a href="wishlist.jsp">Wishlist Page</a></li>
                                                 <li><a href="shop-left-sidebar.html">Shop-left-sidebar Page</a></li>
 
                                             </ul>
@@ -158,7 +158,9 @@
                             <a href="#offcanvas-cart"
                                 class="header-action-btn header-action-btn-cart offcanvas-toggle pr-0">
                                 <i class="pe-7s-shopbag"></i>
-                                <span class="header-action-num">01</span>
+                                <c:forEach var="item" items="${cart.items}" varStatus="loop">
+                                    <span class="header-action-num"><c:out value="${loop.count}"/></span>
+                                </c:forEach>
                                 <!-- <span class="cart-amount">€30.00</span> -->
                             </a>
                             <a href="#offcanvas-mobile-menu"
@@ -184,38 +186,22 @@
             </div>
             <div class="body customScroll">
                 <ul class="minicart-product-list">
-                    <li>
-                        <a href="single-product.html" class="image"><img src="assets/images/product-image/1.jpg"
-                                alt="Cart product Image"></a>
-                        <div class="content">
-                            <a href="single-product.html" class="title">FC BAYERN 21/22 WIESN JERSEY</a>
-                            <span class="quantity-price">1 x <span class="amount">$95</span></span>
-                            <a href="#" class="remove">×</a>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="single-product.html" class="image"><img src="assets/images/product-image/2.jpg"
-                                alt="Cart product Image"></a>
-                        <div class="content">
-                            <a href="single-product.html" class="title">ADIDAS SPRT LOGO SHORTS</a>
-                            <span class="quantity-price">1 x <span class="amount">$75</span></span>
-                            <a href="#" class="remove">×</a>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="single-product.html" class="image"><img src="assets/images/product-image/3.jpg"
-                                alt="Cart product Image"></a>
-                        <div class="content">
-                            <a href="single-product.html" class="title">TIRO TRACK PANTS</a>
-                            <span class="quantity-price">1 x <span class="amount">$105</span></span>
-                            <a href="#" class="remove">×</a>
-                        </div>
-                    </li>
+                    <c:forEach var="item" items="${wishlist.items}">
+                        <li>
+                            <a href="single-product.html" class="image"><img src="<c:url value='${item.product.image}'/>"
+                                                                             alt="Cart product Image"></a>
+                            <div class="content">
+                                <a href="single-product.html" class="title"><c:out value="${item.product.name}"/></a>
+                                <span class="quantity-price">${item.quantity} x <span class="amount">${item.product.salePriceCurrencyFormat}</span></span>
+
+                            </div>
+                        </li>
+                    </c:forEach>
                 </ul>
             </div>
             <div class="foot">
                 <div class="buttons">
-                    <a href="wishlist.html" class="btn btn-dark btn-hover-primary mt-30px">view wishlist</a>
+                    <a href="wishlist.jsp" class="btn btn-dark btn-hover-primary mt-30px">view wishlist</a>
                 </div>
             </div>
         </div>
@@ -284,7 +270,7 @@
                                     <li><a href="cart.jsp">Cart Page</a></li>
                                     <li><a href="checkout.jsp">Checkout Page</a></li>
                                     <li><a href="compare.jsp">Compare Page</a></li>
-                                    <li><a href="wishlist.html">Wishlist Page</a></li>
+                                    <li><a href="wishlist.jsp">Wishlist Page</a></li>
                                     <li><a href="shop-left-sidebar.html">Shop-left-sidebar</a></li>
 
                                 </ul>
@@ -396,14 +382,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <form action="#">
+
                         <!-- Compare Table -->
                         <div class="compare-table table-responsive">
                             <table class="table mb-0">
                                 <tbody>
                                     <tr>
                                         <td class="first-column">Product</td>
-                                        <c:forEach var="item" items="${cart.items}">
+                                        <c:forEach var="item" items="${compare.items}">
                                         <td class="product-image-title">
                                             <a href="#" class="image"><img class="img-responsive"
                                             src="<c:url value='${item.product.image}'/>" alt="Compare Product" /></a>
@@ -415,20 +401,20 @@
 
                                     <tr>
                                         <td class="first-column">Price</td>
-                                        <c:forEach var="item" items="${cart.items}">
+                                        <c:forEach var="item" items="${compare.items}">
                                         <td class="pro-price">${item.product.salePriceCurrencyFormat}</td>
                                         </c:forEach>
 
                                     </tr>
                                     <tr>
                                         <td class="first-column">Stock</td>
-                                        <c:forEach var="item" items="${cart.items}">
+                                        <c:forEach var="item" items="${compare.items}">
                                         <td class="pro-stock">In Stock</td>
                                         </c:forEach>
                                     </tr>
                                     <tr>
                                         <td class="first-column">Add to cart</td>
-                                        <c:forEach var="item" items="${cart.items}">
+                                        <c:forEach var="item" items="${compare.items}">
                                         <td class="pro-addtocart">
                                             <form action="${pageContext.request.contextPath}/CartController" method="post">
                                                 <input type="hidden" name="productId" value="${item.product.id}">
@@ -440,7 +426,7 @@
 
                                     <tr>
                                         <td class="first-column">Rating</td>
-                                        <c:forEach var="item" items="${cart.items}">
+                                        <c:forEach var="item" items="${compare.items}">
                                         <td class="pro-ratting">
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
@@ -450,10 +436,35 @@
                                         </td>
                                         </c:forEach>
                                     </tr>
+                                    <tr>
+                                        <td class="first-column">Remove</td>
+                                        <c:forEach var="item" items="${compare.items}">
+                                            <td>
+                                                <form action="" method="post">
+                                                    <input type="hidden" name="productId"
+                                                           value="<c:out value='${item.product.id}'/>">
+                                                    <input type="hidden" name="quantity2" value="0">
+                                                    <input type="submit" value="Remove Item" class="box-hover">
+                                                </form>
+                                            </td>
+                                        </c:forEach>
+                                    </tr>
                                 </tbody>
                             </table>
+
                         </div>
-                    </form>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="cart-shiping-update-wrapper">
+                                    <div class="cart-shiping-update">
+                                        <form action="." method="post">
+                                            <input type="hidden" name="action" value="shop">
+                                            <input type="submit" value="Continue Shopping" class="box-hover">
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                 </div>
             </div>
         </div>
@@ -540,7 +551,7 @@
                                             <li class="li"><a class="single-link" href="#">Returns</a></li>
                                             <li class="li"><a class="single-link"
                                                     href="shop-left-sidebar.html">Shipping</a></li>
-                                            <li class="li"><a class="single-link" href="wishlist.html">Wishlist</a></li>
+                                            <li class="li"><a class="single-link" href="wishlist.jsp">Wishlist</a></li>
                                             <li class="li"><a class="single-link" href="#">How Does It Work</a></li>
                                             <li class="li"><a class="single-link" href="#">Merchant Sign Up</a></li>
                                         </ul>

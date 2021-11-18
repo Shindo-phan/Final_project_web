@@ -520,5 +520,7 @@
     // console.log(ship);
 
 })(jQuery);
-
+function compareForm() {
+    document.getElementById("compareForm").submit();
+}
 

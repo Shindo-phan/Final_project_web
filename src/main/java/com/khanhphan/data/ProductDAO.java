@@ -9,11 +9,7 @@ import com.khanhphan.model.Product;
 
 public class ProductDAO {
 
-    /**
-     * Get Product By Id
-     * @param id
-     * @return
-     */
+
     public Product getProduct(int id) {
 
         Transaction transaction = null;
@@ -36,7 +32,7 @@ public class ProductDAO {
 
     /**
      * Get all products
-     * @return
+
      */
     @SuppressWarnings("unchecked")
     public List<Product> listAllProduct() {
