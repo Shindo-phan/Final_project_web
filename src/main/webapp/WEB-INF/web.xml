@@ -30,10 +30,10 @@
         <description></description>
         <servlet-class>com.khanhphan.controller.LoginController</servlet-class>
     </servlet>
-    <servlet-mapping>
+    <!--<servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern></url-pattern>
-    </servlet-mapping>
+    </servlet-mapping>-->
     <servlet-mapping>
         <servlet-name>CartController</servlet-name>
         <url-pattern>/CartController</url-pattern>
