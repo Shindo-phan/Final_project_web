@@ -30,10 +30,10 @@
         <description></description>
         <servlet-class>com.khanhphan.controller.LoginController</servlet-class>
     </servlet>
-    <!--<servlet-mapping>
+    <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern></url-pattern>
-    </servlet-mapping>-->
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CartController</servlet-name>
         <url-pattern>/CartController</url-pattern>
@@ -53,4 +53,10 @@
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
+
+    <servlet-mapping>
+
+        <http-method>POST</http-method>
+
+    </servlet-mapping>
 </web-app>
