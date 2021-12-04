@@ -1,10 +1,13 @@
 com\khanhphan\controller\CartController.class
 com\khanhphan\model\Compare.class
+com\khanhphan\controller\DemoController.class
 com\khanhphan\model\LineItem.class
+com\khanhphan\controller\CheckoutController.class
 com\khanhphan\controller\HomeController.class
 com\khanhphan\data\ProductDAO.class
 com\khanhphan\model\Product.class
 com\khanhphan\controller\CompareController.class
+com\khanhphan\controller\RegisterController.class
 com\khanhphan\data\HibernateUtil.class
 com\khanhphan\model\Wishlist.class
 com\khanhphan\controller\WishlistController.class

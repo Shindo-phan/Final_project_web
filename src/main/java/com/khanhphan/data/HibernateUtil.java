@@ -2,6 +2,7 @@ package com.khanhphan.data;
 
 import java.util.Properties;
 
+import com.khanhphan.model.User;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -35,6 +36,7 @@ public class HibernateUtil {
 
     configuration.setProperties(settings);
     configuration.addAnnotatedClass(Product.class);
+    configuration.addAnnotatedClass(User.class);
 
     ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
       .applySettings(configuration.getProperties()).build();

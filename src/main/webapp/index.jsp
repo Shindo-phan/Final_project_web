@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -146,9 +147,13 @@
                             <button class="dropdown-toggle header-action-btn" data-bs-toggle="dropdown"><i
                                     class="pe-7s-users"></i></button>
                             <ul class="dropdown-menu dropdown-menu-right">
-                                <li><a class="dropdown-item" href="my-account.html">My account</a></li>
-                                <li><a class="dropdown-item" href="checkout.jsp">Checkout</a></li>
-                                <li><a class="dropdown-item" href="login.html">Sign in</a></li>
+                                <c:if test="${empty sessionScope.Account}">
+                                    <li><a class="dropdown-item" href="LoginController">Sign in</a></li>
+                                    <li><a class="dropdown-item" href="RegisterController">Register</a></li>
+                                </c:if>
+                                <c:if test="${!empty sessionScope.Account}">
+                                    <li><a class="dropdown-item" href="SignOutController">Sign Out</a></li>
+                                </c:if>
                             </ul>
                         </div>
                         <!-- Single Wedge Start -->

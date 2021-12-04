@@ -528,7 +528,7 @@
                             $${grandTotal}0
 
 							</span></h4>
-							<a href="checkout.jsp">Proceed to Checkout</a>
+							<a href="CheckoutController">Proceed to Checkout</a>
 						</div>
 					</div>
 				</div>

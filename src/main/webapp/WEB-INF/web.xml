@@ -7,6 +7,18 @@
         <servlet-class>com.khanhphan.controller.HomeController</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>CheckoutController</servlet-name>
+        <display-name>CheckoutController</display-name>
+        <description></description>
+        <servlet-class>com.khanhphan.controller.CheckoutController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DemoController</servlet-name>
+        <display-name>DemoController</display-name>
+        <description></description>
+        <servlet-class>com.khanhphan.controller.DemoController</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>CartController</servlet-name>
         <display-name>CartController</display-name>
         <description></description>
@@ -30,6 +42,12 @@
         <description></description>
         <servlet-class>com.khanhphan.controller.LoginController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RegisterController</servlet-name>
+        <display-name>RegisterController</display-name>
+        <description></description>
+        <servlet-class>com.khanhphan.controller.RegisterController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern></url-pattern>
@@ -50,13 +68,25 @@
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/LoginController</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegisterController</servlet-name>
+        <url-pattern>/RegisterController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DemoController</servlet-name>
+        <url-pattern>/demo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CheckoutController</servlet-name>
+        <url-pattern>/CheckoutController</url-pattern>
+    </servlet-mapping>
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 
-    <servlet-mapping>
+   <!-- <servlet-mapping>
 
         <http-method>POST</http-method>
 
-    </servlet-mapping>
+    </servlet-mapping>-->
 </web-app>
