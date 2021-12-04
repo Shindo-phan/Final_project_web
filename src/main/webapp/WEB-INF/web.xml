@@ -50,13 +50,12 @@
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/LoginController</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <http-method>POST</http-method>
+    </servlet-mapping>
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 
-    <servlet-mapping>
 
-        <http-method>POST</http-method>
-
-    </servlet-mapping>
 </web-app>
