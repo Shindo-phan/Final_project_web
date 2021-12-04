@@ -48,7 +48,7 @@
 			<div class="row">
 				<div class="col-auto align-self-center">
 					<div class="header-logo">
-						<a href="index.jsp"><img src="assets/images/logo/logo.png" alt="Site Logo" /></a>
+						<a href="./"><img src="assets/images/logo/logo.png" alt="Site Logo" /></a>
 					</div>
 				</div>
 				<div class="col align-self-center d-none d-lg-block">
@@ -403,9 +403,8 @@
 							<c:forEach var="item" items="${cart.items}">
                                 <c:set var="total" value="${total+item.product.sale * item.quantity}"></c:set>
 								<tr>
-
 									<td class="product-thumbnail">
-										<a href="#"><img class="img-responsive ml-15px"
+										<a href="#"><img class="img-responsive ml-15px mr-15px"
 										src="<c:url value='${item.product.image}'/>" alt="<c:out value='${item.product.image}'/>"/></a>
 									</td>
 									<td class="product-name"><a href="#">${item.product.name}</a></td>
@@ -468,26 +467,10 @@
 								<div class="tax-select-wrapper">
 									<div class="tax-select">
 										<label>
-											* Country
+											* City
 										</label>
-										<select class="email s-email s-wid">
-											<option>Việt Nam</option>
-											<option>America</option>
-											<option>Japan</option>
-											<option>Italia</option>
-											<option>Belgium</option>
-										</select>
-									</div>
-									<div class="tax-select">
-										<label>
-											* Region / State
-										</label>
-										<select class="email s-email s-wid">
-											<option>Hồ Chí Minh</option>
-											<option>Khánh Hòa</option>
-											<option>Bình Dương</option>
-											<option>Hà Nội</option>
-											<option>Đà Nẵng</option>
+										<select id="city-select">
+											<option >Select a city</option>
 										</select>
 									</div>
 
@@ -633,9 +616,9 @@
 							<div class="footer-links">
 								<div class="footer-row">
 									<ul class="align-items-center">
-										<li class="li"><a class="single-link" href="index.jsp">Affiliate</a></li>
+										<li class="li"><a class="single-link" href="#">Affiliate</a></li>
 										<li class="li"><a class="single-link"
-														  href="shop-left-sidebar.html">Bestsellers</a></li>
+														  href="#">Bestsellers</a></li>
 										<li class="li"><a class="single-link" href="#">Discount</a></li>
 										<li class="li"><a class="single-link" href="#">Latest products</a></li>
 										<li class="li"><a class="single-link" href="#">Sale</a></li>

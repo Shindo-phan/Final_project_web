@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="assets/css/vendor/bootstrap.bundle.min.css" />
     <link rel="stylesheet" href="assets/css/vendor/pe-icon-7-stroke.css" />
     <link rel="stylesheet" href="assets/css/vendor/font.awesome.css" />
+    <link rel="stylesheet" href="assets/fonts/fontawesome-free-5.15.4/css/all.min.css">
 
     <!-- plugins css (All Plugins Files) -->
     <link rel="stylesheet" href="assets/css/plugins/animate.css" />
@@ -47,7 +48,7 @@
             <div class="row">
                 <div class="col-auto align-self-center">
                     <div class="header-logo">
-                        <a href="index.jsp"><img src="assets/images/logo/logo.png" alt="Site Logo" /></a>
+                        <a href="./"><img src="assets/images/logo/logo.png" alt="Site Logo" /></a>
                     </div>
                 </div>
                 <div class="col align-self-center d-none d-lg-block">
@@ -361,11 +362,11 @@
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-12 text-center">
-                    <h2 class="breadcrumb-title">Single Product</h2>
+                    <h2 class="breadcrumb-title">Wishlist</h2>
                     <!-- breadcrumb-list start -->
                     <ul class="breadcrumb-list">
-                        <li class="breadcrumb-item"><a href="index.jsp">Home</a></li>
-                        <li class="breadcrumb-item active">Product</li>
+                        <li class="breadcrumb-item"><a href="./">Home</a></li>
+                        <li class="breadcrumb-item active">Wishlist</li>
                     </ul>
                     <!-- breadcrumb-list end -->
                 </div>
@@ -391,13 +392,14 @@
                                         <th>Price</th>
                                         <th>Compare</th>
                                         <th>Add To Cart</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 <c:forEach var="item" items="${wishlist.items}">
                                     <tr>
                                         <td class="product-thumbnail">
-                                            <a href="#"><img class="img-responsive ml-15px"
+                                            <a href="#"><img class="img-responsive ml-15px mr-15px"
                                             src="<c:url value='${item.product.image}'/>" alt="<c:out value='${item.product.image}'/>"/></a>
                                         </td>
                                         <td class="product-name"><a href="#">${item.product.name}</a></td>
@@ -412,6 +414,16 @@
                                             <form class="mr-15px ml-15px" action="${pageContext.request.contextPath}/CartController" method="post">
                                                 <input type="hidden" name="productId" value="${item.product.id}">
                                                 <input class="box-hover " type="submit" value="Add To Cart">
+                                            </form>
+                                        </td>
+                                        <td class="product-remove">
+                                            <form id="${item.product.id}" action="" method="post">
+                                                <input type="hidden" name="productId"
+                                                       value="<c:out value='${item.product.id}'/>">
+                                                <input type="hidden" name="quantity3" value="0">
+                                                <a class="action compare" title="Remove" href="javascript:{}" onclick="document.getElementById('${item.product.id}').submit();">
+                                                    <i class="fas fa-trash-alt"></i>
+                                                </a>
                                             </form>
                                         </td>
                                     </tr>
@@ -530,9 +542,9 @@
                             <div class="footer-links">
                                 <div class="footer-row">
                                     <ul class="align-items-center">
-                                        <li class="li"><a class="single-link" href="index.jsp">Affiliate</a></li>
+                                        <li class="li"><a class="single-link" href="#">Affiliate</a></li>
                                         <li class="li"><a class="single-link"
-                                                          href="shop-left-sidebar.html">Bestsellers</a></li>
+                                                          href="#">Bestsellers</a></li>
                                         <li class="li"><a class="single-link" href="#">Discount</a></li>
                                         <li class="li"><a class="single-link" href="#">Latest products</a></li>
                                         <li class="li"><a class="single-link" href="#">Sale</a></li>
