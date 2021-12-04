@@ -1,6 +1,5 @@
 com\khanhphan\controller\CartController.class
 com\khanhphan\model\Compare.class
-com\khanhphan\controller\DemoController.class
 com\khanhphan\model\LineItem.class
 com\khanhphan\controller\CheckoutController.class
 com\khanhphan\controller\HomeController.class

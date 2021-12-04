@@ -45,7 +45,7 @@
                 <div class="row">
                     <div class="col-auto align-self-center">
                         <div class="header-logo">
-                            <a href="./><img src="assets/images/logo/logo.png" alt="Site Logo" /></a>
+                            <a href="./"><img src="assets/images/logo/logo.png" alt="Site Logo" /></a>
                         </div>
                     </div>
                     <div class="col align-self-center d-none d-lg-block">
@@ -77,8 +77,8 @@
                                             <ul class="d-block">
                                                 <li class="title"><a href="#">Related Shop Pages</a></li>
                                                 <li><a href="my-account.html">Account Page</a></li>
-                                                <li><a href="login.html">Login & Register Page</a></li>
-                                                <li><a href="empty-cart.html">Empty Cart Page</a></li>
+                                                <li><a href="login.jsp">Login & Register Page</a></li>
+                                                <li><a href="empty-cart.jsp">Empty Cart Page</a></li>
                                                 <li><a href="thank-you-page.html">Thank You Page</a></li>
                                             </ul>
                                             
@@ -127,7 +127,7 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="contact.jsp">Contact</a></li>
                             </ul>
                         </div>
                     </div>
@@ -143,9 +143,13 @@
                                 <button class="dropdown-toggle header-action-btn" data-bs-toggle="dropdown"><i
                                         class="pe-7s-users"></i></button>
                                 <ul class="dropdown-menu dropdown-menu-right">
-                                    <li><a class="dropdown-item" href="my-account.html">My account</a></li>
-                                    <li><a class="dropdown-item" href="checkout.jsp">Checkout</a></li>
-                                    <li><a class="dropdown-item" href="login.html">Sign in</a></li>
+                                    <c:if test="${empty sessionScope.Account}">
+                                        <li><a class="dropdown-item" href="LoginController">Sign in</a></li>
+                                        <li><a class="dropdown-item" href="RegisterController">Register</a></li>
+                                    </c:if>
+                                    <c:if test="${!empty sessionScope.Account}">
+                                        <li><a class="dropdown-item" href="SignOutController">Sign Out</a></li>
+                                    </c:if>
                                 </ul>
                             </div>
                             <!-- Single Wedge Start -->
@@ -156,7 +160,9 @@
                             <a href="#offcanvas-cart"
                                 class="header-action-btn header-action-btn-cart offcanvas-toggle pr-0">
                                 <i class="pe-7s-shopbag"></i>
-                                <span class="header-action-num">01</span>
+                                <c:forEach var="item" items="${cart.items}" varStatus="loop">
+                                    <span class="header-action-num"><c:out value="${loop.count}"/></span>
+                                </c:forEach>
                                 <!-- <span class="cart-amount">€30.00</span> -->
                             </a>
                             <a href="#offcanvas-mobile-menu"
@@ -182,38 +188,22 @@
             </div>
             <div class="body customScroll">
                 <ul class="minicart-product-list">
-                    <li>
-                        <a href="single-product.html" class="image"><img src="assets/images/product-image/1.jpg"
-                                alt="Cart product Image"></a>
-                        <div class="content">
-                            <a href="single-product.html" class="title">FC BAYERN 21/22 WIESN JERSEY</a>
-                            <span class="quantity-price">1 x <span class="amount">$95</span></span>
-                            <a href="#" class="remove">×</a>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="single-product.html" class="image"><img src="assets/images/product-image/2.jpg"
-                                alt="Cart product Image"></a>
-                        <div class="content">
-                            <a href="single-product.html" class="title">ADIDAS SPRT LOGO SHORTS</a>
-                            <span class="quantity-price">1 x <span class="amount">$75</span></span>
-                            <a href="#" class="remove">×</a>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="single-product.html" class="image"><img src="assets/images/product-image/3.jpg"
-                                alt="Cart product Image"></a>
-                        <div class="content">
-                            <a href="single-product.html" class="title">TIRO TRACK PANTS</a>
-                            <span class="quantity-price">1 x <span class="amount">$105</span></span>
-                            <a href="#" class="remove">×</a>
-                        </div>
-                    </li>
+                    <c:forEach var="item" items="${wishlist.items}">
+                        <li>
+                            <a href="single-product.html" class="image"><img src="<c:url value='${item.product.image}'/>"
+                                                                             alt="Cart product Image"></a>
+                            <div class="content">
+                                <a href="single-product.html" class="title"><c:out value="${item.product.name}"/></a>
+                                <span class="quantity-price">${item.quantity} x <span class="amount">${item.product.salePriceCurrencyFormat}</span></span>
+
+                            </div>
+                        </li>
+                    </c:forEach>
                 </ul>
             </div>
             <div class="foot">
                 <div class="buttons">
-                    <a href="wishlist.jsp" class="btn btn-dark btn-hover-primary mt-30px">view wishlist</a>
+                    <a href="WishlistController" class="btn btn-dark btn-hover-primary mt-30px">view wishlist</a>
                 </div>
             </div>
         </div>
@@ -229,39 +219,23 @@
             
             <div class="body customScroll">
                 <ul class="minicart-product-list">
-                    <li>
-                        <a href="single-product.html" class="image"><img src="assets/images/product-image/1.jpg"
-                                alt="Cart product Image"></a>
-                        <div class="content">
-                            <a href="single-product.html" class="title">FC BAYERN 21/22 WIESN JERSEY</a>
-                            <span class="quantity-price">1 x <span class="amount">$95</span></span>
-                            <a href="#" class="remove">×</a>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="single-product.html" class="image"><img src="assets/images/product-image/2.jpg"
-                                alt="Cart product Image"></a>
-                        <div class="content">
-                            <a href="single-product.html" class="title">ADIDAS SPRT LOGO SHORTS</a>
-                            <span class="quantity-price">1 x <span class="amount">$75</span></span>
-                            <a href="#" class="remove">×</a>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="single-product.html" class="image"><img src="assets/images/product-image/3.jpg"
-                                alt="Cart product Image"></a>
-                        <div class="content">
-                            <a href="single-product.html" class="title">TIRO TRACK PANTS</a>
-                            <span class="quantity-price">1 x <span class="amount">$105</span></span>
-                            <a href="#" class="remove">×</a>
-                        </div>
-                    </li>
+                    <c:forEach var="item" items="${cart.items}">
+                        <li>
+                            <a href="single-product.html" class="image"><img src="<c:url value='${item.product.image}'/>"
+                                                                             alt="Cart product Image"></a>
+                            <div class="content">
+                                <a href="single-product.html" class="title"><c:out value="${item.product.name}"/></a>
+                                <span class="quantity-price">${item.quantity} x <span class="amount">${item.product.salePriceCurrencyFormat}</span></span>
+
+                            </div>
+                        </li>
+                    </c:forEach>
                 </ul>
             </div>
             <div class="foot">
                 <div class="buttons mt-30px">
-                    <a href="cart.jsp" class="btn btn-dark btn-hover-primary mb-30px">view cart</a>
-                    <a href="checkout.jsp" class="btn btn-outline-dark current-btn">checkout</a>
+                    <a href="CartController" class="btn btn-dark btn-hover-primary mb-30px">view cart</a>
+                    <a href="CheckoutController" class="btn btn-dark btn-outline-dark current-btn">checkout</a>
                 </div>
             </div>
         </div>
@@ -307,8 +281,8 @@
                                 <a href="#"><span class="menu-text">Related Shop Page</span></a>
                                 <ul class="sub-menu">
                                     <li><a href="my-account.html">Account Page</a></li>
-                                    <li><a href="login.html">Login & Register Page</a></li>
-                                    <li><a href="empty-cart.html">Empty Cart Page</a></li>
+                                    <li><a href="login.jsp">Login & Register Page</a></li>
+                                    <li><a href="empty-cart.jsp">Empty Cart Page</a></li>
                                     <li><a href="thank-you-page.html">Thank You Page</a></li>
                                 </ul>
                             </li>
@@ -357,7 +331,7 @@
                         </ul>
                     </li>
                     
-                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="contact.jsp">Contact Us</a></li>
                 </ul>
             </div>
             <!-- OffCanvas Menu End -->
@@ -389,11 +363,11 @@
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-12 text-center">
-                    <h2 class="breadcrumb-title">Empty Cart</h2>
+                    <h2 class="breadcrumb-title">Contact Us</h2>
                     <!-- breadcrumb-list start -->
                     <ul class="breadcrumb-list">
-                        <li class="breadcrumb-item"><a href="./">Home</a></li>
-                        <li class="breadcrumb-item active">Cart</li>
+                        <li class="breadcrumb-item"><a href="index.jsp">Home</a></li>
+                        <li class="breadcrumb-item active">Contact</li>
                     </ul>
                     <!-- breadcrumb-list end -->
                 </div>
@@ -402,27 +376,105 @@
     </div>
     <!-- breadcrumb-area end -->
 
-    <!-- Cart area start -->
-    <div class="empty-cart-area pb-100px pt-100px">
+    <!-- Contact Area Start -->
+    <div class="contact-area pt-100px pb-100px">
         <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="cart-heading">
-                        <h2>Your cart item</h2>
+            <div class="contact-wrapper">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="contact-info">
+                            <span class="sub-title">Get In Touch</span>
+                            <h4 class="heading">Visit One Of Our Shop
+                                Contact Us Now</h4>
+                            <div class="single-contact">
+                                <div class="icon-box">
+                                    <i class="pe-7s-call"></i>
+                                </div>
+                                <div class="info-box">
+                                    <h5 class="title">Phone:</h5>
+                                    <p><a href="tel:0123456789">012 345 67 89</a></p>
+                                </div>
+                            </div>
+                            <div class="single-contact">
+                                <div class="icon-box">
+                                    <i class="pe-7s-mail"></i>
+                                </div>
+                                <div class="info-box">
+                                    <h5 class="title">Email:</h5>
+                                    <p><a href="mailto:xbotlive.service@gmail.com">xbotlive.service@gmail.com</a></p>
+                                </div>
+                            </div>
+                            <div class="single-contact">
+                                <div class="icon-box">
+                                    <i class="pe-7s-map-marker"></i>
+                                </div>
+                                <div class="info-box">
+                                    <h5 class="title">Address:</h5>
+                                    <p>01 Vo Van Ngan</p>
+                                </div>
+                            </div>
+                            <ul class="social">
+                                <li class="m-0">
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-pinterest-p"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-dribbble"></i></a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="empty-text-contant text-center">
-                        <i class="pe-7s-shopbag"></i>
-                        <h3>There are no more items in your cart</h3>
-                        <a class="empty-cart-btn" href="shop-4-column.html">
-                            <i class="fa fa-arrow-left"> </i> Continue shopping
-                        </a>
+                    <div class="col-lg-7">
+                        <div class="contact-form">
+                            <div class="contact-title mb-30">
+                                <h2 class="title" data-aos="fade-up" data-aos-delay="200">Leave a Message</h2>
+                                <p>Please enter your informatin </p>
+                            </div>
+                            <form class="contact-form-style" id="contact-form"
+                                action="assets/php/mail.php" method="post">
+                                <div class="row">
+                                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                                        <input name="name" placeholder="Name*" type="text" />
+                                    </div>
+                                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                                        <input name="email" placeholder="Email*" type="email" />
+                                    </div>
+                                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                                        <input name="subject" placeholder="Subject*" type="text" />
+                                    </div>
+                                    <div class="col-lg-12" data-aos="fade-up" data-aos-delay="200">
+                                        <textarea name="message" placeholder="Your Message*"></textarea>
+                                        <button class="btn btn-primary mt-4" data-aos="fade-up" data-aos-delay="200"
+                                            type="submit">Send Message</button>
+                                    </div>
+                                </div>
+                            </form>
+                            <p class="form-messege"></p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Cart area end -->
+    <!-- Contact Area End -->
 
+    <!-- map Area Start -->
+
+    <div class="contact-map">
+        <div id="mapid">
+            <div class="mapouter">
+                <div class="gmap_canvas">
+                    <iframe width="1000" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=hcmute&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- map Area End -->
 
     <div class="newsletter-area ">
         <div class="container line-shape-bottom">
@@ -526,7 +578,7 @@
                                             <li class="li"><a class="single-link" href="#">Latest products</a></li>
                                             <li class="li"><a class="single-link" href="#">Sale</a></li>
                                             <li class="li"><a class="single-link" href="#">All Collection</a></li>
-                                            <li class="li"><a class="single-link" href="contact.html">Contact Us</a>
+                                            <li class="li"><a class="single-link" href="contact.jsp">Contact Us</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -592,7 +644,6 @@
         </div>
     </div>
     <!-- Search Modal End -->
-
     <!-- Global Vendor, plugins JS -->
 
     <!-- Vendor JS -->

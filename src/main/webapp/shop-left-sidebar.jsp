@@ -61,8 +61,8 @@
                                         <ul class="d-block">
                                             <li class="title"><a href="#">Inner Pages</a></li>
                                             <li><a href="404.jsp">404 Page</a></li>
-                                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                                            <li><a href="faq.html">Faq Page</a></li>
+                                            <li><a href="privacy-policy.jsp">Privacy Policy</a></li>
+                                            <li><a href="faq.jsp">Faq Page</a></li>
                                             <li><a href="coming-soon.html">Coming Soon Page</a></li>
                                         </ul>
                                         <ul class="d-block">
@@ -71,15 +71,15 @@
                                             <li><a href="checkout.jsp">Checkout Page</a></li>
                                             <li><a href="compare.jsp">Compare Page</a></li>
                                             <li><a href="wishlist.jsp">Wishlist Page</a></li>
-                                            <li><a href="shop-left-sidebar.html">Shop-left-sidebar Page</a></li>
+                                            <li><a href="shop-left-sidebar.jsp">Shop-left-sidebar Page</a></li>
 
                                         </ul>
                                         <ul class="d-block">
                                             <li class="title"><a href="#">Related Shop Pages</a></li>
                                             <li><a href="my-account.html">Account Page</a></li>
-                                            <li><a href="login.html">Login & Register Page</a></li>
-                                            <li><a href="empty-cart.html">Empty Cart Page</a></li>
-                                            <li><a href="thank-you-page.html">Thank You Page</a></li>
+                                            <li><a href="login.jsp">Login & Register Page</a></li>
+                                            <li><a href="empty-cart.jsp">Empty Cart Page</a></li>
+                                            <li><a href="thank-you-page.jsp">Thank You Page</a></li>
                                         </ul>
                                         
                                     </li>
@@ -127,7 +127,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="contact.jsp">Contact</a></li>
                         </ul>
                     </div>
                 </div>
@@ -143,9 +143,13 @@
                             <button class="dropdown-toggle header-action-btn" data-bs-toggle="dropdown"><i
                                     class="pe-7s-users"></i></button>
                             <ul class="dropdown-menu dropdown-menu-right">
-                                <li><a class="dropdown-item" href="my-account.html">My account</a></li>
-                                <li><a class="dropdown-item" href="checkout.jsp">Checkout</a></li>
-                                <li><a class="dropdown-item" href="login.html">Sign in</a></li>
+                                <c:if test="${empty sessionScope.Account}">
+                                    <li><a class="dropdown-item" href="LoginController">Sign in</a></li>
+                                    <li><a class="dropdown-item" href="RegisterController">Register</a></li>
+                                </c:if>
+                                <c:if test="${!empty sessionScope.Account}">
+                                    <li><a class="dropdown-item" href="SignOutController">Sign Out</a></li>
+                                </c:if>
                             </ul>
                         </div>
                         <!-- Single Wedge Start -->
@@ -156,7 +160,9 @@
                         <a href="#offcanvas-cart"
                            class="header-action-btn header-action-btn-cart offcanvas-toggle pr-0">
                             <i class="pe-7s-shopbag"></i>
-                            <span class="header-action-num">01</span>
+                            <c:forEach var="item" items="${cart.items}" varStatus="loop">
+                                <span class="header-action-num"><c:out value="${loop.count}"/></span>
+                            </c:forEach>
                             <!-- <span class="cart-amount">€30.00</span> -->
                         </a>
                         <a href="#offcanvas-mobile-menu"
@@ -182,33 +188,17 @@
             </div>
             <div class="body customScroll">
                 <ul class="minicart-product-list">
-                    <li>
-                        <a href="single-product.html" class="image"><img src="assets/images/product-image/1.jpg"
-                                alt="Cart product Image"></a>
-                        <div class="content">
-                            <a href="single-product.html" class="title">FC BAYERN 21/22 WIESN JERSEY</a>
-                            <span class="quantity-price">1 x <span class="amount">$95</span></span>
-                            <a href="#" class="remove">×</a>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="single-product.html" class="image"><img src="assets/images/product-image/2.jpg"
-                                alt="Cart product Image"></a>
-                        <div class="content">
-                            <a href="single-product.html" class="title">ADIDAS SPRT LOGO SHORTS</a>
-                            <span class="quantity-price">1 x <span class="amount">$75</span></span>
-                            <a href="#" class="remove">×</a>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="single-product.html" class="image"><img src="assets/images/product-image/3.jpg"
-                                alt="Cart product Image"></a>
-                        <div class="content">
-                            <a href="single-product.html" class="title">TIRO TRACK PANTS</a>
-                            <span class="quantity-price">1 x <span class="amount">$105</span></span>
-                            <a href="#" class="remove">×</a>
-                        </div>
-                    </li>
+                    <c:forEach var="item" items="${wishlist.items}">
+                        <li>
+                            <a href="single-product.jsp" class="image"><img src="<c:url value='${item.product.image}'/>"
+                                                                            alt="Cart product Image"></a>
+                            <div class="content">
+                                <a href="single-product.jsp" class="title"><c:out value="${item.product.name}"/></a>
+                                <span class="quantity-price">${item.quantity} x <span class="amount">${item.product.salePriceCurrencyFormat}</span></span>
+
+                            </div>
+                        </li>
+                    </c:forEach>
                 </ul>
             </div>
             <div class="foot">
@@ -229,39 +219,23 @@
             
             <div class="body customScroll">
                 <ul class="minicart-product-list">
-                    <li>
-                        <a href="single-product.html" class="image"><img src="assets/images/product-image/1.jpg"
-                                alt="Cart product Image"></a>
-                        <div class="content">
-                            <a href="single-product.html" class="title">FC BAYERN 21/22 WIESN JERSEY</a>
-                            <span class="quantity-price">1 x <span class="amount">$95</span></span>
-                            <a href="#" class="remove">×</a>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="single-product.html" class="image"><img src="assets/images/product-image/2.jpg"
-                                alt="Cart product Image"></a>
-                        <div class="content">
-                            <a href="single-product.html" class="title">ADIDAS SPRT LOGO SHORTS</a>
-                            <span class="quantity-price">1 x <span class="amount">$75</span></span>
-                            <a href="#" class="remove">×</a>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="single-product.html" class="image"><img src="assets/images/product-image/3.jpg"
-                                alt="Cart product Image"></a>
-                        <div class="content">
-                            <a href="single-product.html" class="title">TIRO TRACK PANTS</a>
-                            <span class="quantity-price">1 x <span class="amount">$105</span></span>
-                            <a href="#" class="remove">×</a>
-                        </div>
-                    </li>
+                    <c:forEach var="item" items="${cart.items}">
+                        <li>
+                            <a href="single-product.jsp" class="image"><img src="<c:url value='${item.product.image}'/>"
+                                                                            alt="Cart product Image"></a>
+                            <div class="content">
+                                <a href="single-product.jsp" class="title"><c:out value="${item.product.name}"/></a>
+                                <span class="quantity-price">${item.quantity} x <span class="amount">${item.product.salePriceCurrencyFormat}</span></span>
+
+                            </div>
+                        </li>
+                    </c:forEach>
                 </ul>
             </div>
             <div class="foot">
                 <div class="buttons mt-30px">
                     <a href="cart.jsp" class="btn btn-dark btn-hover-primary mb-30px">view cart</a>
-                    <a href="checkout.jsp" class="btn btn-outline-dark current-btn">checkout</a>
+                    <a href="CheckoutController" class="btn btn-dark btn-outline-dark current-btn">checkout</a>
                 </div>
             </div>
         </div>
@@ -287,8 +261,8 @@
                                 <a href="#"><span class="menu-text">Inner Pages</span></a>
                                 <ul class="sub-menu">
                                     <li><a href="404.jsp">404 Page</a></li>
-                                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                                    <li><a href="faq.html">Faq Page</a></li>
+                                    <li><a href="privacy-policy.jsp">Privacy Policy</a></li>
+                                    <li><a href="faq.jsp">Faq Page</a></li>
                                     <li><a href="coming-soon.html">Coming Soon Page</a></li>
                                 </ul>
                             </li>
@@ -299,7 +273,7 @@
                                     <li><a href="checkout.jsp">Checkout Page</a></li>
                                     <li><a href="compare.jsp">Compare Page</a></li>
                                     <li><a href="wishlist.jsp">Wishlist Page</a></li>
-                                    <li><a href="shop-left-sidebar.html">Shop-left-sidebar</a></li>
+                                    <li><a href="shop-left-sidebar.jsp">Shop-left-sidebar</a></li>
 
                                 </ul>
                             </li>
@@ -307,9 +281,9 @@
                                 <a href="#"><span class="menu-text">Related Shop Page</span></a>
                                 <ul class="sub-menu">
                                     <li><a href="my-account.html">Account Page</a></li>
-                                    <li><a href="login.html">Login & Register Page</a></li>
-                                    <li><a href="empty-cart.html">Empty Cart Page</a></li>
-                                    <li><a href="thank-you-page.html">Thank You Page</a></li>
+                                    <li><a href="login.jsp">Login & Register Page</a></li>
+                                    <li><a href="empty-cart.jsp">Empty Cart Page</a></li>
+                                    <li><a href="thank-you-page.jsp">Thank You Page</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -357,7 +331,7 @@
                         </ul>
                     </li>
                     
-                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="contact.jsp">Contact Us</a></li>
                 </ul>
             </div>
             <!-- OffCanvas Menu End -->
@@ -534,7 +508,7 @@
                                                 <!-- Single Prodect -->
                                                 <div class="product">
                                                     <div class="thumb">
-                                                        <a href="single-product.html" class="image">
+                                                        <a href="single-product.jsp" class="image">
                                                             <img src="assets/images/product-image/1.jpg"
                                                                 alt="Product" />
                                                             <img class="hover-image"
@@ -561,7 +535,7 @@
                                                             </span>
                                                             <span class="rating-num d-none">( 5 Review )</span>
                                                         </span>
-                                                        <h5 class="title"><a href="single-product.html">FC BAYERN 21/22
+                                                        <h5 class="title"><a href="single-product.jsp">FC BAYERN 21/22
                                                             WIESN JERSEY
                                                             </a>
                                                         </h5>
@@ -578,7 +552,7 @@
                                                 <!-- Single Prodect -->
                                                 <div class="product">
                                                     <div class="thumb">
-                                                        <a href="single-product.html" class="image">
+                                                        <a href="single-product.jsp" class="image">
                                                             <img src="assets/images/product-image/2.jpg"
                                                                 alt="Product" />
                                                             <img class="hover-image"
@@ -606,7 +580,7 @@
                                                             </span>
                                                             <span class="rating-num d-none">( 5 Review )</span>
                                                         </span>
-                                                        <h5 class="title"><a href="single-product.html">Sport Performance
+                                                        <h5 class="title"><a href="single-product.jsp">Sport Performance
                                                             Graphic Boxer Briefs 4 Pairs
                                                             </a>
                                                         </h5>
@@ -625,7 +599,7 @@
                                                 <!-- Single Prodect -->
                                                 <div class="product">
                                                     <div class="thumb">
-                                                        <a href="single-product.html" class="image">
+                                                        <a href="single-product.jsp" class="image">
                                                             <img src="assets/images/product-image/3.jpg"
                                                                 alt="Product" />
                                                             <img class="hover-image"
@@ -652,7 +626,7 @@
                                                             </span>
                                                             <span class="rating-num d-none">( 5 Review )</span>
                                                         </span>
-                                                        <h5 class="title"><a href="single-product.html">Tiro Track Pants
+                                                        <h5 class="title"><a href="single-product.jsp">Tiro Track Pants
                                                             </a>
                                                         </h5>
                                                         <span class="price">
@@ -668,7 +642,7 @@
                                                 <!-- Single Prodect -->
                                                 <div class="product">
                                                     <div class="thumb">
-                                                        <a href="single-product.html" class="image">
+                                                        <a href="single-product.jsp" class="image">
                                                             <img src="assets/images/product-image/4.jpg"
                                                                 alt="Product" />
                                                             <img class="hover-image"
@@ -695,7 +669,7 @@
                                                             </span>
                                                             <span class="rating-num d-none">( 5 Review )</span>
                                                         </span>
-                                                        <h5 class="title"><a href="single-product.html">Tiro Winterized Jacket
+                                                        <h5 class="title"><a href="single-product.jsp">Tiro Winterized Jacket
                                                             </a>
                                                         </h5>
                                                         <span class="price">
@@ -713,7 +687,7 @@
                                                 <!-- Single Prodect -->
                                                 <div class="product">
                                                     <div class="thumb">
-                                                        <a href="single-product.html" class="image">
+                                                        <a href="single-product.jsp" class="image">
                                                             <img src="assets/images/product-image/6.jpg"
                                                                 alt="Product" />
                                                             <img class="hover-image"
@@ -739,7 +713,7 @@
                                                             </span>
                                                             <span class="rating-num d-none">( 5 Review )</span>
                                                         </span>
-                                                        <h5 class="title"><a href="single-product.html">Blue Version Seefeld
+                                                        <h5 class="title"><a href="single-product.jsp">Blue Version Seefeld
                                                             Track Pants
                                                             </a>
                                                         </h5>
@@ -756,7 +730,7 @@
                                                 <!-- Single Prodect -->
                                                 <div class="product">
                                                     <div class="thumb">
-                                                        <a href="single-product.html" class="image">
+                                                        <a href="single-product.jsp" class="image">
                                                             <img src="assets/images/product-image/7.jpg"
                                                                 alt="Product" />
                                                             <img class="hover-image"
@@ -783,7 +757,7 @@
                                                             </span>
                                                             <span class="rating-num d-none">( 5 Review )</span>
                                                         </span>
-                                                        <h5 class="title"><a href="single-product.html">River Plate 21/22
+                                                        <h5 class="title"><a href="single-product.jsp">River Plate 21/22
                                                             Away Jersey
                                                             </a>
                                                         </h5>
@@ -801,7 +775,7 @@
                                                 <!-- Single Prodect -->
                                                 <div class="product">
                                                     <div class="thumb">
-                                                        <a href="single-product.html" class="image">
+                                                        <a href="single-product.jsp" class="image">
                                                             <img src="assets/images/product-image/8.jpg"
                                                                 alt="Product" />
                                                             <img class="hover-image"
@@ -829,7 +803,7 @@
                                                             </span>
                                                             <span class="rating-num d-none">( 5 Review )</span>
                                                         </span>
-                                                        <h5 class="title"><a href="single-product.html">David Head
+                                                        <h5 class="title"><a href="single-product.jsp">David Head
                                                                 Portraits
                                                             </a>
                                                         </h5>
@@ -847,7 +821,7 @@
                                                 <!-- Single Prodect -->
                                                 <div class="product">
                                                     <div class="thumb">
-                                                        <a href="single-product.html" class="image">
+                                                        <a href="single-product.jsp" class="image">
                                                             <img src="assets/images/product-image/5.jpg"
                                                                 alt="Product" />
                                                             <img class="hover-image"
@@ -875,7 +849,7 @@
                                                             </span>
                                                             <span class="rating-num d-none">( 5 Review )</span>
                                                         </span>
-                                                        <h5 class="title"><a href="single-product.html">ADIDAS SPRT LOGO SHORTS
+                                                        <h5 class="title"><a href="single-product.jsp">ADIDAS SPRT LOGO SHORTS
                                                             </a>
                                                         </h5>
                                                         <span class="price">
@@ -892,7 +866,7 @@
                                                 <!-- Single Prodect -->
                                                 <div class="product">
                                                     <div class="thumb">
-                                                        <a href="single-product.html" class="image">
+                                                        <a href="single-product.jsp" class="image">
                                                             <img src="assets/images/product-image/9.jpg"
                                                                 alt="Product" />
                                                             <img class="hover-image"
@@ -919,7 +893,7 @@
                                                             </span>
                                                             <span class="rating-num d-none">( 5 Review )</span>
                                                         </span>
-                                                        <h5 class="title"><a href="single-product.html">MANCHESTER UNITED
+                                                        <h5 class="title"><a href="single-product.jsp">MANCHESTER UNITED
                                                             21/22 AWAY JERSEY
                                                             </a>
                                                         </h5>
@@ -940,7 +914,7 @@
                                                 <div class="col-md-5 col-lg-5 col-xl-4">
                                                     <div class="product">
                                                         <div class="thumb">
-                                                            <a href="single-product.html" class="image">
+                                                            <a href="single-product.jsp" class="image">
                                                                 <img src="assets/images/product-image/1.jpg"
                                                                     alt="Product" />
                                                                 <img class="hover-image"
@@ -962,7 +936,7 @@
                                                                 </span>
                                                                 <span class="rating-num d-none">( 5 Review )</span>
                                                             </span>
-                                                            <h5 class="title"><a href="single-product.html">Hand-Made Garlic
+                                                            <h5 class="title"><a href="single-product.jsp">Hand-Made Garlic
                                                                 Mortar
                                                             </a></h5>
                                                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
@@ -997,7 +971,7 @@
                                                 <div class="col-md-5 col-lg-5 col-xl-4">
                                                     <div class="product">
                                                         <div class="thumb">
-                                                            <a href="single-product.html" class="image">
+                                                            <a href="single-product.jsp" class="image">
                                                                 <img src="assets/images/product-image/2.jpg"
                                                                     alt="Product" />
                                                                 <img class="hover-image"
@@ -1020,7 +994,7 @@
                                                                 </span>
                                                                 <span class="rating-num d-none">( 4 Review )</span>
                                                             </span>
-                                                            <h5 class="title"><a href="single-product.html">Handmade Ceramic
+                                                            <h5 class="title"><a href="single-product.jsp">Handmade Ceramic
                                                                 Pottery
                                                             </a>
                                                             </h5>
@@ -1057,7 +1031,7 @@
                                                 <div class="col-md-5 col-lg-5 col-xl-4">
                                                     <div class="product">
                                                         <div class="thumb">
-                                                            <a href="single-product.html" class="image">
+                                                            <a href="single-product.jsp" class="image">
                                                                 <img src="assets/images/product-image/3.jpg"
                                                                     alt="Product" />
                                                                 <img class="hover-image"
@@ -1079,7 +1053,7 @@
                                                                 </span>
                                                                 <span class="rating-num d-none">( 0 Review )</span>
                                                             </span>
-                                                            <h5 class="title"><a href="single-product.html">Hand Painted
+                                                            <h5 class="title"><a href="single-product.jsp">Hand Painted
                                                                 Bowls
                                                             </a></h5>
                                                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
@@ -1115,7 +1089,7 @@
                                                 <div class="col-md-5 col-lg-5 col-xl-4">
                                                     <div class="product">
                                                         <div class="thumb">
-                                                            <a href="single-product.html" class="image">
+                                                            <a href="single-product.jsp" class="image">
                                                                 <img src="assets/images/product-image/4.jpg"
                                                                     alt="Product" />
                                                                 <img class="hover-image"
@@ -1137,7 +1111,7 @@
                                                                 </span>
                                                                 <span class="rating-num d-none">( 3.5 Review )</span>
                                                             </span>
-                                                            <h5 class="title"><a href="single-product.html">Antique Wooden
+                                                            <h5 class="title"><a href="single-product.jsp">Antique Wooden
                                                                 Farm Large
                                                             </a></h5>
                                                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
@@ -1172,7 +1146,7 @@
                                                 <div class="col-md-5 col-lg-5 col-xl-4">
                                                     <div class="product">
                                                         <div class="thumb">
-                                                            <a href="single-product.html" class="image">
+                                                            <a href="single-product.jsp" class="image">
                                                                 <img src="assets/images/product-image/5.jpg"
                                                                     alt="Product" />
                                                                 <img class="hover-image"
@@ -1195,7 +1169,7 @@
                                                                 </span>
                                                                 <span class="rating-num d-none">( 5 Review )</span>
                                                             </span>
-                                                            <h5 class="title"><a href="single-product.html">Handmade Jute
+                                                            <h5 class="title"><a href="single-product.jsp">Handmade Jute
                                                                 Basket
                                                             </a></h5>
                                                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
@@ -1231,7 +1205,7 @@
                                                 <div class="col-md-5 col-lg-5 col-xl-4">
                                                     <div class="product">
                                                         <div class="thumb">
-                                                            <a href="single-product.html" class="image">
+                                                            <a href="single-product.jsp" class="image">
                                                                 <img src="assets/images/product-image/6.jpg"
                                                                     alt="Product" />
                                                                 <img class="hover-image"
@@ -1252,7 +1226,7 @@
                                                                 </span>
                                                                 <span class="rating-num d-none">( 5 Review )</span>
                                                             </span>
-                                                            <h5 class="title"><a href="single-product.html">Knitting yarn &
+                                                            <h5 class="title"><a href="single-product.jsp">Knitting yarn &
                                                                 crochet hook
                                                             </a> </h5>
 
@@ -1288,7 +1262,7 @@
                                                 <div class="col-md-5 col-lg-5 col-xl-4">
                                                     <div class="product">
                                                         <div class="thumb">
-                                                            <a href="single-product.html" class="image">
+                                                            <a href="single-product.jsp" class="image">
                                                                 <img src="assets/images/product-image/7.jpg"
                                                                     alt="Product" />
                                                                 <img class="hover-image"
@@ -1309,7 +1283,7 @@
                                                                 </span>
                                                                 <span class="rating-num d-none">( 4 Review )</span>
                                                             </span>
-                                                            <h5 class="title"><a href="single-product.html">David Head
+                                                            <h5 class="title"><a href="single-product.jsp">David Head
                                                                 Portraits
                                                             </a></h5>
                                                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
@@ -1344,7 +1318,7 @@
                                                 <div class="col-md-5 col-lg-5 col-xl-4">
                                                     <div class="product">
                                                         <div class="thumb">
-                                                            <a href="single-product.html" class="image">
+                                                            <a href="single-product.jsp" class="image">
                                                                 <img src="assets/images/product-image/8.jpg"
                                                                     alt="Product" />
                                                                 <img class="hover-image"
@@ -1366,7 +1340,7 @@
                                                                 </span>
                                                                 <span class="rating-num d-none">( 3 Review )</span>
                                                             </span>
-                                                            <h5 class="title"><a href="single-product.html">solid wood
+                                                            <h5 class="title"><a href="single-product.jsp">solid wood
                                                                 cherry paddle
                                                             </a></h5>
                                                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
@@ -1401,7 +1375,7 @@
                                                 <div class="col-md-5 col-lg-5 col-xl-4">
                                                     <div class="product">
                                                         <div class="thumb">
-                                                            <a href="single-product.html" class="image">
+                                                            <a href="single-product.jsp" class="image">
                                                                 <img src="assets/images/product-image/9.jpg"
                                                                     alt="Product" />
                                                                 <img class="hover-image"
@@ -1423,7 +1397,7 @@
                                                                 </span>
                                                                 <span class="rating-num d-none">( 3 Review )</span>
                                                             </span>
-                                                            <h5 class="title"><a href="single-product.html">Hand-Made Garlic
+                                                            <h5 class="title"><a href="single-product.jsp">Hand-Made Garlic
                                                                 Mortar
                                                             </a></h5>
                                                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
@@ -1632,7 +1606,7 @@
                                     <ul class="align-items-center">
                                         <li class="li"><a class="single-link" href="about.jsp">About us</a></li>
                                         <li class="li"><a class="single-link" href="#">Delivery information</a></li>
-                                        <li class="li"><a class="single-link" href="privacy-policy.html">Privacy
+                                        <li class="li"><a class="single-link" href="privacy-policy.jsp">Privacy
                                             Policy</a></li>
                                         <li class="li"><a class="single-link" href="#">Sales</a></li>
                                         <li class="li"><a class="single-link" href="#">Terms & Conditions</a></li>
@@ -1656,7 +1630,7 @@
                                         <li class="li"><a class="single-link" href="cart.jsp">My orders</a></li>
                                         <li class="li"><a class="single-link" href="#">Returns</a></li>
                                         <li class="li"><a class="single-link"
-                                                          href="shop-left-sidebar.html">Shipping</a></li>
+                                                          href="shop-left-sidebar.jsp">Shipping</a></li>
                                         <li class="li"><a class="single-link" href="wishlist.jsp">Wishlist</a></li>
                                         <li class="li"><a class="single-link" href="#">How Does It Work</a></li>
                                         <li class="li"><a class="single-link" href="#">Merchant Sign Up</a></li>
@@ -1680,7 +1654,7 @@
                                         <li class="li"><a class="single-link" href="#">Latest products</a></li>
                                         <li class="li"><a class="single-link" href="#">Sale</a></li>
                                         <li class="li"><a class="single-link" href="#">All Collection</a></li>
-                                        <li class="li"><a class="single-link" href="contact.html">Contact Us</a>
+                                        <li class="li"><a class="single-link" href="contact.jsp">Contact Us</a>
                                         </li>
                                     </ul>
                                 </div>

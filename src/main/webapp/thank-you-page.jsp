@@ -61,8 +61,8 @@
                                         <ul class="d-block">
                                             <li class="title"><a href="#">Inner Pages</a></li>
                                             <li><a href="404.jsp">404 Page</a></li>
-                                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                                            <li><a href="faq.html">Faq Page</a></li>
+                                            <li><a href="privacy-policy.jsp">Privacy Policy</a></li>
+                                            <li><a href="faq.jsp">Faq Page</a></li>
                                             <li><a href="coming-soon.html">Coming Soon Page</a></li>
                                         </ul>
                                         <ul class="d-block">
@@ -71,15 +71,14 @@
                                             <li><a href="checkout.jsp">Checkout Page</a></li>
                                             <li><a href="compare.jsp">Compare Page</a></li>
                                             <li><a href="wishlist.jsp">Wishlist Page</a></li>
-                                            <li><a href="shop-left-sidebar.html">Shop-left-sidebar Page</a></li>
+                                            <li><a href="shop-left-sidebar.jsp">Shop-left-sidebar Page</a></li>
 
                                         </ul>
                                         <ul class="d-block">
                                             <li class="title"><a href="#">Related Shop Pages</a></li>
-                                            <li><a href="my-account.html">Account Page</a></li>
-                                            <li><a href="login.html">Login & Register Page</a></li>
-                                            <li><a href="empty-cart.html">Empty Cart Page</a></li>
-                                            <li><a href="thank-you-page.html">Thank You Page</a></li>
+                                            <li><a href="login.jsp">Login & Register Page</a></li>
+                                            <li><a href="empty-cart.jsp">Empty Cart Page</a></li>
+                                            <li><a href="thank-you-page.jsp">Thank You Page</a></li>
                                         </ul>
                                         
                                     </li>
@@ -127,7 +126,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="contact.jsp">Contact</a></li>
                         </ul>
                     </div>
                 </div>
@@ -143,9 +142,13 @@
                             <button class="dropdown-toggle header-action-btn" data-bs-toggle="dropdown"><i
                                     class="pe-7s-users"></i></button>
                             <ul class="dropdown-menu dropdown-menu-right">
-                                <li><a class="dropdown-item" href="my-account.html">My account</a></li>
-                                <li><a class="dropdown-item" href="checkout.jsp">Checkout</a></li>
-                                <li><a class="dropdown-item" href="login.html">Sign in</a></li>
+                                <c:if test="${empty sessionScope.Account}">
+                                    <li><a class="dropdown-item" href="LoginController">Sign in</a></li>
+                                    <li><a class="dropdown-item" href="RegisterController">Register</a></li>
+                                </c:if>
+                                <c:if test="${!empty sessionScope.Account}">
+                                    <li><a class="dropdown-item" href="SignOutController">Sign Out</a></li>
+                                </c:if>
                             </ul>
                         </div>
                         <!-- Single Wedge Start -->
@@ -156,7 +159,9 @@
                         <a href="#offcanvas-cart"
                            class="header-action-btn header-action-btn-cart offcanvas-toggle pr-0">
                             <i class="pe-7s-shopbag"></i>
-                            <span class="header-action-num">01</span>
+                            <c:forEach var="item" items="${cart.items}" varStatus="loop">
+                                <span class="header-action-num"><c:out value="${loop.count}"/></span>
+                            </c:forEach>
                             <!-- <span class="cart-amount">€30.00</span> -->
                         </a>
                         <a href="#offcanvas-mobile-menu"
@@ -171,7 +176,7 @@
     </div>
 </header>
 <!-- Header Area End -->
-    <div class="offcanvas-overlay"></div>
+<div class="offcanvas-overlay"></div>
 
     <!-- OffCanvas Wishlist Start -->
     <div id="offcanvas-wishlist" class="offcanvas offcanvas-wishlist">
@@ -182,33 +187,17 @@
             </div>
             <div class="body customScroll">
                 <ul class="minicart-product-list">
-                    <li>
-                        <a href="single-product.html" class="image"><img src="assets/images/product-image/1.jpg"
-                                alt="Cart product Image"></a>
-                        <div class="content">
-                            <a href="single-product.html" class="title">FC BAYERN 21/22 WIESN JERSEY</a>
-                            <span class="quantity-price">1 x <span class="amount">$95</span></span>
-                            <a href="#" class="remove">×</a>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="single-product.html" class="image"><img src="assets/images/product-image/2.jpg"
-                                alt="Cart product Image"></a>
-                        <div class="content">
-                            <a href="single-product.html" class="title">ADIDAS SPRT LOGO SHORTS</a>
-                            <span class="quantity-price">1 x <span class="amount">$75</span></span>
-                            <a href="#" class="remove">×</a>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="single-product.html" class="image"><img src="assets/images/product-image/3.jpg"
-                                alt="Cart product Image"></a>
-                        <div class="content">
-                            <a href="single-product.html" class="title">TIRO TRACK PANTS</a>
-                            <span class="quantity-price">1 x <span class="amount">$105</span></span>
-                            <a href="#" class="remove">×</a>
-                        </div>
-                    </li>
+                    <c:forEach var="item" items="${wishlist.items}">
+                        <li>
+                            <a href="single-product.jsp" class="image"><img src="<c:url value='${item.product.image}'/>"
+                                                                            alt="Cart product Image"></a>
+                            <div class="content">
+                                <a href="single-product.jsp" class="title"><c:out value="${item.product.name}"/></a>
+                                <span class="quantity-price">${item.quantity} x <span class="amount">${item.product.salePriceCurrencyFormat}</span></span>
+
+                            </div>
+                        </li>
+                    </c:forEach>
                 </ul>
             </div>
             <div class="foot">
@@ -229,39 +218,23 @@
             
             <div class="body customScroll">
                 <ul class="minicart-product-list">
-                    <li>
-                        <a href="single-product.html" class="image"><img src="assets/images/product-image/1.jpg"
-                                alt="Cart product Image"></a>
-                        <div class="content">
-                            <a href="single-product.html" class="title">FC BAYERN 21/22 WIESN JERSEY</a>
-                            <span class="quantity-price">1 x <span class="amount">$95</span></span>
-                            <a href="#" class="remove">×</a>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="single-product.html" class="image"><img src="assets/images/product-image/2.jpg"
-                                alt="Cart product Image"></a>
-                        <div class="content">
-                            <a href="single-product.html" class="title">ADIDAS SPRT LOGO SHORTS</a>
-                            <span class="quantity-price">1 x <span class="amount">$75</span></span>
-                            <a href="#" class="remove">×</a>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="single-product.html" class="image"><img src="assets/images/product-image/3.jpg"
-                                alt="Cart product Image"></a>
-                        <div class="content">
-                            <a href="single-product.html" class="title">TIRO TRACK PANTS</a>
-                            <span class="quantity-price">1 x <span class="amount">$105</span></span>
-                            <a href="#" class="remove">×</a>
-                        </div>
-                    </li>
+                    <c:forEach var="item" items="${cart.items}">
+                        <li>
+                            <a href="single-product.jsp" class="image"><img src="<c:url value='${item.product.image}'/>"
+                                                                            alt="Cart product Image"></a>
+                            <div class="content">
+                                <a href="single-product.jsp" class="title"><c:out value="${item.product.name}"/></a>
+                                <span class="quantity-price">${item.quantity} x <span class="amount">${item.product.salePriceCurrencyFormat}</span></span>
+
+                            </div>
+                        </li>
+                    </c:forEach>
                 </ul>
             </div>
             <div class="foot">
                 <div class="buttons mt-30px">
                     <a href="cart.jsp" class="btn btn-dark btn-hover-primary mb-30px">view cart</a>
-                    <a href="checkout.jsp" class="btn btn-outline-dark current-btn">checkout</a>
+                    <a href="CheckoutController" class="btn btn-dark btn-outline-dark current-btn">checkout</a>
                 </div>
             </div>
         </div>
@@ -287,8 +260,8 @@
                                 <a href="#"><span class="menu-text">Inner Pages</span></a>
                                 <ul class="sub-menu">
                                     <li><a href="404.jsp">404 Page</a></li>
-                                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                                    <li><a href="faq.html">Faq Page</a></li>
+                                    <li><a href="privacy-policy.jsp">Privacy Policy</a></li>
+                                    <li><a href="faq.jsp">Faq Page</a></li>
                                     <li><a href="coming-soon.html">Coming Soon Page</a></li>
                                 </ul>
                             </li>
@@ -299,7 +272,7 @@
                                     <li><a href="checkout.jsp">Checkout Page</a></li>
                                     <li><a href="compare.jsp">Compare Page</a></li>
                                     <li><a href="wishlist.jsp">Wishlist Page</a></li>
-                                    <li><a href="shop-left-sidebar.html">Shop-left-sidebar</a></li>
+                                    <li><a href="shop-left-sidebar.jsp">Shop-left-sidebar</a></li>
 
                                 </ul>
                             </li>
@@ -307,9 +280,9 @@
                                 <a href="#"><span class="menu-text">Related Shop Page</span></a>
                                 <ul class="sub-menu">
                                     <li><a href="my-account.html">Account Page</a></li>
-                                    <li><a href="login.html">Login & Register Page</a></li>
-                                    <li><a href="empty-cart.html">Empty Cart Page</a></li>
-                                    <li><a href="thank-you-page.html">Thank You Page</a></li>
+                                    <li><a href="login.jsp">Login & Register Page</a></li>
+                                    <li><a href="empty-cart.jsp">Empty Cart Page</a></li>
+                                    <li><a href="thank-you-page.jsp">Thank You Page</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -357,7 +330,7 @@
                         </ul>
                     </li>
                     
-                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="contact.jsp">Contact Us</a></li>
                 </ul>
             </div>
             <!-- OffCanvas Menu End -->
@@ -389,11 +362,11 @@
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-12 text-center">
-                    <h2 class="breadcrumb-title">Privacy Policy</h2>
+                    <h2 class="breadcrumb-title">Thank You</h2>
                     <!-- breadcrumb-list start -->
                     <ul class="breadcrumb-list">
                         <li class="breadcrumb-item"><a href="./">Home</a></li>
-                        <li class="breadcrumb-item active">Privacy Policy</li>
+                        <li class="breadcrumb-item active">Thank You</li>
                     </ul>
                     <!-- breadcrumb-list end -->
                 </div>
@@ -402,55 +375,37 @@
     </div>
     <!-- breadcrumb-area end -->
 
-
-
-    <!--Privacy Policy area start-->
-    <div class="privacy_policy_main_area pb-100px pt-100px">
+    <!-- Thank You area start -->
+    <div class="thank-you-area pt-100px ">
         <div class="container">
-            <div class="container-inner">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="privacy_content section_2" data-aos="fade-up" data-aos-delay="400">
-                            <h2>What personal data we collect and why we collect it</h2>
-                            <h3>Comments</h3>
-                            <p>When visitors leave comments on the site we collect the data shown in the comments form, and also the visitor’s IP address and browser user agent string to help spam detection.</p>
-                            <p>An anonymized string created from your email address (also called a hash) may be provided to the Gravatar service to see if you are using it. The Gravatar service privacy policy is available here: https://automattic.com/privacy/.
-                                After approval of your comment, your profile picture is visible to the public in the context of your comment.</p>
-                            <h3>Media</h3>
-                            <p>If you upload images to the website, you should avoid uploading images with embedded location data (EXIF GPS) included. Visitors to the website can download and extract any location data from images on the website.</p>
-                            <h3>Cookies</h3>
-                            <p>If you leave a comment on our site you may opt-in to saving your name, email address and website in cookies. These are for your convenience so that you do not have to fill in your details again when you leave another comment.
-                                These cookies will last for one year.</p>
-                            <p>If you have an account and you log in to this site, we will set a temporary cookie to determine if your browser accepts cookies. This cookie contains no personal data and is discarded when you close your browser.</p>
-                            <p>When you log in, we will also set up several cookies to save your login information and your screen display choices. Login cookies last for two days, and screen options cookies last for a year. If you select “Remember Me”,
-                                your login will persist for two weeks. If you log out of your account, the login cookies will be removed.</p>
-                            <p>If you edit or publish an article, an additional cookie will be saved in your browser. This cookie includes no personal data and simply indicates the post ID of the article you just edited. It expires after 1 day.</p>
-                            <h3>Embedded content from other websites</h3>
-                            <p>Articles on this site may include embedded content (e.g. videos, images, articles, etc.). Embedded content from other websites behaves in the exact same way as if the visitor has visited the other website.</p>
-                            <p>These websites may collect data about you, use cookies, embed additional third-party tracking, and monitor your interaction with that embedded content, including tracking your interaction with the embedded content if you have
-                                an account and are logged in to that website.</p>
-                        </div>
-                        <div class="privacy_content section_3" data-aos="fade-up" data-aos-delay="400">
-                            <h2>How long we retain your data</h2>
-                            <p>If you leave a comment, the comment and its metadata are retained indefinitely. This is so we can recognize and approve any follow-up comments automatically instead of holding them in a moderation queue.</p>
-                            <p>For users that register on our website (if any), we also store the personal information they provide in their user profile. All users can see, edit, or delete their personal information at any time (except they cannot change
-                                their username). Website administrators can also see and edit that information.</p>
-                        </div>
-                        <div class="privacy_content section_3" data-aos="fade-up" data-aos-delay="400">
-                            <h2>What rights you have over your data</h2>
-                            <p>If you have an account on this site, or have left comments, you can request to receive an exported file of the personal data we hold about you, including any data you have provided to us. You can also request that we erase
-                                any personal data we hold about you. This does not include any data we are obliged to keep for administrative, legal, or security purposes.</p>
-                        </div>
-                        <div class="privacy_content section_3" data-aos="fade-up" data-aos-delay="500">
-                            <h2>Where we send your data</h2>
-                            <p>Visitor comments may be checked through an automated spam detection service.</p>
+            <div class="row justify-content-center align-items-center">
+                <div class="col-md-8">
+                    <div class="inner_complated">
+                        <div class="img_cmpted"><img src="assets/images/icons/cmpted_logo.png" alt=""></div>
+                        <p class="dsc_cmpted">Thank you for ordering in our store. You will receive a confirmation
+                            email shortly.</p>
+                        <div class="btn_cmpted">
+                            <a href="shop-4-column.html" class="shop-btn" title="Go To Shop">Continue Shopping </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!--Privacy Policy area end-->
+    <div class="quick_order ">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-md-12">
+                    <div class="main_quickorder text-align-center">
+                        <h3 class="title">Call Us for Quick Order</h3>
+                        <div class="cntct typewriter-effect"><span class="call_desk"><a href="tel:+0123456789" id="typewriter_num">01 234 567 89</a></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Thank You area end -->
+
 
 <div class="newsletter-area ">
     <div class="container line-shape-bottom">
@@ -506,7 +461,7 @@
                                     <ul class="align-items-center">
                                         <li class="li"><a class="single-link" href="about.jsp">About us</a></li>
                                         <li class="li"><a class="single-link" href="#">Delivery information</a></li>
-                                        <li class="li"><a class="single-link" href="privacy-policy.html">Privacy
+                                        <li class="li"><a class="single-link" href="privacy-policy.jsp">Privacy
                                             Policy</a></li>
                                         <li class="li"><a class="single-link" href="#">Sales</a></li>
                                         <li class="li"><a class="single-link" href="#">Terms & Conditions</a></li>
@@ -530,7 +485,7 @@
                                         <li class="li"><a class="single-link" href="cart.jsp">My orders</a></li>
                                         <li class="li"><a class="single-link" href="#">Returns</a></li>
                                         <li class="li"><a class="single-link"
-                                                          href="shop-left-sidebar.html">Shipping</a></li>
+                                                          href="shop-left-sidebar.jsp">Shipping</a></li>
                                         <li class="li"><a class="single-link" href="wishlist.jsp">Wishlist</a></li>
                                         <li class="li"><a class="single-link" href="#">How Does It Work</a></li>
                                         <li class="li"><a class="single-link" href="#">Merchant Sign Up</a></li>
@@ -554,7 +509,7 @@
                                         <li class="li"><a class="single-link" href="#">Latest products</a></li>
                                         <li class="li"><a class="single-link" href="#">Sale</a></li>
                                         <li class="li"><a class="single-link" href="#">All Collection</a></li>
-                                        <li class="li"><a class="single-link" href="contact.html">Contact Us</a>
+                                        <li class="li"><a class="single-link" href="contact.jsp">Contact Us</a>
                                         </li>
                                     </ul>
                                 </div>

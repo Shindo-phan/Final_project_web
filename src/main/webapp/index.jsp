@@ -65,8 +65,8 @@
                                         <ul class="d-block">
                                             <li class="title"><a href="#">Inner Pages</a></li>
                                             <li><a href="404.jsp">404 Page</a></li>
-                                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                                            <li><a href="faq.html">Faq Page</a></li>
+                                            <li><a href="privacy-policy.jsp">Privacy Policy</a></li>
+                                            <li><a href="faq.jsp">Faq Page</a></li>
                                             <li><a href="coming-soon.html">Coming Soon Page</a></li>
                                         </ul>
                                         <ul class="d-block">
@@ -75,15 +75,15 @@
                                             <li><a href="checkout.jsp">Checkout Page</a></li>
                                             <li><a href="compare.jsp">Compare Page</a></li>
                                             <li><a href="wishlist.jsp">Wishlist Page</a></li>
-                                            <li><a href="shop-left-sidebar.html">Shop-left-sidebar Page</a></li>
+                                            <li><a href="shop-left-sidebar.jsp">Shop-left-sidebar Page</a></li>
 
                                         </ul>
                                         <ul class="d-block">
                                             <li class="title"><a href="#">Related Shop Pages</a></li>
                                             <li><a href="my-account.html">Account Page</a></li>
-                                            <li><a href="login.html">Login & Register Page</a></li>
-                                            <li><a href="empty-cart.html">Empty Cart Page</a></li>
-                                            <li><a href="thank-you-page.html">Thank You Page</a></li>
+                                            <li><a href="login.jsp">Login & Register Page</a></li>
+                                            <li><a href="empty-cart.jsp">Empty Cart Page</a></li>
+                                            <li><a href="thank-you-page.jsp">Thank You Page</a></li>
                                         </ul>
 
                                     </li>
@@ -131,7 +131,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="contact.jsp">Contact</a></li>
                         </ul>
                     </div>
                 </div>
@@ -194,10 +194,10 @@
             <ul class="minicart-product-list">
                 <c:forEach var="item" items="${wishlist.items}">
                     <li>
-                        <a href="single-product.html" class="image"><img src="<c:url value='${item.product.image}'/>"
-                                                                         alt="Cart product Image"></a>
+                        <a href="single-product.jsp" class="image"><img src="<c:url value='${item.product.image}'/>"
+                                                                        alt="Cart product Image"></a>
                         <div class="content">
-                            <a href="single-product.html" class="title"><c:out value="${item.product.name}"/></a>
+                            <a href="single-product.jsp" class="title"><c:out value="${item.product.name}"/></a>
                             <span class="quantity-price">${item.quantity} x <span class="amount">${item.product.salePriceCurrencyFormat}</span></span>
 
                         </div>
@@ -225,10 +225,10 @@
             <ul class="minicart-product-list">
                 <c:forEach var="item" items="${cart.items}">
                     <li>
-                        <a href="single-product.html" class="image"><img src="<c:url value='${item.product.image}'/>"
-                                                                         alt="Cart product Image"></a>
+                        <a href="single-product.jsp" class="image"><img src="<c:url value='${item.product.image}'/>"
+                                                                        alt="Cart product Image"></a>
                         <div class="content">
-                            <a href="single-product.html" class="title"><c:out value="${item.product.name}"/></a>
+                            <a href="single-product.jsp" class="title"><c:out value="${item.product.name}"/></a>
                             <span class="quantity-price">${item.quantity} x <span class="amount">${item.product.salePriceCurrencyFormat}</span></span>
 
                         </div>
@@ -239,7 +239,7 @@
         <div class="foot">
             <div class="buttons mt-30px">
                 <a href="cart.jsp" class="btn btn-dark btn-hover-primary mb-30px">view cart</a>
-                <a href="checkout.jsp" class="btn btn-outline-dark current-btn">checkout</a>
+                <a href="CheckoutController" class="btn btn-dark btn-outline-dark current-btn">checkout</a>
             </div>
         </div>
     </div>
@@ -265,8 +265,8 @@
                             <a href="#"><span class="menu-text">Inner Pages</span></a>
                             <ul class="sub-menu">
                                 <li><a href="404.jsp">404 Page</a></li>
-                                <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                                <li><a href="faq.html">Faq Page</a></li>
+                                <li><a href="privacy-policy.jsp">Privacy Policy</a></li>
+                                <li><a href="faq.jsp">Faq Page</a></li>
                                 <li><a href="coming-soon.html">Coming Soon Page</a></li>
                             </ul>
                         </li>
@@ -277,7 +277,7 @@
                                 <li><a href="checkout.jsp">Checkout Page</a></li>
                                 <li><a href="compare.jsp">Compare Page</a></li>
                                 <li><a href="wishlist.jsp">Wishlist Page</a></li>
-                                <li><a href="shop-left-sidebar.html">Shop-left-sidebar</a></li>
+                                <li><a href="shop-left-sidebar.jsp">Shop-left-sidebar</a></li>
 
                             </ul>
                         </li>
@@ -285,9 +285,9 @@
                             <a href="#"><span class="menu-text">Related Shop Page</span></a>
                             <ul class="sub-menu">
                                 <li><a href="my-account.html">Account Page</a></li>
-                                <li><a href="login.html">Login & Register Page</a></li>
-                                <li><a href="empty-cart.html">Empty Cart Page</a></li>
-                                <li><a href="thank-you-page.html">Thank You Page</a></li>
+                                <li><a href="login.jsp">Login & Register Page</a></li>
+                                <li><a href="empty-cart.jsp">Empty Cart Page</a></li>
+                                <li><a href="thank-you-page.jsp">Thank You Page</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -335,7 +335,7 @@
                     </ul>
                 </li>
 
-                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="contact.jsp">Contact Us</a></li>
             </ul>
         </div>
         <!-- OffCanvas Menu End -->
@@ -376,7 +376,7 @@
                             <div class="hero-slide-content hero-slide-content-2 slider-animated-1 slider-animated-2 text-start align-self-center pl-80px">
                                 <span class="category">-20% Off</span>
                                 <h2 class="title-1">Sport <br> Store Co.</h2>
-                                <a href="shop-left-sidebar.html" class="btn btn-primary text-uppercase">Shop Now</a>
+                                <a href="shop-left-sidebar.jsp" class="btn btn-primary text-uppercase">Shop Now</a>
                             </div>
                         </div>
                         <!-- Single slider item -->
@@ -385,7 +385,7 @@
                             <div class="hero-slide-content hero-slide-content-2 slider-animated-1 slider-animated-2 text-start align-self-center pl-80px">
                                 <span class="category">-20% Off</span>
                                 <h2 class="title-1">Sport <br> Store Co.</h2>
-                                <a href="shop-left-sidebar.html" class="btn btn-primary text-uppercase">Shop Now</a>
+                                <a href="shop-left-sidebar.jsp" class="btn btn-primary text-uppercase">Shop Now</a>
                             </div>
                         </div>
                     </div>
@@ -405,7 +405,7 @@
                         <span class="category">Best Seller</span>
                         <span class="title">Puma
                                  <br>Facemask</span>
-                        <a href="shop-left-sidebar.html" class="shop-link btn btn-primary text-uppercase">Shop
+                        <a href="shop-left-sidebar.jsp" class="shop-link btn btn-primary text-uppercase">Shop
                             Now</a>
                     </div>
                 </div>
@@ -415,7 +415,7 @@
                         <span class="category">Best Seller</span>
                         <span class="title">Adidas
                                 <br>Yoga carpet</span>
-                        <a href="shop-left-sidebar.html" class="shop-link btn btn-primary text-uppercase">Shop
+                        <a href="shop-left-sidebar.jsp" class="shop-link btn btn-primary text-uppercase">Shop
                             Now</a>
                     </div>
                 </div>
@@ -501,7 +501,7 @@
                                     <!-- Single Prodect -->
                                     <div class="product">
                                         <div class="thumb">
-                                            <a href="single-product.html" class="image">
+                                            <a href="single-product.jsp" class="image">
                                                 <img src="<c:url value='${item.image}'/> " alt="Product" />
                                                 <img class="hover-image" src="<c:url value='${item.image}'/> "
                                                      alt="Product" />
@@ -534,7 +534,7 @@
                                                 </span>
                                                 <span class="rating-num">( 5 Review )</span>
                                             </span>
-                                            <h5 class="title"><a href="single-product.html"><c:out value="${item.name}"/>
+                                            <h5 class="title"><a href="single-product.jsp"><c:out value="${item.name}"/>
                                             </a>
                                             </h5>
                                             <span class="price">
@@ -562,7 +562,7 @@
                                     <!-- Single Prodect -->
                                     <div class="product">
                                         <div class="thumb">
-                                            <a href="single-product.html" class="image">
+                                            <a href="single-product.jsp" class="image">
                                                 <img src="<c:url value='${item.image}'/> " alt="Product" />
                                                 <img class="hover-image" src="<c:url value='${item.image}'/> "
                                                      alt="Product" />
@@ -591,7 +591,7 @@
                                                 </span>
                                                 <span class="rating-num">( 5 Review )</span>
                                             </span>
-                                            <h5 class="title"><a href="single-product.html"><c:out value="${item.name}"/>
+                                            <h5 class="title"><a href="single-product.jsp"><c:out value="${item.name}"/>
                                             </a>
                                             </h5>
                                             <span class="price">
@@ -618,7 +618,7 @@
                                     <!-- Single Prodect -->
                                     <div class="product">
                                         <div class="thumb">
-                                            <a href="single-product.html" class="image">
+                                            <a href="single-product.jsp" class="image">
                                                 <img src="<c:url value='${item.image}'/> " alt="Product" />
                                                 <img class="hover-image" src="<c:url value='${item.image}'/> "
                                                      alt="Product" />
@@ -647,7 +647,7 @@
                                                 </span>
                                                 <span class="rating-num">( 5 Review )</span>
                                             </span>
-                                            <h5 class="title"><a href="single-product.html"><c:out value="${item.name}"/>
+                                            <h5 class="title"><a href="single-product.jsp"><c:out value="${item.name}"/>
                                             </a>
                                             </h5>
                                             <span class="price">
@@ -674,7 +674,7 @@
                                     <!-- Single Prodect -->
                                     <div class="product">
                                         <div class="thumb">
-                                            <a href="single-product.html" class="image">
+                                            <a href="single-product.jsp" class="image">
                                                 <img src="<c:url value='${item.image}'/> " alt="Product" />
                                                 <img class="hover-image" src="<c:url value='${item.image}'/> "
                                                      alt="Product" />
@@ -703,7 +703,7 @@
                                                 </span>
                                                 <span class="rating-num">( 5 Review )</span>
                                             </span>
-                                            <h5 class="title"><a href="single-product.html"><c:out value="${item.name}"/>
+                                            <h5 class="title"><a href="single-product.jsp"><c:out value="${item.name}"/>
                                             </a>
                                             </h5>
                                             <span class="price">
@@ -729,7 +729,7 @@
                                     <!-- Single Prodect -->
                                     <div class="product">
                                         <div class="thumb">
-                                            <a href="single-product.html" class="image">
+                                            <a href="single-product.jsp" class="image">
                                                 <img src="<c:url value='${item.image}'/> " alt="Product" />
                                                 <img class="hover-image" src="<c:url value='${item.image}'/> "
                                                      alt="Product" />
@@ -758,7 +758,7 @@
                                                 </span>
                                                 <span class="rating-num">( 5 Review )</span>
                                             </span>
-                                            <h5 class="title"><a href="single-product.html"><c:out value="${item.name}"/>
+                                            <h5 class="title"><a href="single-product.jsp"><c:out value="${item.name}"/>
                                             </a>
                                             </h5>
                                             <span class="price">
@@ -794,7 +794,7 @@
                         <span class="category">Sale</span>
                         <span class="title">Basketball<br>
                                 & Items</span>
-                        <a href="shop-left-sidebar.html" class="shop-link btn btn-primary text-uppercase">Shop
+                        <a href="shop-left-sidebar.jsp" class="shop-link btn btn-primary text-uppercase">Shop
                             Now</a>
                     </div>
                 </div>
@@ -806,7 +806,7 @@
                         <span class="category">Sale</span>
                         <span class="title">Tennis<br>
                                 & Items</span>
-                        <a href="shop-left-sidebar.html" class="shop-link btn btn-primary text-uppercase">Shop
+                        <a href="shop-left-sidebar.jsp" class="shop-link btn btn-primary text-uppercase">Shop
                             Now</a>
                     </div>
                 </div>
@@ -845,7 +845,7 @@
                                     <!-- Single Prodect -->
                                     <div class="product">
                                         <div class="thumb">
-                                            <a href="single-product.html" class="image">
+                                            <a href="single-product.jsp" class="image">
                                                 <img src="<c:url value='${item.image}'/>" alt="Product" />
                                                 <img class="hover-image" src="<c:url value='${item.image}'/>"
                                                      alt="Product" />
@@ -871,7 +871,7 @@
                                                     </span>
                                                     <span class="rating-num">( 5 Review )</span>
                                                 </span>
-                                            <h5 class="title"><a href="single-product.html"><c:out value="${item.name}"/>
+                                            <h5 class="title"><a href="single-product.jsp"><c:out value="${item.name}"/>
                                             </a>
                                             </h5>
                                             <span class="price">
@@ -906,7 +906,7 @@
                                         <!-- Single Prodect -->
                                         <div class="product">
                                             <div class="thumb">
-                                                <a href="single-product.html" class="image">
+                                                <a href="single-product.jsp" class="image">
                                                     <img src="<c:url value='${item.image}'/>" alt="Product" />
                                                     <img class="hover-image" src="<c:url value='${item.image}'/>"
                                                          alt="Product" />
@@ -940,7 +940,7 @@
                                                     </span>
                                                     <span class="rating-num">( 5 Review )</span>
                                                 </span>
-                                                <h5 class="title"><a href="single-product.html"><c:out value="${item.name}"/>
+                                                <h5 class="title"><a href="single-product.jsp"><c:out value="${item.name}"/>
                                                 </a>
                                                 </h5>
                                                 <span class="price">
@@ -976,7 +976,7 @@
                                     <!-- Single Prodect -->
                                     <div class="product">
                                         <div class="thumb">
-                                            <a href="single-product.html" class="image">
+                                            <a href="single-product.jsp" class="image">
                                                 <img src="assets/images/product-image/9.jpg" alt="Product" />
                                                 <img class="hover-image" src="assets/images/product-image/9.jpg"
                                                      alt="Product" />
@@ -1001,7 +1001,7 @@
                                                     </span>
                                                     <span class="rating-num">( 5 Review )</span>
                                                 </span>
-                                            <h5 class="title"><a href="single-product.html">Aggies Premier Home Jersey
+                                            <h5 class="title"><a href="single-product.jsp">Aggies Premier Home Jersey
                                             </a>
                                             </h5>
                                             <span class="price">
@@ -1016,7 +1016,7 @@
                                     <!-- Single Prodect -->
                                     <div class="product">
                                         <div class="thumb">
-                                            <a href="single-product.html" class="image">
+                                            <a href="single-product.jsp" class="image">
                                                 <img src="assets/images/product-image/10.jpg" alt="Product" />
                                                 <img class="hover-image" src="assets/images/product-image/10.jpg"
                                                      alt="Product" />
@@ -1042,7 +1042,7 @@
                                                     </span>
                                                     <span class="rating-num">( 5 Review )</span>
                                                 </span>
-                                            <h5 class="title"><a href="single-product.html">Bulldogs Home Jersey
+                                            <h5 class="title"><a href="single-product.jsp">Bulldogs Home Jersey
                                             </a>
                                             </h5>
                                             <span class="price">
@@ -1059,7 +1059,7 @@
                                     <!-- Single Prodect -->
                                     <div class="product">
                                         <div class="thumb">
-                                            <a href="single-product.html" class="image">
+                                            <a href="single-product.jsp" class="image">
                                                 <img src="assets/images/product-image/11.jpg" alt="Product" />
                                                 <img class="hover-image" src="assets/images/product-image/11.jpg"
                                                      alt="Product" />
@@ -1084,7 +1084,7 @@
                                                     </span>
                                                     <span class="rating-num">( 5 Review )</span>
                                                 </span>
-                                            <h5 class="title"><a href="single-product.html">Washington ’91 Throwback Jersey
+                                            <h5 class="title"><a href="single-product.jsp">Washington ’91 Throwback Jersey
                                             </a>
                                             </h5>
                                             <span class="price">
@@ -1099,7 +1099,7 @@
                                     <!-- Single Prodect -->
                                     <div class="product">
                                         <div class="thumb">
-                                            <a href="single-product.html" class="image">
+                                            <a href="single-product.jsp" class="image">
                                                 <img src="assets/images/product-image/12.jpg" alt="Product" />
                                                 <img class="hover-image" src="assets/images/product-image/12.jpg"
                                                      alt="Product" />
@@ -1124,7 +1124,7 @@
                                                     </span>
                                                     <span class="rating-num">( 5 Review )</span>
                                                 </span>
-                                            <h5 class="title"><a href="single-product.html">Kansas Hail to old KU Jersey
+                                            <h5 class="title"><a href="single-product.jsp">Kansas Hail to old KU Jersey
                                             </a>
                                             </h5>
                                             <span class="price">
@@ -1141,7 +1141,7 @@
                                     <!-- Single Prodect -->
                                     <div class="product">
                                         <div class="thumb">
-                                            <a href="single-product.html" class="image">
+                                            <a href="single-product.jsp" class="image">
                                                 <img src="assets/images/product-image/6.jpg" alt="Product" />
                                                 <img class="hover-image" src="assets/images/product-image/6.jpg"
                                                      alt="Product" />
@@ -1165,7 +1165,7 @@
                                                     </span>
                                                     <span class="rating-num">( 5 Review )</span>
                                                 </span>
-                                            <h5 class="title"><a href="single-product.html">Blue Version Seefeld Track Pants
+                                            <h5 class="title"><a href="single-product.jsp">Blue Version Seefeld Track Pants
                                             </a>
                                             </h5>
                                             <span class="price">
@@ -1180,7 +1180,7 @@
                                     <!-- Single Prodect -->
                                     <div class="product">
                                         <div class="thumb">
-                                            <a href="single-product.html" class="image">
+                                            <a href="single-product.jsp" class="image">
                                                 <img src="assets/images/product-image/7.jpg" alt="Product" />
                                                 <img class="hover-image" src="assets/images/product-image/7.jpg"
                                                      alt="Product" />
@@ -1205,7 +1205,7 @@
                                                     </span>
                                                     <span class="rating-num">( 5 Review )</span>
                                                 </span>
-                                            <h5 class="title"><a href="single-product.html">Tiro Winterized Jacket
+                                            <h5 class="title"><a href="single-product.jsp">Tiro Winterized Jacket
                                             </a>
                                             </h5>
                                             <span class="price">
@@ -1234,7 +1234,7 @@
                                     <!-- Single Prodect -->
                                     <div class="product">
                                         <div class="thumb">
-                                            <a href="single-product.html" class="image">
+                                            <a href="single-product.jsp" class="image">
                                                 <img src="assets/images/product-image/9.jpg" alt="Product" />
                                                 <img class="hover-image" src="assets/images/product-image/9.jpg"
                                                      alt="Product" />
@@ -1259,7 +1259,7 @@
                                                     </span>
                                                     <span class="rating-num">( 5 Review )</span>
                                                 </span>
-                                            <h5 class="title"><a href="single-product.html">Aggies Premier Home Jersey
+                                            <h5 class="title"><a href="single-product.jsp">Aggies Premier Home Jersey
                                             </a>
                                             </h5>
                                             <span class="price">
@@ -1274,7 +1274,7 @@
                                     <!-- Single Prodect -->
                                     <div class="product">
                                         <div class="thumb">
-                                            <a href="single-product.html" class="image">
+                                            <a href="single-product.jsp" class="image">
                                                 <img src="assets/images/product-image/10.jpg" alt="Product" />
                                                 <img class="hover-image" src="assets/images/product-image/10.jpg"
                                                      alt="Product" />
@@ -1300,7 +1300,7 @@
                                                     </span>
                                                     <span class="rating-num">( 5 Review )</span>
                                                 </span>
-                                            <h5 class="title"><a href="single-product.html">Bulldogs Home Jersey
+                                            <h5 class="title"><a href="single-product.jsp">Bulldogs Home Jersey
                                             </a>
                                             </h5>
                                             <span class="price">
@@ -1317,7 +1317,7 @@
                                     <!-- Single Prodect -->
                                     <div class="product">
                                         <div class="thumb">
-                                            <a href="single-product.html" class="image">
+                                            <a href="single-product.jsp" class="image">
                                                 <img src="assets/images/product-image/11.jpg" alt="Product" />
                                                 <img class="hover-image" src="assets/images/product-image/11.jpg"
                                                      alt="Product" />
@@ -1342,7 +1342,7 @@
                                                     </span>
                                                     <span class="rating-num">( 5 Review )</span>
                                                 </span>
-                                            <h5 class="title"><a href="single-product.html">Washington ’91 Throwback Jersey
+                                            <h5 class="title"><a href="single-product.jsp">Washington ’91 Throwback Jersey
                                             </a>
                                             </h5>
                                             <span class="price">
@@ -1357,7 +1357,7 @@
                                     <!-- Single Prodect -->
                                     <div class="product">
                                         <div class="thumb">
-                                            <a href="single-product.html" class="image">
+                                            <a href="single-product.jsp" class="image">
                                                 <img src="assets/images/product-image/12.jpg" alt="Product" />
                                                 <img class="hover-image" src="assets/images/product-image/12.jpg"
                                                      alt="Product" />
@@ -1382,7 +1382,7 @@
                                                     </span>
                                                     <span class="rating-num">( 5 Review )</span>
                                                 </span>
-                                            <h5 class="title"><a href="single-product.html">Kansas Hail to old KU Jersey
+                                            <h5 class="title"><a href="single-product.jsp">Kansas Hail to old KU Jersey
                                             </a>
                                             </h5>
                                             <span class="price">
@@ -1399,7 +1399,7 @@
                                     <!-- Single Prodect -->
                                     <div class="product">
                                         <div class="thumb">
-                                            <a href="single-product.html" class="image">
+                                            <a href="single-product.jsp" class="image">
                                                 <img src="assets/images/product-image/6.jpg" alt="Product" />
                                                 <img class="hover-image" src="assets/images/product-image/6.jpg"
                                                      alt="Product" />
@@ -1423,7 +1423,7 @@
                                                     </span>
                                                     <span class="rating-num">( 5 Review )</span>
                                                 </span>
-                                            <h5 class="title"><a href="single-product.html"> Blue Version Seefeld Track Pants
+                                            <h5 class="title"><a href="single-product.jsp"> Blue Version Seefeld Track Pants
                                             </a>
                                             </h5>
                                             <span class="price">
@@ -1438,7 +1438,7 @@
                                     <!-- Single Prodect -->
                                     <div class="product">
                                         <div class="thumb">
-                                            <a href="single-product.html" class="image">
+                                            <a href="single-product.jsp" class="image">
                                                 <img src="assets/images/product-image/7.jpg" alt="Product" />
                                                 <img class="hover-image" src="assets/images/product-image/7.jpg"
                                                      alt="Product" />
@@ -1463,7 +1463,7 @@
                                                     </span>
                                                     <span class="rating-num">( 5 Review )</span>
                                                 </span>
-                                            <h5 class="title"><a href="single-product.html">Tiro Winterized Jacket
+                                            <h5 class="title"><a href="single-product.jsp">Tiro Winterized Jacket
                                             </a>
                                             </h5>
                                             <span class="price">
@@ -1492,7 +1492,7 @@
                                     <!-- Single Prodect -->
                                     <div class="product">
                                         <div class="thumb">
-                                            <a href="single-product.html" class="image">
+                                            <a href="single-product.jsp" class="image">
                                                 <img src="assets/images/product-image/9.jpg" alt="Product" />
                                                 <img class="hover-image" src="assets/images/product-image/9.jpg"
                                                      alt="Product" />
@@ -1517,7 +1517,7 @@
                                                     </span>
                                                     <span class="rating-num">( 5 Review )</span>
                                                 </span>
-                                            <h5 class="title"><a href="single-product.html">Aggies Premier Home Jersey
+                                            <h5 class="title"><a href="single-product.jsp">Aggies Premier Home Jersey
                                             </a>
                                             </h5>
                                             <span class="price">
@@ -1532,7 +1532,7 @@
                                     <!-- Single Prodect -->
                                     <div class="product">
                                         <div class="thumb">
-                                            <a href="single-product.html" class="image">
+                                            <a href="single-product.jsp" class="image">
                                                 <img src="assets/images/product-image/10.jpg" alt="Product" />
                                                 <img class="hover-image" src="assets/images/product-image/10.jpg"
                                                      alt="Product" />
@@ -1558,7 +1558,7 @@
                                                     </span>
                                                     <span class="rating-num">( 5 Review )</span>
                                                 </span>
-                                            <h5 class="title"><a href="single-product.html">Bulldogs Home Jersey
+                                            <h5 class="title"><a href="single-product.jsp">Bulldogs Home Jersey
                                             </a>
                                             </h5>
                                             <span class="price">
@@ -1575,7 +1575,7 @@
                                     <!-- Single Prodect -->
                                     <div class="product">
                                         <div class="thumb">
-                                            <a href="single-product.html" class="image">
+                                            <a href="single-product.jsp" class="image">
                                                 <img src="assets/images/product-image/11.jpg" alt="Product" />
                                                 <img class="hover-image" src="assets/images/product-image/11.jpg"
                                                      alt="Product" />
@@ -1600,7 +1600,7 @@
                                                     </span>
                                                     <span class="rating-num">( 5 Review )</span>
                                                 </span>
-                                            <h5 class="title"><a href="single-product.html">Washington ’91 Throwback Jersey
+                                            <h5 class="title"><a href="single-product.jsp">Washington ’91 Throwback Jersey
                                             </a>
                                             </h5>
                                             <span class="price">
@@ -1615,7 +1615,7 @@
                                     <!-- Single Prodect -->
                                     <div class="product">
                                         <div class="thumb">
-                                            <a href="single-product.html" class="image">
+                                            <a href="single-product.jsp" class="image">
                                                 <img src="assets/images/product-image/12.jpg" alt="Product" />
                                                 <img class="hover-image" src="assets/images/product-image/12.jpg"
                                                      alt="Product" />
@@ -1640,7 +1640,7 @@
                                                     </span>
                                                     <span class="rating-num">( 5 Review )</span>
                                                 </span>
-                                            <h5 class="title"><a href="single-product.html">Kansas Hail to old KU Jersey
+                                            <h5 class="title"><a href="single-product.jsp">Kansas Hail to old KU Jersey
                                             </a>
                                             </h5>
                                             <span class="price">
@@ -1657,7 +1657,7 @@
                                     <!-- Single Prodect -->
                                     <div class="product">
                                         <div class="thumb">
-                                            <a href="single-product.html" class="image">
+                                            <a href="single-product.jsp" class="image">
                                                 <img src="assets/images/product-image/6.jpg" alt="Product" />
                                                 <img class="hover-image" src="assets/images/product-image/6.jpg"
                                                      alt="Product" />
@@ -1681,7 +1681,7 @@
                                                     </span>
                                                     <span class="rating-num">( 5 Review )</span>
                                                 </span>
-                                            <h5 class="title"><a href="single-product.html">Blue Version Seefeld Track Pants
+                                            <h5 class="title"><a href="single-product.jsp">Blue Version Seefeld Track Pants
                                             </a>
                                             </h5>
                                             <span class="price">
@@ -1696,7 +1696,7 @@
                                     <!-- Single Prodect -->
                                     <div class="product">
                                         <div class="thumb">
-                                            <a href="single-product.html" class="image">
+                                            <a href="single-product.jsp" class="image">
                                                 <img src="assets/images/product-image/7.jpg" alt="Product" />
                                                 <img class="hover-image" src="assets/images/product-image/7.jpg"
                                                      alt="Product" />
@@ -1721,7 +1721,7 @@
                                                     </span>
                                                     <span class="rating-num">( 5 Review )</span>
                                                 </span>
-                                            <h5 class="title"><a href="single-product.html">Tiro Winterized Jacket
+                                            <h5 class="title"><a href="single-product.jsp">Tiro Winterized Jacket
                                             </a>
                                             </h5>
                                             <span class="price">
@@ -1750,7 +1750,7 @@
                                     <!-- Single Prodect -->
                                     <div class="product">
                                         <div class="thumb">
-                                            <a href="single-product.html" class="image">
+                                            <a href="single-product.jsp" class="image">
                                                 <img src="assets/images/product-image/9.jpg" alt="Product" />
                                                 <img class="hover-image" src="assets/images/product-image/9.jpg"
                                                      alt="Product" />
@@ -1775,7 +1775,7 @@
                                                     </span>
                                                     <span class="rating-num">( 5 Review )</span>
                                                 </span>
-                                            <h5 class="title"><a href="single-product.html">Aggies Premier Home Jersey
+                                            <h5 class="title"><a href="single-product.jsp">Aggies Premier Home Jersey
                                             </a>
                                             </h5>
                                             <span class="price">
@@ -1790,7 +1790,7 @@
                                     <!-- Single Prodect -->
                                     <div class="product">
                                         <div class="thumb">
-                                            <a href="single-product.html" class="image">
+                                            <a href="single-product.jsp" class="image">
                                                 <img src="assets/images/product-image/10.jpg" alt="Product" />
                                                 <img class="hover-image" src="assets/images/product-image/10.jpg"
                                                      alt="Product" />
@@ -1816,7 +1816,7 @@
                                                     </span>
                                                     <span class="rating-num">( 5 Review )</span>
                                                 </span>
-                                            <h5 class="title"><a href="single-product.html"> Bulldogs Home Jersey
+                                            <h5 class="title"><a href="single-product.jsp"> Bulldogs Home Jersey
                                             </a>
                                             </h5>
                                             <span class="price">
@@ -1833,7 +1833,7 @@
                                     <!-- Single Prodect -->
                                     <div class="product">
                                         <div class="thumb">
-                                            <a href="single-product.html" class="image">
+                                            <a href="single-product.jsp" class="image">
                                                 <img src="assets/images/product-image/11.jpg" alt="Product" />
                                                 <img class="hover-image" src="assets/images/product-image/11.jpg"
                                                      alt="Product" />
@@ -1858,7 +1858,7 @@
                                                     </span>
                                                     <span class="rating-num">( 5 Review )</span>
                                                 </span>
-                                            <h5 class="title"><a href="single-product.html"> Washington ’91 Throwback Jersey
+                                            <h5 class="title"><a href="single-product.jsp"> Washington ’91 Throwback Jersey
                                             </a>
                                             </h5>
                                             <span class="price">
@@ -1873,7 +1873,7 @@
                                     <!-- Single Prodect -->
                                     <div class="product">
                                         <div class="thumb">
-                                            <a href="single-product.html" class="image">
+                                            <a href="single-product.jsp" class="image">
                                                 <img src="assets/images/product-image/12.jpg" alt="Product" />
                                                 <img class="hover-image" src="assets/images/product-image/12.jpg"
                                                      alt="Product" />
@@ -1898,7 +1898,7 @@
                                                     </span>
                                                     <span class="rating-num">( 5 Review )</span>
                                                 </span>
-                                            <h5 class="title"><a href="single-product.html">Kansas Hail to old KU Jersey
+                                            <h5 class="title"><a href="single-product.jsp">Kansas Hail to old KU Jersey
                                             </a>
                                             </h5>
                                             <span class="price">
@@ -1915,7 +1915,7 @@
                                     <!-- Single Prodect -->
                                     <div class="product">
                                         <div class="thumb">
-                                            <a href="single-product.html" class="image">
+                                            <a href="single-product.jsp" class="image">
                                                 <img src="assets/images/product-image/6.jpg" alt="Product" />
                                                 <img class="hover-image" src="assets/images/product-image/6.jpg"
                                                      alt="Product" />
@@ -1939,7 +1939,7 @@
                                                     </span>
                                                     <span class="rating-num">( 5 Review )</span>
                                                 </span>
-                                            <h5 class="title"><a href="single-product.html">Blue Version Seefeld Track Pants
+                                            <h5 class="title"><a href="single-product.jsp">Blue Version Seefeld Track Pants
                                             </a>
                                             </h5>
                                             <span class="price">
@@ -1954,7 +1954,7 @@
                                     <!-- Single Prodect -->
                                     <div class="product">
                                         <div class="thumb">
-                                            <a href="single-product.html" class="image">
+                                            <a href="single-product.jsp" class="image">
                                                 <img src="assets/images/product-image/7.jpg" alt="Product" />
                                                 <img class="hover-image" src="assets/images/product-image/7.jpg"
                                                      alt="Product" />
@@ -1979,7 +1979,7 @@
                                                     </span>
                                                     <span class="rating-num">( 5 Review )</span>
                                                 </span>
-                                            <h5 class="title"><a href="single-product.html">Tiro Winterized Jacket
+                                            <h5 class="title"><a href="single-product.jsp">Tiro Winterized Jacket
                                             </a>
                                             </h5>
                                             <span class="price">
@@ -2020,7 +2020,7 @@
                         <span class="category">Best Seller</span>
                         <span class="title">Castelli Jacket
                                 </span>
-                        <a href="shop-left-sidebar.html" class="shop-link btn btn-primary text-uppercase">Shop
+                        <a href="shop-left-sidebar.jsp" class="shop-link btn btn-primary text-uppercase">Shop
                             Now</a>
                     </div>
                 </div>
@@ -2032,7 +2032,7 @@
                         <span class="category">Best Seller</span>
                         <span class="title">Get up bag<br>
                                 & Offer 2021</span>
-                        <a href="shop-left-sidebar.html" class="shop-link btn btn-primary text-uppercase">Shop
+                        <a href="shop-left-sidebar.jsp" class="shop-link btn btn-primary text-uppercase">Shop
                             Now</a>
                     </div>
                 </div>
@@ -2044,7 +2044,7 @@
                         <span class="category">Best Seller</span>
                         <span class="title">Brisker Long Gloves
                                 </span>
-                        <a href="shop-left-sidebar.html" class="shop-link btn btn-primary text-uppercase">Shop
+                        <a href="shop-left-sidebar.jsp" class="shop-link btn btn-primary text-uppercase">Shop
                             Now</a>
                     </div>
                 </div>
@@ -2196,7 +2196,7 @@
                                     <ul class="align-items-center">
                                         <li class="li"><a class="single-link" href="about.jsp">About us</a></li>
                                         <li class="li"><a class="single-link" href="#">Delivery information</a></li>
-                                        <li class="li"><a class="single-link" href="privacy-policy.html">Privacy
+                                        <li class="li"><a class="single-link" href="privacy-policy.jsp">Privacy
                                             Policy</a></li>
                                         <li class="li"><a class="single-link" href="#">Sales</a></li>
                                         <li class="li"><a class="single-link" href="#">Terms & Conditions</a></li>
@@ -2220,7 +2220,7 @@
                                         <li class="li"><a class="single-link" href="cart.jsp">My orders</a></li>
                                         <li class="li"><a class="single-link" href="#">Returns</a></li>
                                         <li class="li"><a class="single-link"
-                                                          href="shop-left-sidebar.html">Shipping</a></li>
+                                                          href="shop-left-sidebar.jsp">Shipping</a></li>
                                         <li class="li"><a class="single-link" href="wishlist.jsp">Wishlist</a></li>
                                         <li class="li"><a class="single-link" href="#">How Does It Work</a></li>
                                         <li class="li"><a class="single-link" href="#">Merchant Sign Up</a></li>
@@ -2244,7 +2244,7 @@
                                         <li class="li"><a class="single-link" href="#">Latest products</a></li>
                                         <li class="li"><a class="single-link" href="#">Sale</a></li>
                                         <li class="li"><a class="single-link" href="#">All Collection</a></li>
-                                        <li class="li"><a class="single-link" href="contact.html">Contact Us</a>
+                                        <li class="li"><a class="single-link" href="contact.jsp">Contact Us</a>
                                         </li>
                                     </ul>
                                 </div>

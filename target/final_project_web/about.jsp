@@ -79,8 +79,8 @@
                                             <ul class="d-block">
                                                 <li class="title"><a href="#">Related Shop Pages</a></li>
                                                 <li><a href="my-account.html">Account Page</a></li>
-                                                <li><a href="login.html">Login & Register Page</a></li>
-                                                <li><a href="empty-cart.html">Empty Cart Page</a></li>
+                                                <li><a href="login.jsp">Login & Register Page</a></li>
+                                                <li><a href="empty-cart.jsp">Empty Cart Page</a></li>
                                                 <li><a href="thank-you-page.html">Thank You Page</a></li>
                                             </ul>
                                             
@@ -129,7 +129,7 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="contact.jsp">Contact</a></li>
                             </ul>
                         </div>
                     </div>
@@ -145,9 +145,13 @@
                                 <button class="dropdown-toggle header-action-btn" data-bs-toggle="dropdown"><i
                                         class="pe-7s-users"></i></button>
                                 <ul class="dropdown-menu dropdown-menu-right">
-                                    <li><a class="dropdown-item" href="my-account.html">My account</a></li>
-                                    <li><a class="dropdown-item" href="checkout.jsp">Checkout</a></li>
-                                    <li><a class="dropdown-item" href="login.html">Sign in</a></li>
+                                    <c:if test="${empty sessionScope.Account}">
+                                        <li><a class="dropdown-item" href="LoginController">Sign in</a></li>
+                                        <li><a class="dropdown-item" href="RegisterController">Register</a></li>
+                                    </c:if>
+                                    <c:if test="${!empty sessionScope.Account}">
+                                        <li><a class="dropdown-item" href="SignOutController">Sign Out</a></li>
+                                    </c:if>
                                 </ul>
                             </div>
                             <!-- Single Wedge Start -->
@@ -201,7 +205,7 @@
             </div>
             <div class="foot">
                 <div class="buttons">
-                    <a href="wishlist.jsp" class="btn btn-dark btn-hover-primary mt-30px">view wishlist</a>
+                    <a href="WishlistController" class="btn btn-dark btn-hover-primary mt-30px">view wishlist</a>
                 </div>
             </div>
         </div>
@@ -232,8 +236,8 @@
             </div>
             <div class="foot">
                 <div class="buttons mt-30px">
-                    <a href="cart.jsp" class="btn btn-dark btn-hover-primary mb-30px">view cart</a>
-                    <a href="checkout.jsp" class="btn btn-outline-dark current-btn">checkout</a>
+                    <a href="CartController" class="btn btn-dark btn-hover-primary mb-30px">view cart</a>
+                    <a href="CheckoutController" class="btn btn-dark btn-outline-dark current-btn">checkout</a>
                 </div>
             </div>
         </div>
@@ -279,8 +283,8 @@
                                 <a href="#"><span class="menu-text">Related Shop Page</span></a>
                                 <ul class="sub-menu">
                                     <li><a href="my-account.html">Account Page</a></li>
-                                    <li><a href="login.html">Login & Register Page</a></li>
-                                    <li><a href="empty-cart.html">Empty Cart Page</a></li>
+                                    <li><a href="login.jsp">Login & Register Page</a></li>
+                                    <li><a href="empty-cart.jsp">Empty Cart Page</a></li>
                                     <li><a href="thank-you-page.html">Thank You Page</a></li>
                                 </ul>
                             </li>
@@ -329,11 +333,11 @@
                         </ul>
                     </li>
                     
-                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="contact.jsp">Contact Us</a></li>
                 </ul>
             </li>
                     
-                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="contact.jsp">Contact Us</a></li>
                 </ul>
             </div>
             <!-- OffCanvas Menu End -->
@@ -741,7 +745,7 @@
                                             <li class="li"><a class="single-link" href="#">Latest products</a></li>
                                             <li class="li"><a class="single-link" href="#">Sale</a></li>
                                             <li class="li"><a class="single-link" href="#">All Collection</a></li>
-                                            <li class="li"><a class="single-link" href="contact.html">Contact Us</a>
+                                            <li class="li"><a class="single-link" href="contact.jsp">Contact Us</a>
                                             </li>
                                         </ul>
                                     </div>

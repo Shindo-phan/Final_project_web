@@ -45,7 +45,7 @@
                 <div class="row">
                     <div class="col-auto align-self-center">
                         <div class="header-logo">
-                            <a href="./"><img src="assets/images/logo/logo.png" alt="Site Logo" /></a>
+                            <a href="./><img src="assets/images/logo/logo.png" alt="Site Logo" /></a>
                         </div>
                     </div>
                     <div class="col align-self-center d-none d-lg-block">
@@ -61,8 +61,8 @@
                                             <ul class="d-block">
                                                 <li class="title"><a href="#">Inner Pages</a></li>
                                                 <li><a href="404.jsp">404 Page</a></li>
-                                                <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                                                <li><a href="faq.html">Faq Page</a></li>
+                                                <li><a href="privacy-policy.jsp">Privacy Policy</a></li>
+                                                <li><a href="faq.jsp">Faq Page</a></li>
                                                 <li><a href="coming-soon.html">Coming Soon Page</a></li>
                                             </ul>
                                             <ul class="d-block">
@@ -71,15 +71,15 @@
                                                 <li><a href="checkout.jsp">Checkout Page</a></li>
                                                 <li><a href="compare.jsp">Compare Page</a></li>
                                                 <li><a href="wishlist.jsp">Wishlist Page</a></li>
-                                                <li><a href="shop-left-sidebar.html">Shop-left-sidebar Page</a></li>
+                                                <li><a href="shop-left-sidebar.jsp">Shop-left-sidebar Page</a></li>
 
                                             </ul>
                                             <ul class="d-block">
                                                 <li class="title"><a href="#">Related Shop Pages</a></li>
                                                 <li><a href="my-account.html">Account Page</a></li>
-                                                <li><a href="login.html">Login & Register Page</a></li>
-                                                <li><a href="empty-cart.html">Empty Cart Page</a></li>
-                                                <li><a href="thank-you-page.html">Thank You Page</a></li>
+                                                <li><a href="login.jsp">Login & Register Page</a></li>
+                                                <li><a href="empty-cart.jsp">Empty Cart Page</a></li>
+                                                <li><a href="thank-you-page.jsp">Thank You Page</a></li>
                                             </ul>
                                             
                                         </li>
@@ -127,7 +127,7 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="contact.jsp">Contact</a></li>
                             </ul>
                         </div>
                     </div>
@@ -143,9 +143,13 @@
                                 <button class="dropdown-toggle header-action-btn" data-bs-toggle="dropdown"><i
                                         class="pe-7s-users"></i></button>
                                 <ul class="dropdown-menu dropdown-menu-right">
-                                    <li><a class="dropdown-item" href="my-account.html">My account</a></li>
-                                    <li><a class="dropdown-item" href="checkout.jsp">Checkout</a></li>
-                                    <li><a class="dropdown-item" href="login.html">Sign in</a></li>
+                                    <c:if test="${empty sessionScope.Account}">
+                                        <li><a class="dropdown-item" href="LoginController">Sign in</a></li>
+                                        <li><a class="dropdown-item" href="RegisterController">Register</a></li>
+                                    </c:if>
+                                    <c:if test="${!empty sessionScope.Account}">
+                                        <li><a class="dropdown-item" href="SignOutController">Sign Out</a></li>
+                                    </c:if>
                                 </ul>
                             </div>
                             <!-- Single Wedge Start -->
@@ -156,7 +160,9 @@
                             <a href="#offcanvas-cart"
                                 class="header-action-btn header-action-btn-cart offcanvas-toggle pr-0">
                                 <i class="pe-7s-shopbag"></i>
-                                <span class="header-action-num">01</span>
+                                <c:forEach var="item" items="${cart.items}" varStatus="loop">
+                                    <span class="header-action-num"><c:out value="${loop.count}"/></span>
+                                </c:forEach>
                                 <!-- <span class="cart-amount">€30.00</span> -->
                             </a>
                             <a href="#offcanvas-mobile-menu"
@@ -182,33 +188,17 @@
             </div>
             <div class="body customScroll">
                 <ul class="minicart-product-list">
-                    <li>
-                        <a href="single-product.html" class="image"><img src="assets/images/product-image/1.jpg"
-                                alt="Cart product Image"></a>
-                        <div class="content">
-                            <a href="single-product.html" class="title">FC BAYERN 21/22 WIESN JERSEY</a>
-                            <span class="quantity-price">1 x <span class="amount">$95</span></span>
-                            <a href="#" class="remove">×</a>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="single-product.html" class="image"><img src="assets/images/product-image/2.jpg"
-                                alt="Cart product Image"></a>
-                        <div class="content">
-                            <a href="single-product.html" class="title">ADIDAS SPRT LOGO SHORTS</a>
-                            <span class="quantity-price">1 x <span class="amount">$75</span></span>
-                            <a href="#" class="remove">×</a>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="single-product.html" class="image"><img src="assets/images/product-image/3.jpg"
-                                alt="Cart product Image"></a>
-                        <div class="content">
-                            <a href="single-product.html" class="title">TIRO TRACK PANTS</a>
-                            <span class="quantity-price">1 x <span class="amount">$105</span></span>
-                            <a href="#" class="remove">×</a>
-                        </div>
-                    </li>
+                    <c:forEach var="item" items="${wishlist.items}">
+                        <li>
+                            <a href="single-product.jsp" class="image"><img src="<c:url value='${item.product.image}'/>"
+                                                                            alt="Cart product Image"></a>
+                            <div class="content">
+                                <a href="single-product.jsp" class="title"><c:out value="${item.product.name}"/></a>
+                                <span class="quantity-price">${item.quantity} x <span class="amount">${item.product.salePriceCurrencyFormat}</span></span>
+
+                            </div>
+                        </li>
+                    </c:forEach>
                 </ul>
             </div>
             <div class="foot">
@@ -229,39 +219,23 @@
             
             <div class="body customScroll">
                 <ul class="minicart-product-list">
-                    <li>
-                        <a href="single-product.html" class="image"><img src="assets/images/product-image/1.jpg"
-                                alt="Cart product Image"></a>
-                        <div class="content">
-                            <a href="single-product.html" class="title">FC BAYERN 21/22 WIESN JERSEY</a>
-                            <span class="quantity-price">1 x <span class="amount">$95</span></span>
-                            <a href="#" class="remove">×</a>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="single-product.html" class="image"><img src="assets/images/product-image/2.jpg"
-                                alt="Cart product Image"></a>
-                        <div class="content">
-                            <a href="single-product.html" class="title">ADIDAS SPRT LOGO SHORTS</a>
-                            <span class="quantity-price">1 x <span class="amount">$75</span></span>
-                            <a href="#" class="remove">×</a>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="single-product.html" class="image"><img src="assets/images/product-image/3.jpg"
-                                alt="Cart product Image"></a>
-                        <div class="content">
-                            <a href="single-product.html" class="title">TIRO TRACK PANTS</a>
-                            <span class="quantity-price">1 x <span class="amount">$105</span></span>
-                            <a href="#" class="remove">×</a>
-                        </div>
-                    </li>
+                    <c:forEach var="item" items="${cart.items}">
+                        <li>
+                            <a href="single-product.jsp" class="image"><img src="<c:url value='${item.product.image}'/>"
+                                                                            alt="Cart product Image"></a>
+                            <div class="content">
+                                <a href="single-product.jsp" class="title"><c:out value="${item.product.name}"/></a>
+                                <span class="quantity-price">${item.quantity} x <span class="amount">${item.product.salePriceCurrencyFormat}</span></span>
+
+                            </div>
+                        </li>
+                    </c:forEach>
                 </ul>
             </div>
             <div class="foot">
                 <div class="buttons mt-30px">
                     <a href="cart.jsp" class="btn btn-dark btn-hover-primary mb-30px">view cart</a>
-                    <a href="checkout.jsp" class="btn btn-outline-dark current-btn">checkout</a>
+                    <a href="CheckoutController" class="btn btn-dark btn-outline-dark current-btn">checkout</a>
                 </div>
             </div>
         </div>
@@ -287,8 +261,8 @@
                                 <a href="#"><span class="menu-text">Inner Pages</span></a>
                                 <ul class="sub-menu">
                                     <li><a href="404.jsp">404 Page</a></li>
-                                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                                    <li><a href="faq.html">Faq Page</a></li>
+                                    <li><a href="privacy-policy.jsp">Privacy Policy</a></li>
+                                    <li><a href="faq.jsp">Faq Page</a></li>
                                     <li><a href="coming-soon.html">Coming Soon Page</a></li>
                                 </ul>
                             </li>
@@ -299,7 +273,7 @@
                                     <li><a href="checkout.jsp">Checkout Page</a></li>
                                     <li><a href="compare.jsp">Compare Page</a></li>
                                     <li><a href="wishlist.jsp">Wishlist Page</a></li>
-                                    <li><a href="shop-left-sidebar.html">Shop-left-sidebar</a></li>
+                                    <li><a href="shop-left-sidebar.jsp">Shop-left-sidebar</a></li>
 
                                 </ul>
                             </li>
@@ -307,9 +281,9 @@
                                 <a href="#"><span class="menu-text">Related Shop Page</span></a>
                                 <ul class="sub-menu">
                                     <li><a href="my-account.html">Account Page</a></li>
-                                    <li><a href="login.html">Login & Register Page</a></li>
-                                    <li><a href="empty-cart.html">Empty Cart Page</a></li>
-                                    <li><a href="thank-you-page.html">Thank You Page</a></li>
+                                    <li><a href="login.jsp">Login & Register Page</a></li>
+                                    <li><a href="empty-cart.jsp">Empty Cart Page</a></li>
+                                    <li><a href="thank-you-page.jsp">Thank You Page</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -357,7 +331,7 @@
                         </ul>
                     </li>
                     
-                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="contact.jsp">Contact Us</a></li>
                 </ul>
             </div>
             <!-- OffCanvas Menu End -->
@@ -389,11 +363,11 @@
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-12 text-center">
-                    <h2 class="breadcrumb-title">Faq</h2>
+                    <h2 class="breadcrumb-title">Empty Cart</h2>
                     <!-- breadcrumb-list start -->
                     <ul class="breadcrumb-list">
                         <li class="breadcrumb-item"><a href="./">Home</a></li>
-                        <li class="breadcrumb-item active">Faq</li>
+                        <li class="breadcrumb-item active">Cart</li>
                     </ul>
                     <!-- breadcrumb-list end -->
                 </div>
@@ -402,79 +376,27 @@
     </div>
     <!-- breadcrumb-area end -->
 
-
-
-    <!--Faq Policy area start-->
-    <div class="login-register-area pb-100px pt-100px faq-area">
+    <!-- Cart area start -->
+    <div class="empty-cart-area pb-100px pt-100px">
         <div class="container">
             <div class="row">
-                <div class="ml-auto mr-auto col-lg-9">
-                    <div class="checkout-wrapper">
-                        <div class="inner-descripe" data-aos="fade-up" data-aos-delay="200">
-                            <h4 class="title">Below are frequently asked questions, you may find the answer for yourself
-                            </h4>
-                        </div>
-                        <div id="faq" class="panel-group">
-                            <div class="panel panel-default single-my-account" data-aos="fade-up" data-aos-delay="200">
-                                <div class="panel-heading my-account-title">
-                                    <h3 class="panel-title"><span>1 .</span> <a data-bs-toggle="collapse"
-                                            href="#my-account-1" class="collapsed" aria-expanded="true">When is it time to retire my running shoes?</a></h3>
-                                </div>
-                                <div id="my-account-1" class="panel-collapse collapse show" data-bs-parent="#faq">
-                                    <div class="panel-body">
-                                        Between 300 and 500 miles. Why the range? Because how quickly a shoe wears depends on you. If you land hard on your heels with each stride, for example, you’re going to wear through shoes more quickly than more efficient runners do. Keep track of the mileage on your shoes in your training log. And go by feel. If after a normal run your legs feel as if the shoes aren’t providing you adequate protection, they probably aren’t.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="panel panel-default single-my-account" data-aos="fade-up" data-aos-delay="200">
-                                <div class="panel-heading my-account-title">
-                                    <h3 class="panel-title"><span>2 .</span> <a data-bs-toggle="collapse"
-                                            href="#my-account-2" aria-expanded="false" class="collapsed">Does the surface you run on affect how your shoes wear?</a></h3>
-                                </div>
-                                <div id="my-account-2" class="panel-collapse collapse" data-bs-parent="#faq">
-                                    <div class="panel-body">Road running will make your shoes break down faster than trail running, for sure, but the way you run is an even bigger factor. A 200-pound heavy heel-striker who runs exclusively on trails will most likely wear out his shoes well before a 100-pound biomechanically efficient road runner.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="panel panel-default single-my-account" data-aos="fade-up" data-aos-delay="200">
-                                <div class="panel-heading my-account-title">
-                                    <h3 class="panel-title"><span>3 .</span> <a data-bs-toggle="collapse"
-                                            href="#my-account-3">Is it possible that the same pair of shoes (same manufacturer and model) fit differently?</a></h3>
-                                </div>
-                                <div id="my-account-3" class="panel-collapse collapse" data-bs-parent="#faq">
-                                    <div class="panel-body">Yes. Though shoe companies put huge resources into quality control, no two shoes are exactly the same. The same shoe can be made in different factories with different levels of quality control, for example. Our advice: Always try on the shoes.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="panel panel-default single-my-account" data-aos="fade-up" data-aos-delay="200">
-                                <div class="panel-heading my-account-title">
-                                    <h3 class="panel-title"><span>4 .</span> <a data-bs-toggle="collapse"
-                                            href="#my-account-4">Should I wear racing flats for speedwork? Or a marathon?</a></h3>
-                                </div>
-                                <div id="my-account-4" class="panel-collapse collapse" data-bs-parent="#faq">
-                                    <div class="panel-body">With a lower heel than everyday trainers, a thin, airy build, and little outsole tread, racing flats offer as much as you need for race day and nothing more. Runners not used to flats should ease into wearing them. You don’t need to wear a flat for speedwork or a marathon. Wearing regular lightweight trainers, of 11 ounces or less, should serve you just fine.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="panel panel-default single-my-account m-0" data-aos="fade-up"
-                                data-aos-delay="200">
-                                <div class="panel-heading my-account-title">
-                                    <h3 class="panel-title"><span>5 .</span> <a data-bs-toggle="collapse"
-                                            href="#my-account-5">What shoe will best suit what I am training for?</a>
-                                    </h3>
-                                </div>
-                                <div id="my-account-5" class="panel-collapse collapse" data-bs-parent="#faq">
-                                    <div class="panel-body">If you are running 5 km once a week, you do not need to spend an arm and leg on a pair of shoes, and if you are training for a marathon, you’ll want to look for a durable pair. If you purchase a lower quality shoe, odds are, it won’t last you long and you’ll end up throwing the pair out after three weeks of training. You want your pair of shoes to correlate toward what you are training for, and assess all the options.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <div class="col-md-12">
+                    <div class="cart-heading">
+                        <h2>Your cart item</h2>
+                    </div>
+                    <div class="empty-text-contant text-center">
+                        <i class="pe-7s-shopbag"></i>
+                        <h3>There are no more items in your cart</h3>
+                        <a class="empty-cart-btn" href="shop-4-column.html">
+                            <i class="fa fa-arrow-left"> </i> Continue shopping
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!--Faq Policy area end-->
+    <!-- Cart area end -->
+
 
     <div class="newsletter-area ">
         <div class="container line-shape-bottom">
@@ -530,7 +452,7 @@
                                         <ul class="align-items-center">
                                             <li class="li"><a class="single-link" href="about.jsp">About us</a></li>
                                             <li class="li"><a class="single-link" href="#">Delivery information</a></li>
-                                            <li class="li"><a class="single-link" href="privacy-policy.html">Privacy
+                                            <li class="li"><a class="single-link" href="privacy-policy.jsp">Privacy
                                                     Policy</a></li>
                                             <li class="li"><a class="single-link" href="#">Sales</a></li>
                                             <li class="li"><a class="single-link" href="#">Terms & Conditions</a></li>
@@ -554,7 +476,7 @@
                                             <li class="li"><a class="single-link" href="cart.jsp">My orders</a></li>
                                             <li class="li"><a class="single-link" href="#">Returns</a></li>
                                             <li class="li"><a class="single-link"
-                                                    href="shop-left-sidebar.html">Shipping</a></li>
+                                                    href="shop-left-sidebar.jsp">Shipping</a></li>
                                             <li class="li"><a class="single-link" href="wishlist.jsp">Wishlist</a></li>
                                             <li class="li"><a class="single-link" href="#">How Does It Work</a></li>
                                             <li class="li"><a class="single-link" href="#">Merchant Sign Up</a></li>
@@ -578,7 +500,7 @@
                                             <li class="li"><a class="single-link" href="#">Latest products</a></li>
                                             <li class="li"><a class="single-link" href="#">Sale</a></li>
                                             <li class="li"><a class="single-link" href="#">All Collection</a></li>
-                                            <li class="li"><a class="single-link" href="contact.html">Contact Us</a>
+                                            <li class="li"><a class="single-link" href="contact.jsp">Contact Us</a>
                                             </li>
                                         </ul>
                                     </div>
