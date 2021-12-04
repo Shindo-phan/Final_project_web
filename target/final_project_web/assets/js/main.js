@@ -524,3 +524,51 @@ function compareForm() {
     document.getElementById("compareForm").submit();
 }
 
+var requestOptions = {
+    method: 'GET',
+    redirect: 'follow'
+};
+
+fetch("https://provinces.open-api.vn/api/?depth=2", requestOptions)
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        appendData(data);
+    })
+    .then(result => console.log(result))
+    .catch(function (err) {
+        console.log('error: ' + err);
+    });
+
+
+function appendData(data) {
+    var city = document.getElementById("city-select");
+    var district = document.getElementById("district-select");
+    for (var i = 0; i < data.length; i++) {
+        var city_list = document.createElement("option");
+        city_list.innerHTML = data[i].name;
+        city.appendChild(city_list);
+        for (var j = 0; j < data[i].districts.length; j++) {
+            var district_list = document.createElement("option");
+            district_list.innerHTML = data[i].districts[j].name;
+            district.appendChild(district_list);
+        }
+        // console.log(city.options[city.selectedIndex].text);
+    }
+    return city;
+
+}
+
+function FindDistrictsByCity(city) {
+    var e = document.getElementById("city-select");
+    var strCity = e.options[e.selectedIndex].text;
+    var district = document.getElementById("district-select");
+    e.innerHTML=city.find(checkCity);
+    return strCity;
+}
+
+function checkCity(strCity) {
+    
+}
+

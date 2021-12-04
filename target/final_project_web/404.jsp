@@ -47,7 +47,7 @@
                 <div class="row">
                     <div class="col-auto align-self-center">
                         <div class="header-logo">
-                            <a href="index.jsp"><img src="assets/images/logo/logo.png" alt="Site Logo" /></a>
+                            <a href="./"><img src="assets/images/logo/logo.png" alt="Site Logo" /></a>
                         </div>
                     </div>
                     <div class="col align-self-center d-none d-lg-block">
@@ -381,7 +381,7 @@
                     <div class="page-not-found text-center">
                         <h2>Oops!</h2>
                         <p>Sorry,Page Not Found.</p>
-                        <a href="index.jsp">Back To Home <i class="fa fa-home"></i></a>
+                        <a href="./">Back To Home <i class="fa fa-home"></i></a>
                     </div>
                 </div>
             </div>
@@ -484,9 +484,9 @@
                                 <div class="footer-links">
                                     <div class="footer-row">
                                         <ul class="align-items-center">
-                                            <li class="li"><a class="single-link" href="index.jsp">Affiliate</a></li>
+                                            <li class="li"><a class="single-link" href="#">Affiliate</a></li>
                                             <li class="li"><a class="single-link"
-                                                    href="shop-left-sidebar.html">Bestsellers</a></li>
+                                                    href="#">Bestsellers</a></li>
                                             <li class="li"><a class="single-link" href="#">Discount</a></li>
                                             <li class="li"><a class="single-link" href="#">Latest products</a></li>
                                             <li class="li"><a class="single-link" href="#">Sale</a></li>

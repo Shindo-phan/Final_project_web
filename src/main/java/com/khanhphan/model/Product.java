@@ -33,8 +33,6 @@ public class Product {
 		product_code="";
 		price = 0;
 		salePrice = 0;
-
-
 	}
 
 	public Product(int id, String product_name,String image,String product_code, double price,double salePrice) {
@@ -45,8 +43,6 @@ public class Product {
 		this.product_code = product_code;
 		this.price = price;
 		this.salePrice = salePrice;
-
-
 	}
 
 	// id
@@ -85,7 +81,7 @@ public class Product {
 		return this.product_code;
 	}
 
-//	//sale
+	//sale
 	public void setSale(double salePrice) {
 		this.salePrice = salePrice;
 	}

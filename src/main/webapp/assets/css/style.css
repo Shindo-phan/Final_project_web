@@ -3689,6 +3689,15 @@ body.offcanvas-open {
   padding: 0;
   text-align: center;
 }
+td.product-remove a{
+  color: #474747;
+  font-size: 16px;
+  margin: 0 10px;
+}
+
+td.product-remove a:hover{
+  color: #eaaa85;
+}
 .cart-main-area .table-content table tbody > tr td.product-remove {
   width: 100px;
 }
