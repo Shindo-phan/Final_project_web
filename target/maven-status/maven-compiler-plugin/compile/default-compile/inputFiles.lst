@@ -1,4 +1,6 @@
 D:\FOLDER\HOC TAP\HK1(NAM_4) - 2020-2021\Web\demo_05\src\main\java\com\khanhphan\model\User.java
+D:\FOLDER\HOC TAP\HK1(NAM_4) - 2020-2021\Web\demo_05\src\main\java\com\khanhphan\controller\CheckoutController.java
+D:\FOLDER\HOC TAP\HK1(NAM_4) - 2020-2021\Web\demo_05\src\main\java\com\khanhphan\controller\RegisterController.java
 D:\FOLDER\HOC TAP\HK1(NAM_4) - 2020-2021\Web\demo_05\src\main\java\com\khanhphan\model\Product.java
 D:\FOLDER\HOC TAP\HK1(NAM_4) - 2020-2021\Web\demo_05\src\main\java\com\khanhphan\controller\LoginController.java
 D:\FOLDER\HOC TAP\HK1(NAM_4) - 2020-2021\Web\demo_05\src\main\java\com\khanhphan\data\UserDao.java
@@ -6,6 +8,7 @@ D:\FOLDER\HOC TAP\HK1(NAM_4) - 2020-2021\Web\demo_05\src\main\java\com\khanhphan
 D:\FOLDER\HOC TAP\HK1(NAM_4) - 2020-2021\Web\demo_05\src\main\java\com\khanhphan\controller\CompareController.java
 D:\FOLDER\HOC TAP\HK1(NAM_4) - 2020-2021\Web\demo_05\src\main\java\com\khanhphan\data\ProductDAO.java
 D:\FOLDER\HOC TAP\HK1(NAM_4) - 2020-2021\Web\demo_05\src\main\java\com\khanhphan\controller\WishlistController.java
+D:\FOLDER\HOC TAP\HK1(NAM_4) - 2020-2021\Web\demo_05\src\main\java\com\khanhphan\controller\DemoController.java
 D:\FOLDER\HOC TAP\HK1(NAM_4) - 2020-2021\Web\demo_05\src\main\java\com\khanhphan\data\HibernateUtil.java
 D:\FOLDER\HOC TAP\HK1(NAM_4) - 2020-2021\Web\demo_05\src\main\java\com\khanhphan\model\Compare.java
 D:\FOLDER\HOC TAP\HK1(NAM_4) - 2020-2021\Web\demo_05\src\main\java\com\khanhphan\model\Wishlist.java
