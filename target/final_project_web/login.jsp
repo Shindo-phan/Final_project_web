@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
@@ -362,7 +363,7 @@
                 <h2 class="breadcrumb-title">Login & Register</h2>
                 <!-- breadcrumb-list start -->
                 <ul class="breadcrumb-list">
-                    <li class="breadcrumb-item"><a href="index.jsp">Home</a></li>
+                    <li class="breadcrumb-item"><a href="./">Home</a></li>
                     <li class="breadcrumb-item active">Login</li>
                 </ul>
                 <!-- breadcrumb-list end -->
@@ -401,13 +402,15 @@
                                         <div class="button-box">
                                             <div class="login-toggle-btn">
                                                 <input type="checkbox" /> <a class="flote-none"
-                                                                             href="javascript:void(0)">Remember me</a> <a href="#">Forgot
-                                                Password?</a>
+                                                                             href="javascript:void(0)">Remember me</a>
                                             </div>
                                             <button type="submit">Login</button>
                                         </div>
+                                        <a href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/final_project_web/LoginGoogle&response_type=code
+    &client_id=977216685234-30gt0hq6emhg94590bfoe1ggshnl3g7u.apps.googleusercontent.com&approval_prompt=force">Login With Google</a>
                                     </form>
                                 </div>
+
                             </div>
                         </div>
                         <div id="lg2" class="tab-pane">

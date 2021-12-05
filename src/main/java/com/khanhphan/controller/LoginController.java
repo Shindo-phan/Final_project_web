@@ -62,7 +62,6 @@ public class LoginController extends HttpServlet {
                     req.setAttribute("classErrPassword", "errInput");
                 } else {
                     req.getSession().setAttribute("Account", user);
-                   // req.getSession().removeAttribute();
                     String path = req.getContextPath();
                     resp.sendRedirect(path + "/");
                 }
@@ -74,6 +73,5 @@ public class LoginController extends HttpServlet {
 
         }
 
-        //doGet(req, resp);
     }
 }

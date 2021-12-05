@@ -376,7 +376,7 @@
                             <div class="hero-slide-content hero-slide-content-2 slider-animated-1 slider-animated-2 text-start align-self-center pl-80px">
                                 <span class="category">-20% Off</span>
                                 <h2 class="title-1">Sport <br> Store Co.</h2>
-                                <a href="shop-left-sidebar.jsp" class="btn btn-primary text-uppercase">Shop Now</a>
+                                <a href="#" class="btn btn-primary text-uppercase">Shop Now</a>
                             </div>
                         </div>
                         <!-- Single slider item -->
@@ -385,7 +385,7 @@
                             <div class="hero-slide-content hero-slide-content-2 slider-animated-1 slider-animated-2 text-start align-self-center pl-80px">
                                 <span class="category">-20% Off</span>
                                 <h2 class="title-1">Sport <br> Store Co.</h2>
-                                <a href="shop-left-sidebar.jsp" class="btn btn-primary text-uppercase">Shop Now</a>
+                                <a href="#" class="btn btn-primary text-uppercase">Shop Now</a>
                             </div>
                         </div>
                     </div>
@@ -405,7 +405,7 @@
                         <span class="category">Best Seller</span>
                         <span class="title">Puma
                                  <br>Facemask</span>
-                        <a href="shop-left-sidebar.jsp" class="shop-link btn btn-primary text-uppercase">Shop
+                        <a href="#" class="shop-link btn btn-primary text-uppercase">Shop
                             Now</a>
                     </div>
                 </div>
@@ -415,7 +415,7 @@
                         <span class="category">Best Seller</span>
                         <span class="title">Adidas
                                 <br>Yoga carpet</span>
-                        <a href="shop-left-sidebar.jsp" class="shop-link btn btn-primary text-uppercase">Shop
+                        <a href="#" class="shop-link btn btn-primary text-uppercase">Shop
                             Now</a>
                     </div>
                 </div>

@@ -20,9 +20,6 @@ public class CartController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ProductDAO productDao;
 
-    /**
-     * Default constructor. 
-     */
     public CartController() {
         // TODO Auto-generated constructor stub
     	productDao = new ProductDAO();
@@ -71,8 +68,7 @@ public class CartController extends HttpServlet {
 	                quantity = 1;
 	            }
 
-	            // String path = sc.getRealPath("/WEB-INF/products.txt");
-	            // Product product = ProductIO.getProduct(productCode, path);
+
 	            
 	            // JDBC
 	            Product product = null;

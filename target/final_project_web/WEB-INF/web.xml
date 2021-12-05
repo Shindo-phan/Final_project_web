@@ -54,6 +54,12 @@
         <description></description>
         <servlet-class>com.khanhphan.controller.SignOutController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoginGoogle</servlet-name>
+        <display-name>LoginGoogle</display-name>
+        <description></description>
+        <servlet-class>com.khanhphan.controller.LoginGoogle</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern></url-pattern>
@@ -86,13 +92,32 @@
         <servlet-name>SignOutController</servlet-name>
         <url-pattern>/SignOutController</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginGoogle</servlet-name>
+        <url-pattern>/LoginGoogle</url-pattern>
+    </servlet-mapping>
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 
-   <!-- <servlet-mapping>
+    <!-- SMTP settings -->
+    <context-param>
+        <param-name>host</param-name>
+        <param-value>smtp.gmail.com</param-value>
+    </context-param>
 
-        <http-method>POST</http-method>
+    <context-param>
+        <param-name>port</param-name>
+        <param-value>587</param-value>
+    </context-param>
 
-    </servlet-mapping>-->
+    <context-param>
+        <param-name>user</param-name>
+        <param-value>xbotlive.service@gmail.com</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>pass</param-name>
+        <param-value>hcmute123</param-value>
+    </context-param>
 </web-app>

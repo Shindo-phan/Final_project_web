@@ -551,7 +551,7 @@
                             </div>
                         </div>
                         <div class="Place-order mt-25">
-                            <a class="btn-hover" href="#">Place Order</a>
+                            <a class="btn-hover" href="thank-you-page.jsp">Place Order</a>
                         </div>
                     </div>
                 </div>

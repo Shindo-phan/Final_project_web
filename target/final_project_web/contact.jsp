@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -436,25 +437,26 @@
                                 <p>Please enter your informatin </p>
                             </div>
                             <form class="contact-form-style" id="contact-form"
-                                action="assets/php/mail.php" method="post">
+                                action="EmailSendingServlet" method="post">
                                 <div class="row">
                                     <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-                                        <input name="name" placeholder="Name*" type="text" />
+                                        <input name="name" placeholder="Your Name*" type="text required" />
                                     </div>
+<%--                                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">--%>
+<%--                                        <input name="email" placeholder="Your Email*" type="email" />--%>
+<%--                                    </div>--%>
                                     <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-                                        <input name="email" placeholder="Email*" type="email" />
-                                    </div>
-                                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-                                        <input name="subject" placeholder="Subject*" type="text" />
+                                        <input name="subject" placeholder="Subject*" type="text"  required />
                                     </div>
                                     <div class="col-lg-12" data-aos="fade-up" data-aos-delay="200">
-                                        <textarea name="message" placeholder="Your Message*"></textarea>
+                                        <textarea name="message" placeholder="Your Message*" required></textarea>
                                         <button class="btn btn-primary mt-4" data-aos="fade-up" data-aos-delay="200"
-                                            type="submit">Send Message</button>
+                                                type="submit">Send Message</button>
                                     </div>
+
                                 </div>
                             </form>
-                            <p class="form-messege"></p>
+
                         </div>
                     </div>
                 </div>

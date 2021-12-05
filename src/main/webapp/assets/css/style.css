@@ -6042,6 +6042,7 @@ Pages - My Account
   overflow: hidden;
   -webkit-box-shadow: none;
   box-shadow: none;
+
 }
 .btn-primary::before {
   position: absolute;
