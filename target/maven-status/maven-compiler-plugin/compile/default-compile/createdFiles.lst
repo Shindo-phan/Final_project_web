@@ -6,6 +6,7 @@ com\khanhphan\controller\HomeController.class
 com\khanhphan\data\ProductDAO.class
 com\khanhphan\model\Product.class
 com\khanhphan\controller\CompareController.class
+com\khanhphan\controller\SignOutController.class
 com\khanhphan\controller\RegisterController.class
 com\khanhphan\data\HibernateUtil.class
 com\khanhphan\model\Wishlist.class

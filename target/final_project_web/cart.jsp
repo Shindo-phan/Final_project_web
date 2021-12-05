@@ -64,8 +64,8 @@
 										<ul class="d-block">
 											<li class="title"><a href="#">Inner Pages</a></li>
 											<li><a href="404.jsp">404 Page</a></li>
-											<li><a href="privacy-policy.html">Privacy Policy</a></li>
-											<li><a href="faq.html">Faq Page</a></li>
+											<li><a href="privacy-policy.jsp">Privacy Policy</a></li>
+											<li><a href="faq.jsp">Faq Page</a></li>
 											<li><a href="coming-soon.html">Coming Soon Page</a></li>
 										</ul>
 										<ul class="d-block">
@@ -74,7 +74,7 @@
 											<li><a href="checkout.jsp">Checkout Page</a></li>
 											<li><a href="compare.jsp">Compare Page</a></li>
 											<li><a href="wishlist.jsp">Wishlist Page</a></li>
-											<li><a href="shop-left-sidebar.html">Shop-left-sidebar Page</a></li>
+											<li><a href="shop-left-sidebar.jsp">Shop-left-sidebar Page</a></li>
 
 										</ul>
 										<ul class="d-block">
@@ -82,7 +82,7 @@
 											<li><a href="my-account.html">Account Page</a></li>
 											<li><a href="login.jsp">Login & Register Page</a></li>
 											<li><a href="empty-cart.jsp">Empty Cart Page</a></li>
-											<li><a href="thank-you-page.html">Thank You Page</a></li>
+											<li><a href="thank-you-page.jsp">Thank You Page</a></li>
 										</ul>
 
 									</li>
@@ -194,10 +194,10 @@
 			<ul class="minicart-product-list">
 				<c:forEach var="item" items="${wishlist.items}">
 					<li>
-						<a href="single-product.html" class="image"><img src="<c:url value='${item.product.image}'/>"
-																		 alt="Cart product Image"></a>
+						<a href="single-product.jsp" class="image"><img src="<c:url value='${item.product.image}'/>"
+																		alt="Cart product Image"></a>
 						<div class="content">
-							<a href="single-product.html" class="title"><c:out value="${item.product.name}"/></a>
+							<a href="single-product.jsp" class="title"><c:out value="${item.product.name}"/></a>
 							<span class="quantity-price">${item.quantity} x <span class="amount">${item.product.salePriceCurrencyFormat}</span></span>
 
 						</div>
@@ -207,7 +207,7 @@
 		</div>
 		<div class="foot">
 			<div class="buttons">
-				<a href="WishlistController" class="btn btn-dark btn-hover-primary mt-30px">view wishlist</a>
+				<a href="wishlist.jsp" class="btn btn-dark btn-hover-primary mt-30px">view wishlist</a>
 			</div>
 		</div>
 	</div>
@@ -225,10 +225,10 @@
 			<ul class="minicart-product-list">
 				<c:forEach var="item" items="${cart.items}">
 					<li>
-						<a href="single-product.html" class="image"><img src="<c:url value='${item.product.image}'/>"
-																		 alt="Cart product Image"></a>
+						<a href="single-product.jsp" class="image"><img src="<c:url value='${item.product.image}'/>"
+																		alt="Cart product Image"></a>
 						<div class="content">
-							<a href="single-product.html" class="title"><c:out value="${item.product.name}"/></a>
+							<a href="single-product.jsp" class="title"><c:out value="${item.product.name}"/></a>
 							<span class="quantity-price">${item.quantity} x <span class="amount">${item.product.salePriceCurrencyFormat}</span></span>
 
 						</div>
@@ -238,7 +238,7 @@
 		</div>
 		<div class="foot">
 			<div class="buttons mt-30px">
-				<a href="CartController" class="btn btn-dark btn-hover-primary mb-30px">view cart</a>
+				<a href="cart.jsp" class="btn btn-dark btn-hover-primary mb-30px">view cart</a>
 				<a href="CheckoutController" class="btn btn-dark btn-outline-dark current-btn">checkout</a>
 			</div>
 		</div>
@@ -265,8 +265,8 @@
 							<a href="#"><span class="menu-text">Inner Pages</span></a>
 							<ul class="sub-menu">
 								<li><a href="404.jsp">404 Page</a></li>
-								<li><a href="privacy-policy.html">Privacy Policy</a></li>
-								<li><a href="faq.html">Faq Page</a></li>
+								<li><a href="privacy-policy.jsp">Privacy Policy</a></li>
+								<li><a href="faq.jsp">Faq Page</a></li>
 								<li><a href="coming-soon.html">Coming Soon Page</a></li>
 							</ul>
 						</li>
@@ -277,7 +277,7 @@
 								<li><a href="checkout.jsp">Checkout Page</a></li>
 								<li><a href="compare.jsp">Compare Page</a></li>
 								<li><a href="wishlist.jsp">Wishlist Page</a></li>
-								<li><a href="shop-left-sidebar.html">Shop-left-sidebar</a></li>
+								<li><a href="shop-left-sidebar.jsp">Shop-left-sidebar</a></li>
 
 							</ul>
 						</li>
@@ -287,7 +287,7 @@
 								<li><a href="my-account.html">Account Page</a></li>
 								<li><a href="login.jsp">Login & Register Page</a></li>
 								<li><a href="empty-cart.jsp">Empty Cart Page</a></li>
-								<li><a href="thank-you-page.html">Thank You Page</a></li>
+								<li><a href="thank-you-page.jsp">Thank You Page</a></li>
 							</ul>
 						</li>
 					</ul>
@@ -579,7 +579,7 @@
 									<ul class="align-items-center">
 										<li class="li"><a class="single-link" href="about.jsp">About us</a></li>
 										<li class="li"><a class="single-link" href="#">Delivery information</a></li>
-										<li class="li"><a class="single-link" href="privacy-policy.html">Privacy
+										<li class="li"><a class="single-link" href="privacy-policy.jsp">Privacy
 											Policy</a></li>
 										<li class="li"><a class="single-link" href="#">Sales</a></li>
 										<li class="li"><a class="single-link" href="#">Terms & Conditions</a></li>
@@ -603,7 +603,7 @@
 										<li class="li"><a class="single-link" href="cart.jsp">My orders</a></li>
 										<li class="li"><a class="single-link" href="#">Returns</a></li>
 										<li class="li"><a class="single-link"
-														  href="shop-left-sidebar.html">Shipping</a></li>
+														  href="shop-left-sidebar.jsp">Shipping</a></li>
 										<li class="li"><a class="single-link" href="wishlist.jsp">Wishlist</a></li>
 										<li class="li"><a class="single-link" href="#">How Does It Work</a></li>
 										<li class="li"><a class="single-link" href="#">Merchant Sign Up</a></li>

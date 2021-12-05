@@ -48,6 +48,12 @@
         <description></description>
         <servlet-class>com.khanhphan.controller.RegisterController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SignOutController</servlet-name>
+        <display-name>SignOutController</display-name>
+        <description></description>
+        <servlet-class>com.khanhphan.controller.SignOutController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern></url-pattern>
@@ -75,6 +81,10 @@
     <servlet-mapping>
         <servlet-name>CheckoutController</servlet-name>
         <url-pattern>/CheckoutController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SignOutController</servlet-name>
+        <url-pattern>/SignOutController</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
