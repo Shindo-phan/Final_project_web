@@ -96,8 +96,6 @@ public class Product {
 		NumberFormat salecurrency = NumberFormat.getCurrencyInstance(Locale.US);
 		return salecurrency.format(this.getSale());
 	}
-
-
 	public String getPriceCurrencyFormat() {
 		NumberFormat currency = NumberFormat.getCurrencyInstance(Locale.US);
 		return currency.format(price);

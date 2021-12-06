@@ -43,7 +43,7 @@ public class EmailUtility {
         msg.setRecipients(Message.RecipientType.TO, toAddresses);
         msg.setSubject(subject);
         msg.setSentDate(new Date());
-        msg.setText("Hi Xbotlive! I'm "+ clientName + "\n" + message);
+        msg.setText("Dear Xbotlive!"+"\n"+ "I'm "+ clientName + "\n" + message);
 
         // sends the e-mail
         Transport.send(msg);

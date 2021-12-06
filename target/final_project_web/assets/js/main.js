@@ -549,26 +549,20 @@ function appendData(data) {
         var city_list = document.createElement("option");
         city_list.innerHTML = data[i].name;
         city.appendChild(city_list);
-        for (var j = 0; j < data[i].districts.length; j++) {
-            var district_list = document.createElement("option");
-            district_list.innerHTML = data[i].districts[j].name;
-            district.appendChild(district_list);
-        }
-        // console.log(city.options[city.selectedIndex].text);
     }
-    return city;
+
 
 }
 
-function FindDistrictsByCity(city) {
-    var e = document.getElementById("city-select");
-    var strCity = e.options[e.selectedIndex].text;
-    var district = document.getElementById("district-select");
-    e.innerHTML=city.find(checkCity);
-    return strCity;
-}
+// function FindDistrictsByCity(city) {
+//     var e = document.getElementById("city-select");
+//     var strCity = e.options[e.selectedIndex].text;
+//     var district = document.getElementById("district-select");
+//     e.innerHTML=city.find(checkCity);
+//     return strCity;
+// }
 
-function checkCity(strCity) {
-    
-}
+// function checkCity(strCity) {
+//
+// }
 

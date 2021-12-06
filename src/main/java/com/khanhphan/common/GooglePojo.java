@@ -9,7 +9,7 @@ public class GooglePojo {
     private String family_name;
     private String link;
     private String picture;
-    // getter-setter
+
 
 
     public String getId() {
@@ -75,5 +75,6 @@ public class GooglePojo {
     public void setPicture(String picture) {
         this.picture = picture;
     }
+
 }
 
