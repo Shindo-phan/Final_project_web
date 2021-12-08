@@ -89,7 +89,7 @@ public class WishlistController extends HttpServlet {
         }
 
         session.setAttribute("wishlist", wishlist);
-        session.setAttribute("name", "khanh");
+        session.setAttribute("name", "sang");
 
         sc.getRequestDispatcher("/wishlist.jsp")
                 .forward(request, response);

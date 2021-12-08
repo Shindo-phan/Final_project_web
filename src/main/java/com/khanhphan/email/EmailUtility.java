@@ -44,9 +44,7 @@ public class EmailUtility {
         msg.setSubject(subject);
         msg.setSentDate(new Date());
         msg.setText("Dear Xbotlive!"+"\n"+ "I'm "+ clientName + "\n" + message);
-
         // sends the e-mail
         Transport.send(msg);
-
     }
 }

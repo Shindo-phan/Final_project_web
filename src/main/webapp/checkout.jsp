@@ -442,15 +442,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="checkout-account mb-30px">
-                            <input class="checkout-toggle2 w-auto h-auto" type="checkbox" />
-                            <label>Create an account?</label>
-                        </div>
-                        <div class="checkout-account-toggle open-toggle2 mb-30">
-                            <input placeholder="Email address" type="email" />
-                            <input placeholder="Password" type="password" />
-                            <button class="btn-hover checkout-btn" type="submit">register</button>
-                        </div>
+
                         <div class="additional-info-wrap">
                             <h4>Additional information</h4>
                             <div class="additional-info">
@@ -551,7 +543,7 @@
                             </div>
                         </div>
                         <div class="Place-order mt-25">
-                            <a class="btn-hover" href="thank-you-page.jsp">Place Order</a>
+                            <a class="btn-hover" href="ThankController">Place Order</a>
                         </div>
                     </div>
                 </div>

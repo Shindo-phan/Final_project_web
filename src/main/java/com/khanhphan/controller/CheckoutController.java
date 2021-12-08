@@ -1,5 +1,6 @@
 package com.khanhphan.controller;
 
+import com.khanhphan.model.Cart;
 import com.khanhphan.model.User;
 
 import javax.servlet.ServletException;
@@ -21,6 +22,7 @@ public class CheckoutController extends HttpServlet {
         else{
             req.getRequestDispatcher("checkout.jsp").forward(req, resp);
         }
+
     }
 
     @Override

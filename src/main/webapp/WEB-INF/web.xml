@@ -13,6 +13,12 @@
         <servlet-class>com.khanhphan.controller.CheckoutController</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>ThankController</servlet-name>
+        <display-name>ThankController</display-name>
+        <description></description>
+        <servlet-class>com.khanhphan.controller.ThankController</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>DemoController</servlet-name>
         <display-name>DemoController</display-name>
         <description></description>
@@ -87,6 +93,10 @@
     <servlet-mapping>
         <servlet-name>CheckoutController</servlet-name>
         <url-pattern>/CheckoutController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ThankController</servlet-name>
+        <url-pattern>/ThankController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>SignOutController</servlet-name>

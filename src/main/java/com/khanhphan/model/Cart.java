@@ -41,6 +41,9 @@ public class Cart implements Serializable{
             }
         }
     }
+    public void checkoutDemo(){
+        items.clear();
+    }
 
 
 }

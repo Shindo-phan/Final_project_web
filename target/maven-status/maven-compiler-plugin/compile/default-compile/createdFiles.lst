@@ -1,5 +1,6 @@
 com\khanhphan\model\Compare.class
 com\khanhphan\common\GoogleUtils.class
+com\khanhphan\controller\ThankController.class
 com\khanhphan\controller\CheckoutController.class
 com\khanhphan\controller\HomeController.class
 com\khanhphan\data\ProductDAO.class
