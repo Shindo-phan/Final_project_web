@@ -36,7 +36,7 @@ public class EmailSendingServlet extends HttpServlet {
         String resultMessage = "";
 
         try {
-            EmailUtility.sendEmail(host, port, user, pass, name, subject, message);
+            EmailUtility.sendEmail(host, port, user, pass,"xbotlive.service@gmail.com", name, subject, "Dear Xbotlive!"+"\n"+ "I'm "+ name + "\n" + message);
             resultMessage = "The e-mail was sent successfully";
         } catch (Exception ex) {
             ex.printStackTrace();

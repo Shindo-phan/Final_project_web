@@ -506,8 +506,8 @@
 							<div class="total-shipping">
 								<h5>Total shipping</h5>
 								<ul>
-									<li><input <c:set var="shipFee" value="20.00"></c:set> value="20.00" name="shipFee" type="radio" checked="checked" /> Standard <span>$20.00</span></li>
-<%--									<li><input <c:set var="shipFee" value="30.00"></c:set> value="30.00" name="shipFee" type="radio" /> Express <span>$30.00</span></li>--%>
+									<li><input <c:set var="shipFee" value="20.00"></c:set> value="39.00" name="shipFee" type="radio" checked="checked" /> Standard <span>$20.00</span></li>
+
 								</ul>
 							</div>
 							<c:set var="grandTotal" value="${total+shipFee}"></c:set>

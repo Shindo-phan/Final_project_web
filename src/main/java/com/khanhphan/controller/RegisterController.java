@@ -2,6 +2,7 @@ package com.khanhphan.controller;
 
 import com.khanhphan.data.UserDao;
 import com.khanhphan.model.User;
+import com.khanhphan.email.EmailUtility;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
