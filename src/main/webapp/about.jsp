@@ -400,26 +400,7 @@
                 <div class="col-md-12 col-lg-7">
                     <div class="service-right-content">
                         <h2 class="title">Our Stories</h2>
-                        <!-- <p class="para-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmo templ
-                            incididunt ut labore et dolore magna aliqua.</p>
-                        <p class="para-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididun ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                            exercitat ullamco labori nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                            repreh in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p> -->
-                        <div class="mision-vision">
-                            <div class="mision">
-                                <span class="heading">Our Mission</span>
-                                <!-- <p class="mision-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elitkill sed
-                                    do eius tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
-                                    quislkl .</p> -->
-                            </div>
-                            <div class="vision">
-                                <span class="heading">Our Mission</span>
-                                <!-- <p class="vision-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elitkill sed
-                                    do eius tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
-                                    quislkl .</p> -->
-                            </div>
-                        </div>
+                         <p class="para-1">Close your eyes and take a deep breath. Can you feel that rush of blood?<br> Can you feel that need for being in motion? Can you feel the cold and wonderfully squishy sensation of dirt under your tires?<br> That’s precisely how Xbotlive ambassadors feel. They feel like giving 100% and a little more of themselves. And our hearts burn for people like that – crazy, daring, fearless. Those who work hard and play hard to reach their true potential, who create their true story. Whether on wheels or their own two feet. Our ambassadors help us grow by giving valuable feedback on Xbotlive garments after endless hours of intense training.</p>
                     </div>
                 </div>
             </div>
