@@ -406,7 +406,7 @@
                                             </div>
                                             <button type="submit">Login</button>
                                         </div>
-                                        <a href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=https://xbotlive.herokuapp.com/LoginGoogle&response_type=code
+                                        <a href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/final_project_web/LoginGoogle&response_type=code
     &client_id=977216685234-30gt0hq6emhg94590bfoe1ggshnl3g7u.apps.googleusercontent.com&approval_prompt=force">Login With Google</a>
                                     </form>
                                 </div>
